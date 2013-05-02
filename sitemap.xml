@@ -1,12 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://torub.github.io/blog/2013/05/02/hello-world/</loc>
+        <lastmod>2013-05-02T22:32:10+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://torub.github.io/blog/2013/05/02/hello2/</loc>
+        <lastmod>2013-05-02T22:46:27+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://torub.github.io/blog/2013/05/02/hello3/</loc>
+        <lastmod>2013-05-02T22:46:30+09:00</lastmod>
+    </url>
+    <url>
         <loc>http://torub.github.io/blog/archives/</loc>
-        <lastmod>2013-05-02T21:51:24+09:00</lastmod>
+        <lastmod>2013-05-02T22:46:30+09:00</lastmod>
     </url>
     <url>
         <loc>http://torub.github.io/</loc>
-        <lastmod>2013-05-02T21:51:24+09:00</lastmod>
+        <lastmod>2013-05-02T22:46:30+09:00</lastmod>
     </url>
     <url>
         <loc>http://torub.github.io/robots.txt</loc>
