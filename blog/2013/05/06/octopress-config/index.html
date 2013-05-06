@@ -12,8 +12,9 @@
   <meta name="description" content="Octopressの設定など色々まとめていきます。
 設定追加毎に記事も追加していきます。 ソースコードの引用
 特殊文字のエスケープ
-画像貼り付け ソースコードの引用 以下の通り記載することで引用が可能です 1
-{% include_code [title] [lang:language] path &hellip;">
+画像貼り付け
+記事の非公開設定 ソースコードの引用 以下の通り記載することで引用が可能です 1
+{% include_code [title] [lang: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -42,7 +43,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Saturday Programmer</a></h1>
   
-    <h2>主に土曜日にプログラミングしてます</h2>
+    <h2>Web系/モバイル系を勉強中です</h2>
   
 </hgroup>
 
@@ -102,6 +103,7 @@
 <li><a href="#include_code">ソースコードの引用</a></li>
 <li><a href="#escape">特殊文字のエスケープ</a></li>
 <li><a href="#image">画像貼り付け</a></li>
+<li><a href="#publish">記事の非公開設定</a></li>
 </ul>
 
 
@@ -230,6 +232,32 @@
 <li><a href="http://octopress.org/docs/plugins/image-tag/">公式の説明ページ</a></li>
 </ul>
 
+
+<h2><a name="publish"></a>記事の非公開</h2>
+
+<p><code>rake new_post['hogehoge']</code> としてmarkdownファイルを作ったあとも、
+すぐには公開したくない場合、記事作成時のファイルの設定部分に以下の通り、
+<code>published: false</code>を追加することで対応可能です。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "hogehoge"
+</span><span class='line'>date: 2013-05-06 22:46
+</span><span class='line'>published: false
+</span><span class='line'>comments: true
+</span><span class='line'>categories: phonegap
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<p>編集が完了した後、<code>published: true</code>として<code>rake gen_deploy</code>すれば記事が公開されます。</p>
 </div>
 
 
