@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Saturday Programmer]]></title>
   <link href="http://torub.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://torub.github.com/"/>
-  <updated>2013-05-06T23:02:43+09:00</updated>
+  <updated>2013-05-19T23:09:01+09:00</updated>
   <id>http://torub.github.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -156,8 +156,8 @@
 
 <h2><a name="publish"></a>記事の非公開</h2>
 
-<p><code>rake new_post['hogehoge']</code> としてmarkdownファイルを作ったあとも、
-すぐには公開したくない場合、記事作成時のファイルの設定部分に以下の通り、
+<p><code>rake new_post['hogehoge']</code> で新規markdownファイルを作ったあとも、
+すぐには公開したくない場合、記事の設定部分に
 <code>published: false</code>を追加することで対応可能です。</p>
 
 <h2>```</h2>
@@ -171,7 +171,7 @@ comments: true</p>
 <h2>categories: phonegap</h2>
 
 <p><code>``
-編集が完了した後、</code>published: true<code>として</code>rake gen_deploy`すれば記事が公開されます。</p>
+編集が完了した後、</code>published: true`としてdeployすれば記事が公開されます。</p>
 
 <p>※ちなみに、publishをfalseにしても、プレビューでは表示されます。</p>
 ]]></content>

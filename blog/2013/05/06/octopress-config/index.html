@@ -235,8 +235,8 @@
 
 <h2><a name="publish"></a>記事の非公開</h2>
 
-<p><code>rake new_post['hogehoge']</code> としてmarkdownファイルを作ったあとも、
-すぐには公開したくない場合、記事作成時のファイルの設定部分に以下の通り、
+<p><code>rake new_post['hogehoge']</code> で新規markdownファイルを作ったあとも、
+すぐには公開したくない場合、記事の設定部分に
 <code>published: false</code>を追加することで対応可能です。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -257,7 +257,7 @@
 </span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
 
 
-<p>編集が完了した後、<code>published: true</code>として<code>rake gen_deploy</code>すれば記事が公開されます。</p>
+<p>編集が完了した後、<code>published: true</code>としてdeployすれば記事が公開されます。</p>
 
 <p>※ちなみに、publishをfalseにしても、プレビューでは表示されます。</p>
 </div>
@@ -321,6 +321,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/19/svctest/">SVCのテスト</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/05/06/webrtc/">WebRTCサンプル</a>
