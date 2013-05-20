@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Programmer]]></title>
   <link href="http://torub.github.com/atom.xml" rel="self"/>
   <link href="http://torub.github.com/"/>
-  <updated>2013-05-20T23:14:22+09:00</updated>
+  <updated>2013-05-20T23:18:51+09:00</updated>
   <id>http://torub.github.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -434,6 +434,7 @@
 <li><a href="#escape">特殊文字のエスケープ</a></li>
 <li><a href="#image">画像貼り付け</a></li>
 <li><a href="#publish">記事の非公開設定</a></li>
+<li><a href="#domain">ドメインの設定</a></li>
 </ul>
 
 
@@ -590,6 +591,17 @@
 <p>編集が完了した後、<code>published: true</code>としてdeployすれば記事が公開されます。</p>
 
 <p>※ちなみに、publishをfalseにしても、プレビューでは表示されます。</p>
+
+<h2><a name="domain"></a>ドメインの設定</h2>
+
+<p>サブドメインを使わない場合、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% echo 'sat-pg.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>として新たにCNAMEファイルを作成する。
+取得したドメインに対応するDNSに、Aレコードに、207.97.227.245 を設定する。</p>
 ]]></content>
   </entry>
   

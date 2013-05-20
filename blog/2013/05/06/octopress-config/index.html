@@ -13,8 +13,9 @@
 設定追加毎に記事も追加していきます。 ソースコードの引用
 特殊文字のエスケープ
 画像貼り付け
-記事の非公開設定 ソースコードの引用 以下の通り記載することで引用が可能です 1
-{% include_code [title] [lang: &hellip;">
+記事の非公開設定
+ドメインの設定 ソースコードの引用 以下の通り記載することで引用が可能です 1
+{% include_code [title] [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,6 +105,7 @@
 <li><a href="#escape">特殊文字のエスケープ</a></li>
 <li><a href="#image">画像貼り付け</a></li>
 <li><a href="#publish">記事の非公開設定</a></li>
+<li><a href="#domain">ドメインの設定</a></li>
 </ul>
 
 
@@ -260,6 +262,17 @@
 <p>編集が完了した後、<code>published: true</code>としてdeployすれば記事が公開されます。</p>
 
 <p>※ちなみに、publishをfalseにしても、プレビューでは表示されます。</p>
+
+<h2><a name="domain"></a>ドメインの設定</h2>
+
+<p>サブドメインを使わない場合、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% echo 'sat-pg.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>として新たにCNAMEファイルを作成する。
+取得したドメインに対応するDNSに、Aレコードに、207.97.227.245 を設定する。</p>
 </div>
 
 
