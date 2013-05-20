@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Saturday Programmer]]></title>
   <link href="http://torub.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://torub.github.com/"/>
-  <updated>2013-05-20T23:18:51+09:00</updated>
+  <updated>2013-05-21T00:24:36+09:00</updated>
   <id>http://torub.github.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -184,8 +184,15 @@ comments: true</p>
 % echo 'sat-pg.com' &gt;&gt; source/CNAME
 </code></p>
 
-<p>として新たにCNAMEファイルを作成する。
-取得したドメインに対応するDNSに、Aレコードに、207.97.227.245 を設定する。</p>
+<p>のように、新たにCNAMEファイルを作成する。</p>
+
+<p>上記と合わせて、取得したドメインに対応するDNSのAレコードに、207.97.227.245 を設定することで、
+30分くらいすると指定したドメインでのアクセスが可能になります。</p>
+
+<ul>
+<li><a href="http://octopress.org/docs/deploying/github/">公式の説明ページ</a>: ここの「Custom Domains」に記載があります。</li>
+</ul>
+
 ]]></content>
   </entry>
   
