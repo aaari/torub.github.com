@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Programmer]]></title>
   <link href="http://torub.github.com/atom.xml" rel="self"/>
   <link href="http://torub.github.com/"/>
-  <updated>2013-05-21T00:24:36+09:00</updated>
+  <updated>2013-05-25T02:35:36+09:00</updated>
   <id>http://torub.github.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -223,7 +223,7 @@
 </dl>
 
 
-<h2><a name="text"></a>アニメーション</h2>
+<h2><a name="animation"></a>アニメーション</h2>
 
 <ul>
 <li>図形タグの中にanimateタグを追記して作成する</li>
