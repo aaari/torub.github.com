@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Saturday Programmer</title>
+  <title>PhoneGap(1) 準備 - Saturday Programmer</title>
   <meta name="author" content="torub">
 
   
-  <meta name="description" content="Blog Archive 2013 PhoneGap(1) 準備
-May 25 2013 posted in phonegap SVCのテスト
-May 19 2013 WebRTCサンプル
-May 06 2013 posted in html5 Octopressのいろいろ
-May 06 &hellip;">
+  <meta name="description" content="PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。
+※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。 公式サイトから最新のファイルをダウンロード &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ May 06 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://torub.github.com/blog/archives">
+  <link rel="canonical" href="http://torub.github.com/blog/2013/05/25/phonegap1">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
@@ -68,87 +65,104 @@ May 06 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">PhoneGap(1) 準備</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T22:46:00+09:00" pubdate data-updated="true">2013/05/25</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
+※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/05/25/phonegap1/">PhoneGap(1) 準備</a></h1>
-<time datetime="2013-05-25T22:46:00+09:00" pubdate><span class='month'>May</span> <span class='day'>25</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/phonegap/'>phonegap</a></span>
-</footer>
-
-
-</article>
+<ol>
+<li><p><a href="http://phonegap.com/">公式サイト</a>から最新のファイルをダウンロード</p></li>
+<li><p>解凍したファイルを任意の場所に置く</p></li>
+<li><p>置いたフォルダ内の、<code>/lib/ios/bin</code>に移動する</p></li>
+<li><p><code>./create プロジェクトへのパス プロジェクトのパッケージ名 プロジェクト名</code>  と実行する。<br/>
+ (今回は、<code>./create ~/work/hellos com.sat-pg.hello hello</code> を実行)</p></li>
+<li><p>指定したパス(~/work/hellophonegap)に、プロジェクト(hellophonegap)が出来ているので、中にあるhello.xcodeprojをダブルクリックすると、xcodeが起動します。</p></li>
+<li><p>起動すると、以下の画像のようなファイル構造になっています。wwwフォルダ以下が、実際にphonegapのアプリから見えるファイルで、index.htmlが起動時に呼び出されます。(起動時呼び出しのファイル変更はconfix.xmlの、contentタグを修正すればよい)</p></li>
+</ol>
 
 
+<p><img src="/images/blog/phonegap1_tree.png" alt="起動時" /></p>
 
-<article>
-  
-<h1><a href="/blog/2013/05/19/svctest/">SVCのテスト</a></h1>
-<time datetime="2013-05-19T11:35:00+09:00" pubdate><span class='month'>May</span> <span class='day'>19</span> <span class='year'>2013</span></time>
+<p>何も変更せず、ビルドして実行すると、以下のように表示されます。</p>
 
+<p><img src="/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/05/06/webrtc/">WebRTCサンプル</a></h1>
-<time datetime="2013-05-06T04:05:00+09:00" pubdate><span class='month'>May</span> <span class='day'>06</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/html5/'>html5</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/05/06/octopress-config/">Octopressのいろいろ</a></h1>
-<time datetime="2013-05-06T03:02:00+09:00" pubdate><span class='month'>May</span> <span class='day'>06</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/05/04/octopress/">Octopressの導入</a></h1>
-<time datetime="2013-05-04T03:37:00+09:00" pubdate><span class='month'>May</span> <span class='day'>04</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
+<p>次回以降で中身をいじってみます。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">torub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T22:46:00+09:00" pubdate data-updated="true">2013/05/25</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/phonegap/'>phonegap</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://torub.github.com/blog/2013/05/25/phonegap1/" data-via="" data-counturl="http://torub.github.com/blog/2013/05/25/phonegap1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/19/svctest/" title="Previous Post: SVCのテスト">&laquo; SVCのテスト</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
@@ -181,10 +195,7 @@ May 06 &hellip;">
     
   </ul>
 </section>
-
-
-
-
+<iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=8&l=st1&mode=books-jp&search=Git&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
 
   
 </aside>

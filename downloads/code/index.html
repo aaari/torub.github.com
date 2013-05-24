@@ -9,12 +9,8 @@
   <meta name="author" content="torub">
 
   
-  <meta name="description" content="SVCのサンプルを記載します。 基本図形
-グラデーション
-線、ポリゴン
-テキスト
-アニメーション
-参考 ">
+  <meta name="description" content="PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。
+※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。 公式サイトから最新のファイルをダウンロード &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +66,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/25/phonegap1/">PhoneGap(1) 準備</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T22:46:00+09:00" pubdate data-updated="true">2013/05/25</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
+※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
+
+<ol>
+<li><p><a href="http://phonegap.com/">公式サイト</a>から最新のファイルをダウンロード</p></li>
+<li><p>解凍したファイルを任意の場所に置く</p></li>
+<li><p>置いたフォルダ内の、<code>/lib/ios/bin</code>に移動する</p></li>
+<li><p><code>./create プロジェクトへのパス プロジェクトのパッケージ名 プロジェクト名</code>  と実行する。<br/>
+ (今回は、<code>./create ~/work/hellos com.sat-pg.hello hello</code> を実行)</p></li>
+<li><p>指定したパス(~/work/hellophonegap)に、プロジェクト(hellophonegap)が出来ているので、中にあるhello.xcodeprojをダブルクリックすると、xcodeが起動します。</p></li>
+<li><p>起動すると、以下の画像のようなファイル構造になっています。wwwフォルダ以下が、実際にphonegapのアプリから見えるファイルで、index.htmlが起動時に呼び出されます。(起動時呼び出しのファイル変更はconfix.xmlの、contentタグを修正すればよい)</p></li>
+</ol>
+
+
+<p><img src="/images/blog/phonegap1_tree.png" alt="起動時" /></p>
+
+<p>何も変更せず、ビルドして実行すると、以下のように表示されます。</p>
+
+<p><img src="/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
+
+<p>次回以降で中身をいじってみます。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -315,6 +367,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/25/phonegap1/">PhoneGap(1) 準備</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/05/19/svctest/">SVCのテスト</a>
