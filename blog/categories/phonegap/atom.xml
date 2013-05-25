@@ -4,7 +4,7 @@
   <title><![CDATA[Category: phonegap | Saturday Programmer]]></title>
   <link href="http://torub.github.com/blog/categories/phonegap/atom.xml" rel="self"/>
   <link href="http://torub.github.com/"/>
-  <updated>2013-05-25T02:36:05+09:00</updated>
+  <updated>2013-05-25T11:35:51+09:00</updated>
   <id>http://torub.github.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -38,7 +38,57 @@
 
 <p><img src="/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
 
+<ul>
+<li>index.htmlに必要な処理
+初期化処理として以下のような処理が必要なようです。</li>
+</ul>
+
+
+<p>```javascript
+  <script type="text/javascript" src="cordova-2.2.0.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript"></p>
+
+<pre><code>      app.initialize();
+</code></pre>
+
+<p>  </script>
+```</p>
+
+<ul>
+<li>各ページで必要な処理
+デバイスの準備待ちとして、deviceReadyのコールバック内に処理を書く必要があるようです。</li>
+</ul>
+
+
+<p>```javascript
+<head></p>
+
+<pre><code>&lt;script type="text/javascript" src="cordova-x.x.x.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  function onLoad() {
+document.addEventListener(
+  ‘deviceready’, onDeviceReady, false);
+}
+function onDeviceReady() {
+    // ここに処理を書く
+}
+&lt;/script&gt;
+</code></pre>
+
+<p></head>
+<body onload=”onLoad();”></p>
+
+<pre><code>・・・
+</code></pre>
+
+<p>```</p>
+
 <p>次回以降で中身をいじってみます。</p>
+
+<h3>参考</h3>
+
+<p><a href="http://docs.phonegap.com/en/2.7.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS">公式のiOS説明ページ</a></p>
 ]]></content>
   </entry>
   
