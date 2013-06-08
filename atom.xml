@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Programmer]]></title>
   <link href="http://sat-pg.com/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-08T23:41:27+09:00</updated>
+  <updated>2013-06-08T23:54:47+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -14,12 +14,416 @@
 
   
   <entry>
+    <title type="html"><![CDATA[第1回 Build Insider OFFLINEメモ]]></title>
+    <link href="http://sat-pg.com/blog/2013/06/08/buildinsider.html"/>
+    <updated>2013-06-08T23:45:00+09:00</updated>
+    <id>http://sat-pg.com/blog/2013/06/08/buildinsider</id>
+    <content type="html"><![CDATA[<p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
+
+<!-- more -->
+
+
+<h2>Keynote</h2>
+
+<p>キーノートには遅れていったので気になった言葉のみ：<a href="http://www.microsoft.com/japan/web/webmatrix/">WebMatrix</a>、<a href="http://research.microsoft.com/en-us/projects/illumiroom/">illumiroom</a>、<a href="http://re.buildinsider.net/about/biwanted.pdf">記事募集</a></p>
+
+<hr />
+
+<h2>JavaScript ライブラリーを使い倒そう</h2>
+
+<p>WINGSプロジェクト 安西 剛さんの講演。</p>
+
+<p>かつてはエンタープライズでは邪魔者扱いのJavaScriptだったが、GoogleMapでのAjax利用から、みんなが使い始め、
+最近になってJavaScript天国な状況になってきた。その分、複雑化している状況。</p>
+
+<p>今後ますますライブラリが重要ということで、6つの観点で紹介。</p>
+
+<h4>1. 手間を省こう系</h4>
+
+<ul>
+<li><p>jQuery, prottotype.js：prototype.jsは既存オブジェクトを拡張している。jQueryはしていない。(この差が今の普及の差に繋がっている?)</p></li>
+<li><p>UI系: 無数にありすぎる。利用によりできるだけコードを書かずにリッチなUIを実現する系。</p>
+
+<ul>
+<li>Chosen (セレクトボックス)</li>
+<li>竹取JS (縦書き)</li>
+<li>jQuery UI</li>
+</ul>
+</li>
+<li>UIフレームワーク
+
+<ul>
+<li>Twitter Bootstrap: どちらかというとCSSフレームワーク?</li>
+</ul>
+</li>
+</ul>
+
+
+<p>これらのライブラリを使うと、ページの初期表示速度が遅くなるため、CSSスプライト等を利用して読み込むファイルを少なくしたり、JSの処理を一番下に記載して、ページ読み込み時の処理を最小限にすることが重要。</p>
+
+<h4>2. 言語特性補う系</h4>
+
+<ul>
+<li>CoffeeScript：言語特性からくる問題を回避。スコープ、クロージャなど。</li>
+<li>TypeScript</li>
+</ul>
+
+
+<h4>3. フレームワーク</h4>
+
+<p>JavaScriptが大規模複雑化したことによる設計の困難さを回避。まだ乱立している状態。
+ポイントはHTML/UIとの関係性をどのようにするかや、マウスやキーなどのイベントをどう拾うか。
+github上ではbackbone.jsが人気の模様。(backbone/knockout/Angularは2つめの講演で詳細あり)</p>
+
+<ul>
+<li>MVCフレームワーク
+
+<ul>
+<li>backbone.js：後述</li>
+</ul>
+</li>
+<li>MVVM
+
+<ul>
+<li>Knockout：後述</li>
+</ul>
+</li>
+<li>CoffeeScript対応MVC
+
+<ul>
+<li>Batman.js</li>
+<li>Spine.js：Ruby on Railsみたいな感じにコマンドベースで作れる</li>
+</ul>
+</li>
+<li>ViewとModelのデータバインディング
+
+<ul>
+<li>Angular.js：後述</li>
+<li>Ember.js：データバインディングに特徴あり。JSとHTMLを宣言部分で紐付け。テンプレートエンジンと組み合わせて表示。</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>4. ゲーム系</h4>
+
+<ul>
+<li>enchant.js
+
+<ul>
+<li>教育に適しているのではないか。キャラクターをオブジェクトとして考えやすいため、オブジェクト思考の勉強にもよいかも。</li>
+<li>イベントドリブンで、イベントは非同期処理</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>5. サーバ系</h4>
+
+<ul>
+<li>Node.js
+
+<ul>
+<li>v8エンジンが入っていて速い</li>
+<li>イベントルーブとノンブロッキングIOが特徴で、シングルスレッドが特徴。</li>
+<li>イベントが起きてもどんどんキューに入れていって処理を行う形態。</li>
+<li>同期的な処理は書きづらい。phpみたいなようなことは難しい。MySQL問い合わせなども非同期で書く必要がある。</li>
+<li>Express.jsがデファクト。Webアプリケーションを作る最低限が準備されている。例外やセッションも作成可能。</li>
+<li>app.js→ルーティング→ビュー(テンプレートエンジン)</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>6. テスト系</h4>
+
+<p>ウォーターフォールは、品質をあとで担保するモデル。皆、この考えがしみついている。
+現在は、反応を見るため、早めに市場にリリースし、頻繁なバージョンアップが必要な時代になっており、
+あとで担保するような考えかたは難しくなってきている。</p>
+
+<p>そこで、自動テスト、テスト駆動開発、継続的インテグレーション、クロスブラウザ対応、、等々が必要で、
+常にリリース可能な品質を保つよう、マインドを変えたほうがいい。品質はあとでなく、随時作りこんでいく必要がある。</p>
+
+<p>ライブラリを利用してこれらに対応する。</p>
+
+<ul>
+<li>テスティングフレームワーク
+
+<ul>
+<li>Mocha
+  BDD(振る舞い駆動開発)、TDD(テスト駆動)、、など色々できる。
+  TDDはテストを書いてからメソッド実装
+  BDDはユーザから見たふるまいから</li>
+</ul>
+</li>
+<li>アサートモジュール</li>
+<li>クロスブラウザ自動チェック
+
+<ul>
+<li>JSTestDriver</li>
+<li>サーバプロセスを立ち上げ、各ブラウザでアクセス</li>
+<li>テスト実行→各ブラウザで実行される</li>
+</ul>
+</li>
+<li>モック、スタブ: sinon.js、レスポンスの偽装ができる</li>
+<li>静的解析1 JSLint、JSHint</li>
+<li>静的解析2 jscoverage: どこまで試験ができているか。</li>
+</ul>
+
+
+<hr />
+
+<h2>3つのMVC系人気フレームワーク、Backbone.js／AngularJS／Knockout.js</h2>
+
+<h4><a href="http://backbonejs.org/">Backbone.js</a></h4>
+
+<p>LINE株式会社 開発１室 UITチーム　清水 大輔さんの講演。</p>
+
+<ul>
+<li>MV*アプリを作る手助けとなるJSライブラリ。軽量、シンプル。</li>
+<li>オブジェクト思考、MVC知識が必要</li>
+<li>動的要素が少ないページでは不要</li>
+<li>必要なライブラリは、jQuery(Zepto, Enderでも可)、underscore.js(配列操作などのUtility)、json2.js(jsonパーサ)など。</li>
+<li>構成要素は、Bacobone.Event、Model、Collection、View、Sync、Router</li>
+<li>MVCの利点: DOMからビジネスロジックが分離できる、UTがやりやすい等</li>
+<li>Grunt.jsというビルドツールが便利。jshint、jasminなどでのチェック、ミニファイ等を実施</li>
+<li>パフォーマンス
+
+<ul>
+<li>DOM: reflow、repaintを減らす。delegate eventを利用する</li>
+<li>メモリ管理: メモリリークがある。view#removeでの後処理を意識する</li>
+<li>通信: localStrageをうまく利用する</li>
+</ul>
+</li>
+</ul>
+
+
+<h4><a href="http://angularjs.org/">AngularJS</a> 概説</h4>
+
+<p>AngularJS Japan User Group 管理人の金井 健一さんの講演</p>
+
+<ul>
+<li>Google製のフルスタックMVCフレームワーク</li>
+<li>{{ なみかっこで囲う書き方 }}</li>
+<li>得意：CRUD系のアプリケーション、管理ページ、マイページ等</li>
+<li>苦手：モバイル向け(フルスタックのため容量が多め)、ゲーム系のグラフィックの扱い</li>
+<li>開発環境：YEOMAN(YO, GRUNT, BOWER)
+
+<ul>
+<li>双方向データバインディング</li>
+<li>テンプレートとしてのHTML：サーバからJSONもらって組み立て)</li>
+<li>再利用可能なコンポーネント：WebComponentを見すえて、独自のタグ実装が可能。実装は結構複雑</li>
+<li>ビューとルーティング</li>
+<li>テストとその可用性：Karma(Angular用に開発されており相性がいい)</li>
+</ul>
+</li>
+<li>モバイルについては、ng-mobileというモジュールが追加され機能が追加された。
+ただし、その分容量が増加しているため、最初の一回が遅い(100kbほど)。2回目以降はキャッシュされる。</li>
+<li>UIは、AngularUIなどのAngularが用意しているライブラリの他、プラグインもある。</li>
+</ul>
+
+
+<h4><a href="http://knockoutjs.com/">Knockout.js</a>の概要</h4>
+
+<p>沢渡 真雪さんの講演</p>
+
+<ul>
+<li>JavascirptアプリケーションのためのMVVMパターン。MVVMとは、ModelとViewの間にある、Viewのための振る舞いや状態を持つModel(ViewModel)。</li>
+<li><a href="https://www.google.co.jp/search?q=MVVM+ugaya40&amp;oq=MVVM+ugaya40&amp;aqs=chrome.0.57j0.307j0&amp;sourceid=chrome&amp;ie=UTF-8">MVVM ugaya40で検索</a>するとわかりやすいらしい</li>
+<li>単一のライブラリ(knockout.js)で、Observableと、バインディング機構のみで成り立っており軽量、シンプル。</li>
+<li>ASP.NET開発チームの方が個人で開発しているため、ASP.NET MVCとともに採用されていることも多い。</li>
+<li>Windows Azureポータルや、アメーバピグのスマホ版で利用</li>
+<li>Observable
+
+<ul>
+<li>値を監視可能な形にラップする仕組み。</li>
+<li>ko.observable：var a = 1 は監視できないが、var v = ko.observable(1)とすると、v()で値取得(getter)、v(value)で値代入(setter)とすることができる。</li>
+<li>subscribeメソッドで監視して、変更時にコールバックが可能。v.subscribe(function(newv) { &#8230; }, this);</li>
+<li>ko.observableArrayを使うことで、同様の監視を配列でも可能。push、popなどもあり。</li>
+<li>ko.computed：observable同様の監視可能な形。observableの変更も取得可能。普通の変数の値を変えても特に変化なし。</li>
+</ul>
+</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">value1</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="nx">value2</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class='line'><span class="nx">computed</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">vaulue1</span><span class="p">()</span> <span class="o">+</span> <span class="nx">value2</span><span class="p">();</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">computed</span><span class="p">();</span>
+</span><span class='line'><span class="o">-&gt;</span><span class="mi">3</span>
+</span><span class='line'><span class="nx">value2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span class='line'><span class="nx">computed</span><span class="p">();</span>
+</span><span class='line'><span class="o">-&gt;</span><span class="mi">11</span>
+</span><span class='line'><span class="nx">computed</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nx">value1</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span class='line'><span class="o">-&gt;</span><span class="err">アラートが出るはず</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>バインディング：監視可能なオブジェクトを、HTMLのDOMにひもづける機能</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-bind=</span><span class="s">&quot;value: value1&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-bind=</span><span class="s">&quot;value: value2&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;span</span> <span class="na">data-bind=</span><span class="s">&quot;value: computed&quot;</span> <span class="nt">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>最後にJavaScript側でバインディグを適用する: applyBindings
+
+<ul>
+<li>値を入力(value、text、html)、属性オンオフ(CSS、style)、イベント(click、event)などが可能</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>リアルタイム Web 最前線 ～ Socket.IO ＆ SignalR 徹底解説</h2>
+
+<p>ソーシャルグリッド株式会社 取締役CTO 芝村 達郎さんの講演</p>
+
+<ul>
+<li>リアルタイム・ウェブ：クライアント・サーバ間での双方向通信が特徴</li>
+<li>サーバ→クライアントへのプッシュ通信。WebSocket、Server-Sent Event等</li>
+<li>クライアント→サーバはAJAXなどを利用して実現</li>
+<li>最近はWebSocketやSignalRが一般的。複数の通信方式をラッピングしている。</li>
+</ul>
+
+
+<h4>Socket.IOとSignalR(比較まとめ)</h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Socket.IO</th>
+<th>SignalR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本</td>
+<td>Node.js上で動作する。Node.jsなのでシングルスレッド。</td>
+<td>ASP.NET上のライブラリ。マルチスレッド</td>
+</tr>
+<tr>
+<td>対応トランスポート</td>
+<td>WebSocket、Adobe Flash Socket、AJAX long polling、AJAX multipart streaming、Forever Iframe(ほぼIE専用)、JSONP Polling(クロスドメインで利用可能)</td>
+<td>WebSocket、Server-Sent Event、Forever Frame、Long Polling</td>
+</tr>
+<tr>
+<td>クライアント</td>
+<td>JavaScriptのみでなく、Java、Objective-C、C/C++、PHP、.NET等々、多数</td>
+<td>JavaScript(jQuery依存)、.NET Framework4, 4.5、Windows Storeアプリ、WinPhone8、Silverlight、Xamarin.iOS/Xamarin.Android</td>
+</tr>
+<tr>
+<td>向いているOS</td>
+<td>Mac/Linux系</td>
+<td>Windows系</td>
+</tr>
+<tr>
+<td>パフォーマンス</td>
+<td>シングルスレッド + クラスタ化であげる</td>
+<td>マルチスレッド</td>
+</tr>
+<tr>
+<td>設計思想</td>
+<td>イベントベース</td>
+<td>リモートプロシジャーコール</td>
+</tr>
+</tbody>
+</table>
+
+
+<!--
+* Socket.IO
+    - Node.js上で動作する
+    - 対応しているトランスポート：WebSocket、Adobe Flash Socket、AJAX long polling、AJAX multipart streaming、Forever Iframe(ほぼIE専用)、JSONP Polling(クロスドメインで利用可能)
+    - Windowsでは、WebMatrixのNode.jsテンプレートを使うと簡単。IISで動く独自のNodeを準備している。
+    - Macでは、好きなエディタでどうぞ。
+    - クライアントは、JavaScriptのみでなく、Java、Objective-C、C/C++、PHP、.NET等々、多数用意されている。
+* SingnalR
+    - ASP.NET上のライブラリ。マルチスレッド、Taskベースの非同期処理。シングルスレッドのNode.jsとはマルチコア時に速度差が出る
+    - 対応しているトランスポート：WebSocket、Server-Sent Event、Forever Frame、Long Polling
+    - Windowsの.NETで動作。
+    - クライアントは、JavaScript(jQuery依存)、.NET Framework4, 4.5、Windows Storeアプリ、WinPhone8、Silverlight、Xamarin.iOS/Xamarin.Android
+* 比較
+    - パフォーマンス
+        - Socket.IO: シングルスレッド + クラスタ化
+        - SignalR: マルチスレッド
+    - 設計思想
+        - Socket.IO: イベントベース
+        - SignalR: リモートプロシジャーコール
+* WinならSignalR、Mac、LinuxならSocket.IOでいいんじゃ。
+-->
+
+
+<h4>スケールアウト</h4>
+
+<ul>
+<li>コネクションが貼りっぱなしであり、リソースを消費するため、1台のサーバで処理できるクライアント数は決まる。</li>
+<li>単純に台数増やすだけではスケールしない。クライアントがどのサーバに繋っているかは他のサーバからは確認できない。WebSocketを使うAPの制約。メッセージング用サーバを用意して中継してあげる必要がある。</li>
+<li>共通：Pub/Subメッセージングを利用する(RedisやWindowsAzureサービスバス)。  ※(?このへんよくわからず)</li>
+<li>Socket.IO：接続情報をメモリでなく、外部ストレージに保存</li>
+<li>SignalR：接続情報は共有せず、メッセージングに投げる(unique idを使って投げるのみ)</li>
+</ul>
+
+
+<h4>その他</h4>
+
+<ul>
+<li>双方向通信は必須ではない。必要なときにサーバからプッシュできればいい。<a href="http://pusher.com/">PUSHER</a>(プッシュするだけのサービス)がなりたつのでサーバからのプッシュの需要はあるんではないか。</li>
+<li><p>通信頻度を下げる。underscore.jsのthrottle/debounceを使うことで、指定された秒数に最大1回実行/呼び出し後、指定された秒数がたったら呼び出しされる。</p></li>
+<li><p>リアルタイム性を活かすアプリはあまり浮かばない(チャットアプリはもう飽きた)</p></li>
+<li>プッシュ+クライアント同時接続を活かしたアプリ(チャット以外)を作ればいい。</li>
+<li>スケールアウトは難しい。SignalRはメモリリーク解消に長い時間悩まされた。</li>
+<li>今後は複数人でのリアルタイムコラボアプリに期待</li>
+<li>センサーと同期して入退室管理とかもいいかも</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[PhoneGap準備]]></title>
     <link href="http://sat-pg.com/blog/2013/05/25/phonegap1.html"/>
     <updated>2013-05-25T22:46:00+09:00</updated>
     <id>http://sat-pg.com/blog/2013/05/25/phonegap1</id>
-    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
-※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
+    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。</p>
+
+<!-- more -->
+
+
+<p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
 
 <ol>
 <li><p><a href="http://phonegap.com/">公式サイト</a>から最新のファイルをダウンロード</p></li>

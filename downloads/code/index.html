@@ -98,6 +98,47 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2013/06/08/buildinsider.html">第1回 Build Insider OFFLINEメモ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-08T23:45:00+09:00" pubdate data-updated="true">2013/06/08</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/08/buildinsider.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2013/05/25/phonegap1.html">PhoneGap準備</a></h1>
     
     
@@ -121,87 +162,14 @@
   </header>
 
 
-  <div class="entry-content"><p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
-※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
+  <div class="entry-content"><p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。</p>
 
-<ol>
-<li><p><a href="http://phonegap.com/">公式サイト</a>から最新のファイルをダウンロード</p></li>
-<li><p>解凍したファイルを任意の場所に置く</p></li>
-<li><p>置いたフォルダ内の、<code>/lib/ios/bin</code>に移動する</p></li>
-<li><p><code>./create プロジェクトへのパス プロジェクトのパッケージ名 プロジェクト名</code>  と実行する。<br/>
- (今回は、<code>./create ~/work/hello com.sat-pg.hello hello</code> を実行)</p></li>
-<li><p>指定したパス(~/work/hellophonegap)に、プロジェクト(hellophonegap)が出来ているので、中にあるhello.xcodeprojをダブルクリックすると、xcodeが起動します。</p></li>
-<li><p>起動すると、以下の画像のようなファイル構造になっています。wwwフォルダ以下が、実際にphonegapのアプリから見えるファイルで、index.htmlが起動時に呼び出されます。(起動時呼び出しのファイル変更はconfix.xmlの、contentタグを修正すればよい)</p></li>
-</ol>
-
-
-<p><img src="/images/blog/phonegap1_tree.png" alt="起動時" /></p>
-
-<p>何も変更せず、ビルドして実行すると、以下のように表示されます。</p>
-
-<p><img src="/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
-
-<ul>
-<li>index.htmlに必要な処理
-初期化処理として以下のような処理が必要なようです。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>  <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;cordova-2.2.0.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;js/index.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>          <span class="nx">app</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>各ページで必要な処理
-デバイスの準備待ちとして、deviceReadyのコールバック内に処理を書く必要があるようです。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;cordova-x.x.x.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-</span><span class='line'>      <span class="kd">function</span> <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span>
-</span><span class='line'>      <span class="err">‘</span><span class="nx">deviceready</span><span class="err">’</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">// ここに処理を書く</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/head&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">body</span> <span class="nx">onload</span><span class="o">=</span><span class="err">”</span><span class="nx">onLoad</span><span class="p">();</span><span class="err">”</span><span class="o">&gt;</span>
-</span><span class='line'>  <span class="err">・・・</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>参考</h3>
-
-<p><a href="http://docs.phonegap.com/en/2.7.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS">公式のiOS説明ページ</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/25/phonegap1.html">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -454,6 +422,10 @@
     <li class="nav-header">Recent Posts</li>
     
       <li class="post">
+        <a href="/blog/2013/06/08/buildinsider.html">第1回 Build Insider OFFLINEメモ</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/05/25/phonegap1.html">PhoneGap準備</a>
       </li>
     
@@ -469,16 +441,14 @@
         <a href="/blog/2013/05/06/octopress-config.html">Octopressのいろいろ</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/05/04/octopress.html">Octopressの導入</a>
-      </li>
-    
   </ul>
 </section>
 <section class="well">
   <ul id="categories" class="nav nav-list">
     <li class="nav-header">Categories</li>  	
-    <li class='category'><a href='/blog/categories/html5/'>html5 (2)</a></li>
+    <li class='category'><a href='/blog/categories/html5/'>html5 (3)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (1)</a></li>
+<li class='category'><a href='/blog/categories/memo/'>memo (1)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
 <li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
 

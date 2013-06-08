@@ -4,7 +4,7 @@
   <title><![CDATA[Category: phonegap | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/phonegap/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-08T23:41:27+09:00</updated>
+  <updated>2013-06-08T23:54:47+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -18,8 +18,12 @@
     <link href="http://sat-pg.com/blog/2013/05/25/phonegap1.html"/>
     <updated>2013-05-25T22:46:00+09:00</updated>
     <id>http://sat-pg.com/blog/2013/05/25/phonegap1</id>
-    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
-※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
+    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。</p>
+
+<!-- more -->
+
+
+<p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
 
 <ol>
 <li><p><a href="http://phonegap.com/">公式サイト</a>から最新のファイルをダウンロード</p></li>
