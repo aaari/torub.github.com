@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Saturday Programmer]]></title>
-  <link href="http://torub.github.com/atom.xml" rel="self"/>
-  <link href="http://torub.github.com/"/>
-  <updated>2013-05-25T11:35:51+09:00</updated>
-  <id>http://torub.github.com/</id>
+  <link href="http://sat-pg.com/atom.xml" rel="self"/>
+  <link href="http://sat-pg.com/"/>
+  <updated>2013-06-08T23:41:27+09:00</updated>
+  <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[PhoneGap(1) 準備]]></title>
-    <link href="http://torub.github.com/blog/2013/05/25/phonegap1/"/>
+    <title type="html"><![CDATA[PhoneGap準備]]></title>
+    <link href="http://sat-pg.com/blog/2013/05/25/phonegap1.html"/>
     <updated>2013-05-25T22:46:00+09:00</updated>
-    <id>http://torub.github.com/blog/2013/05/25/phonegap1</id>
-    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
+    <id>http://sat-pg.com/blog/2013/05/25/phonegap1</id>
+    <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
 ※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
 
 <ol>
@@ -26,17 +26,17 @@
 <li><p>解凍したファイルを任意の場所に置く</p></li>
 <li><p>置いたフォルダ内の、<code>/lib/ios/bin</code>に移動する</p></li>
 <li><p><code>./create プロジェクトへのパス プロジェクトのパッケージ名 プロジェクト名</code>  と実行する。<br/>
- (今回は、<code>./create ~/work/hellos com.sat-pg.hello hello</code> を実行)</p></li>
+ (今回は、<code>./create ~/work/hello com.sat-pg.hello hello</code> を実行)</p></li>
 <li><p>指定したパス(~/work/hellophonegap)に、プロジェクト(hellophonegap)が出来ているので、中にあるhello.xcodeprojをダブルクリックすると、xcodeが起動します。</p></li>
 <li><p>起動すると、以下の画像のようなファイル構造になっています。wwwフォルダ以下が、実際にphonegapのアプリから見えるファイルで、index.htmlが起動時に呼び出されます。(起動時呼び出しのファイル変更はconfix.xmlの、contentタグを修正すればよい)</p></li>
 </ol>
 
 
-<p><img src="http://torub.github.com/images/blog/phonegap1_tree.png" alt="起動時" /></p>
+<p><img src="http://sat-pg.com/images/blog/phonegap1_tree.png" alt="起動時" /></p>
 
 <p>何も変更せず、ビルドして実行すると、以下のように表示されます。</p>
 
-<p><img src="http://torub.github.com/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
+<p><img src="http://sat-pg.com/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
 
 <ul>
 <li>index.htmlに必要な処理
@@ -94,8 +94,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>次回以降で中身をいじってみます。</p>
-
 <h3>参考</h3>
 
 <p><a href="http://docs.phonegap.com/en/2.7.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS">公式のiOS説明ページ</a></p>
@@ -104,9 +102,9 @@
   
   <entry>
     <title type="html"><![CDATA[SVCのテスト]]></title>
-    <link href="http://torub.github.com/blog/2013/05/19/svctest/"/>
+    <link href="http://sat-pg.com/blog/2013/05/19/svctest.html"/>
     <updated>2013-05-19T11:35:00+09:00</updated>
-    <id>http://torub.github.com/blog/2013/05/19/svctest</id>
+    <id>http://sat-pg.com/blog/2013/05/19/svctest</id>
     <content type="html"><![CDATA[<p>SVCのサンプルを記載します。</p>
 
 <ul>
@@ -449,16 +447,16 @@
   
   <entry>
     <title type="html"><![CDATA[WebRTCサンプル]]></title>
-    <link href="http://torub.github.com/blog/2013/05/06/webrtc/"/>
+    <link href="http://sat-pg.com/blog/2013/05/06/webrtc.html"/>
     <updated>2013-05-06T04:05:00+09:00</updated>
-    <id>http://torub.github.com/blog/2013/05/06/webrtc</id>
+    <id>http://sat-pg.com/blog/2013/05/06/webrtc</id>
     <content type="html"><![CDATA[<p>WebRTCのサンプルを動かしてみたのでまとめます。</p>
 
 <h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>
 
 <p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。</p>
 
-<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='http://torub.github.com/downloads/code/webrtc.html'>download</a></figcaption>
+<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='http://sat-pg.com/downloads/code/webrtc.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -504,7 +502,7 @@
 <code>about:flags</code>と入力後、以下の「WebRTCを有効にする」を選択してChromeを再起動することで
 実行が可能になります。</p>
 
-<p><img src="http://torub.github.com/images/cap/webrtc_android.png"></p>
+<p><img src="http://sat-pg.com/images/cap/webrtc_android.png"></p>
 
 <p>iOSは現状ではSafari, Chromeとも動作しない模様です。</p>
 ]]></content>
@@ -512,9 +510,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressのいろいろ]]></title>
-    <link href="http://torub.github.com/blog/2013/05/06/octopress-config/"/>
+    <link href="http://sat-pg.com/blog/2013/05/06/octopress-config.html"/>
     <updated>2013-05-06T03:02:00+09:00</updated>
-    <id>http://torub.github.com/blog/2013/05/06/octopress-config</id>
+    <id>http://sat-pg.com/blog/2013/05/06/octopress-config</id>
     <content type="html"><![CDATA[<p>Octopressの設定など色々まとめていきます。<br/>
 設定追加毎に記事も追加していきます。</p>
 
@@ -524,6 +522,7 @@
 <li><a href="#image">画像貼り付け</a></li>
 <li><a href="#publish">記事の非公開設定</a></li>
 <li><a href="#domain">ドメインの設定</a></li>
+<li><a href="#table">テーブルの作成</a></li>
 </ul>
 
 
@@ -547,7 +546,7 @@
 
 <p>と書くと、以下の通り出力されます。</p>
 
-<figure class='code'><figcaption><span> (index.html)</span> <a href='http://torub.github.com/downloads/code/index.html'>download</a></figcaption>
+<figure class='code'><figcaption><span> (index.html)</span> <a href='http://sat-pg.com/downloads/code/index.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -646,7 +645,7 @@
 
 <p>と記載することで以下の通り表示されます。</p>
 
-<p><img class="[class names]" src="http://torub.github.com/images/search.png"></p>
+<p><img class="[class names]" src="http://sat-pg.com/images/search.png"></p>
 
 <ul>
 <li><a href="http://octopress.org/docs/plugins/image-tag/">公式の説明ページ</a></li>
@@ -698,14 +697,23 @@
 <li><a href="http://octopress.org/docs/deploying/github/">公式の説明ページ</a>: ここの「Custom Domains」に記載があります。</li>
 </ul>
 
+
+<h2><a name="table"></a>テーブルの作成</h2>
+
+<p>table用のCSSを作成し、source/_includes/head.htmlから参照するように設定する。以下を参考にさせて頂きました。</p>
+
+<ul>
+<li><a href="http://morizyun.github.io/blog/octopress-table-tag-css/">Octopressでテーブルをmarkdownで編集できるようにする</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopressの導入]]></title>
-    <link href="http://torub.github.com/blog/2013/05/04/octopress/"/>
+    <link href="http://sat-pg.com/blog/2013/05/04/octopress.html"/>
     <updated>2013-05-04T03:37:00+09:00</updated>
-    <id>http://torub.github.com/blog/2013/05/04/octopress</id>
+    <id>http://sat-pg.com/blog/2013/05/04/octopress</id>
     <content type="html"><![CDATA[<p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
 
 <!-- more -->

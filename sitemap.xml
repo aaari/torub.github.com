@@ -1,39 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://torub.github.com/blog/2013/05/04/octopress/</loc>
-        <lastmod>2013-05-05T00:16:49+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/2013/05/04/octopress.html</loc>
+        <lastmod>2013-06-08T22:00:22+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/blog/2013/05/06/octopress-config/</loc>
-        <lastmod>2013-05-21T00:24:24+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/2013/05/06/octopress-config.html</loc>
+        <lastmod>2013-06-08T22:00:22+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/blog/2013/05/06/webrtc/</loc>
-        <lastmod>2013-05-06T04:21:14+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/2013/05/06/webrtc.html</loc>
+        <lastmod>2013-06-08T22:00:22+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/blog/2013/05/19/svctest/</loc>
-        <lastmod>2013-05-21T01:20:53+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/2013/05/19/svctest.html</loc>
+        <lastmod>2013-06-08T22:33:27+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/blog/2013/05/25/phonegap1/</loc>
-        <lastmod>2013-05-25T11:35:27+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/2013/05/25/phonegap1.html</loc>
+        <lastmod>2013-06-08T23:31:40+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/blog/archives/</loc>
-        <lastmod>2013-05-25T11:35:27+09:00</lastmod>
+        <loc>http://sat-pg.com/blog/archives/</loc>
+        <lastmod>2013-06-08T23:31:40+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/downloads/code/</loc>
-        <lastmod>2013-05-25T11:35:27+09:00</lastmod>
+        <loc>http://sat-pg.com/downloads/code/</loc>
+        <lastmod>2013-06-08T23:31:40+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/</loc>
-        <lastmod>2013-05-25T11:35:27+09:00</lastmod>
+        <loc>http://sat-pg.com/</loc>
+        <lastmod>2013-06-08T23:31:40+09:00</lastmod>
     </url>
     <url>
-        <loc>http://torub.github.com/robots.txt</loc>
-        <lastmod>2013-05-04T03:34:08+09:00</lastmod>
+        <loc>http://sat-pg.com/robots.txt</loc>
+        <lastmod>2013-06-08T21:55:13+09:00</lastmod>
     </url>
 </urlset>

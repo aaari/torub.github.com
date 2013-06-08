@@ -2,15 +2,14 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title>Saturday Programmer</title>
   <meta name="author" content="torub">
 
   
-  <meta name="description" content="PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。
-※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。 公式サイトから最新のファイルをダウンロード &hellip;">
+  <meta name="description" content="">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,60 +18,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://torub.github.com">
+  <link rel="canonical" href="http://sat-pg.com/index.html">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
   <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+    }
+    .sharing, .meta, .pager {
+      margin: 20px 0px 20px 0px;
+    }
+    .page-footer p {
+      text-align: center;
+    }
+  </style>
+  <script src="/javascripts/libs/jquery.js"></script>
+  <script src="/javascripts/libs/modernizr-2.0.js"></script>
+  <script src="/javascripts/libs/bootstrap.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+  <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
+  
   
 
 </head>
 
 <body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Saturday Programmer</a></h1>
-  
-    <h2>Web系/モバイル系を勉強中です</h2>
-  
-</hgroup>
+  <nav role="navigation"><div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:torub.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
+      <a class="brand" href="/">Saturday Programmer</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
+
+        <ul class="nav pull-right" data-subscription="rss">
+          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+          
+        </ul>
+
+        
+          <form class="pull-right navbar-search" action="http://google.com/search" method="get">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:sat-pg.com" />
+              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+            </fieldset>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
   
   
   
     <article>
       
-  <header>
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/05/25/phonegap1/">PhoneGap(1) 準備</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/25/phonegap1.html">PhoneGap準備</a></h1>
     
     
       <p class="meta">
@@ -95,7 +121,7 @@
   </header>
 
 
-  <div class="entry-content"><p>PhoneGapを使う初めの一歩です。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
+  <div class="entry-content"><p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載します。<br/>
 ※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行しています。</p>
 
 <ol>
@@ -103,7 +129,7 @@
 <li><p>解凍したファイルを任意の場所に置く</p></li>
 <li><p>置いたフォルダ内の、<code>/lib/ios/bin</code>に移動する</p></li>
 <li><p><code>./create プロジェクトへのパス プロジェクトのパッケージ名 プロジェクト名</code>  と実行する。<br/>
- (今回は、<code>./create ~/work/hellos com.sat-pg.hello hello</code> を実行)</p></li>
+ (今回は、<code>./create ~/work/hello com.sat-pg.hello hello</code> を実行)</p></li>
 <li><p>指定したパス(~/work/hellophonegap)に、プロジェクト(hellophonegap)が出来ているので、中にあるhello.xcodeprojをダブルクリックすると、xcodeが起動します。</p></li>
 <li><p>起動すると、以下の画像のようなファイル構造になっています。wwwフォルダ以下が、実際にphonegapのアプリから見えるファイルで、index.htmlが起動時に呼び出されます。(起動時呼び出しのファイル変更はconfix.xmlの、contentタグを修正すればよい)</p></li>
 </ol>
@@ -171,8 +197,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>次回以降で中身をいじってみます。</p>
-
 <h3>参考</h3>
 
 <p><a href="http://docs.phonegap.com/en/2.7.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS">公式のiOS説明ページ</a></p>
@@ -186,9 +210,9 @@
   
     <article>
       
-  <header>
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/05/19/svctest/">SVCのテスト</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/19/svctest.html">SVCのテスト</a></h1>
     
     
       <p class="meta">
@@ -227,7 +251,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/blog/2013/05/19/svctest/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2013/05/19/svctest.html">Read on &rarr;</a>
     </footer>
   
 
@@ -237,9 +261,9 @@
   
     <article>
       
-  <header>
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/05/06/webrtc/">WebRTCサンプル</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/06/webrtc.html">WebRTCサンプル</a></h1>
     
     
       <p class="meta">
@@ -327,9 +351,9 @@
   
     <article>
       
-  <header>
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/05/06/octopress-config/">Octopressのいろいろ</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/06/octopress-config.html">Octopressのいろいろ</a></h1>
     
     
       <p class="meta">
@@ -361,6 +385,7 @@
 <li><a href="#image">画像貼り付け</a></li>
 <li><a href="#publish">記事の非公開設定</a></li>
 <li><a href="#domain">ドメインの設定</a></li>
+<li><a href="#table">テーブルの作成</a></li>
 </ul>
 
 
@@ -368,7 +393,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/blog/2013/05/06/octopress-config/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2013/05/06/octopress-config.html">Read on &rarr;</a>
     </footer>
   
 
@@ -378,9 +403,9 @@
   
     <article>
       
-  <header>
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/05/04/octopress/">Octopressの導入</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/04/octopress.html">Octopressの導入</a></h1>
     
     
       <p class="meta">
@@ -409,55 +434,65 @@
   
   
     <footer>
-      <a rel="full-article" href="/blog/2013/05/04/octopress/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2013/05/04/octopress.html">Read on &rarr;</a>
     </footer>
   
 
 
     </article>
   
-  <div class="pagination">
+  <ul class="pager">
     
-    <a href="/blog/archives">Blog Archives</a>
+    <li><a href="/blog/archives">Blog Archives</a></li>
     
-  </div>
+  </ul>
 </div>
-<aside class="sidebar">
+<aside class="sidebar-nav span3">
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
+    <section class="well">
+  <ul id="recent_posts" class="nav nav-list">
+    <li class="nav-header">Recent Posts</li>
     
       <li class="post">
-        <a href="/blog/2013/05/25/phonegap1/">PhoneGap(1) 準備</a>
+        <a href="/blog/2013/05/25/phonegap1.html">PhoneGap準備</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/19/svctest/">SVCのテスト</a>
+        <a href="/blog/2013/05/19/svctest.html">SVCのテスト</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/06/webrtc/">WebRTCサンプル</a>
+        <a href="/blog/2013/05/06/webrtc.html">WebRTCサンプル</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/06/octopress-config/">Octopressのいろいろ</a>
+        <a href="/blog/2013/05/06/octopress-config.html">Octopressのいろいろ</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/04/octopress/">Octopressの導入</a>
+        <a href="/blog/2013/05/04/octopress.html">Octopressの導入</a>
       </li>
     
   </ul>
 </section>
-<iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=8&l=st1&mode=books-jp&search=Git&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+<section class="well">
+  <ul id="categories" class="nav nav-list">
+    <li class="nav-header">Categories</li>  	
+    <li class='category'><a href='/blog/categories/html5/'>html5 (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
+<li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
+
+  </ul>
+</section><iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=14&l=st1&mode=books-jp&search=JavaScript&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+
 
   
 </aside>
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
+  <footer role="contentinfo" class="page-footer"><hr>
+<p>
   Copyright &copy; 2013 - torub -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
