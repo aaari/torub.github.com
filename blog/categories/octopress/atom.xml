@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-09T09:46:41+09:00</updated>
+  <updated>2013-06-09T09:56:46+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -213,9 +213,6 @@ comments: true</p>
     <id>http://sat-pg.com/blog/2013/05/04/octopress</id>
     <content type="html"><![CDATA[<p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
 
-<!-- more -->
-
-
 <p>以下4点、順番に説明します。</p>
 
 <ol>
@@ -224,6 +221,9 @@ comments: true</p>
 <li><a href="#octopress">Octopressインストール</a></li>
 <li><a href="#newpost">記事作成</a></li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2><a name="ruby_install"></a>1. Rubyインストール</h2>
