@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: knockout.js | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/knockout-dot-js/atom.xml" rel="self"/>
+  <title><![CDATA[Category: knockoutjs | Saturday Programmer]]></title>
+  <link href="http://sat-pg.com/blog/categories/knockoutjs/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-10T13:19:44+09:00</updated>
+  <updated>2013-06-10T13:22:05+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
