@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Programmer]]></title>
   <link href="http://sat-pg.com/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-09T09:56:46+09:00</updated>
+  <updated>2013-06-10T13:19:44+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -12,6 +12,144 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Knockout.jsお試し(1)]]></title>
+    <link href="http://sat-pg.com/blog/2013/06/10/knockoutjs1.html"/>
+    <updated>2013-06-10T01:37:00+09:00</updated>
+    <id>http://sat-pg.com/blog/2013/06/10/knockoutjs1</id>
+    <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
+<a href="http://learn.knockoutjs.com/">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
+
+<h4>サンプル1</h4>
+
+<ol>
+<li>変数をko.observable()で囲うことで、監視対象にできる。</li>
+<li>computedを使うことで、複数のobservableな変数を組み合わせた値を作れる。observableな変数が変更されると、computedな値も変更される。</li>
+<li>applyBindingでViewModelを登録</li>
+<li>data-bindを利用してDOMとViewModelの変数を関連付け</li>
+<li>clickイベントと関数の紐付け。サンプルはクリックで大文字小文字を変更。</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'&gt;&lt;/script&gt;
+</span><span class='line'>&lt;script&gt;
+</span><span class='line'>window.addEventListener('DOMContentLoaded', function(){
+</span><span class='line'>  var flag = true;
+</span><span class='line'>  function AppViewModel() {
+</span><span class='line'>      this.firstName = ko.observable("hello");    // 1
+</span><span class='line'>      this.lastName = ko.observable("world!");
+</span><span class='line'>      this.fullName = ko.computed(function() {    // 2
+</span><span class='line'>          return this.firstName() + " " + this.lastName();
+</span><span class='line'>      }, this);
+</span><span class='line'>
+</span><span class='line'>      this.toggleLastName = function() {
+</span><span class='line'>          var current = this.lastName();
+</span><span class='line'>          if (flag) {
+</span><span class='line'>              this.lastName(current.toUpperCase());
+</span><span class='line'>          } else {
+</span><span class='line'>              this.lastName(current.toLowerCase());
+</span><span class='line'>          }
+</span><span class='line'>          flag = !flag;
+</span><span class='line'>        };
+</span><span class='line'>    }
+</span><span class='line'>  // Activates knockout.js
+</span><span class='line'>  ko.applyBindings(new AppViewModel());   // 3
+</span><span class='line'>});
+</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;First name: &lt;input data-bind="value: firstName" /&gt;&lt;/p&gt;   &lt;!-- 4 --&gt;
+</span><span class='line'>&lt;p&gt;Last name: &lt;input data-bind="value: lastName" /&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p&gt;FULL NAME: &lt;strong data-bind="text: fullName"&gt;&lt;/strong&gt;&lt;/P&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;button data-bind="click: toggleLastName"&gt;toggle!&lt;/button&gt;    &lt;!-- 5 --&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実行結果は↓</p>
+
+<!-- more -->
+
+
+<h4>サンプル1実行結果</h4>
+
+<p>toggleボタンを押すと、Last nameのみでなく、FULL NAMEも同時に変わる。jQueryでやるより楽かも。</p>
+
+<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    var flag = true;
+    function AppViewModel() {
+        this.firstName = ko.observable("hello");
+        this.lastName = ko.observable("world!");
+        this.fullName = ko.computed(function() {
+            return this.firstName() + " " + this.lastName();
+        }, this);
+
+        this.toggleLastName = function() {
+            var current = this.lastName();
+            if (flag) {
+                this.lastName(current.toUpperCase());
+            } else {
+                this.lastName(current.toLowerCase());
+            }
+            flag = !flag;
+        };
+    }
+    // Activates knockout.js
+    ko.applyBindings(new AppViewModel());
+});
+</script>
+
+
+
+
+<p>First name: <input data-bind="value: firstName" /></p>
+
+
+<p>Last name: <input data-bind="value: lastName" /></p>
+
+
+<p>FULL NAME: <strong data-bind="text: fullName"></strong></P>
+
+
+<p><button data-bind="click: toggleLastName">toggle!</button></p>
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[第1回 Build Insider OFFLINEメモ]]></title>
