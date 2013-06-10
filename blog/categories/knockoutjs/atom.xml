@@ -4,7 +4,7 @@
   <title><![CDATA[Category: knockoutjs | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/knockoutjs/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-10T13:22:05+09:00</updated>
+  <updated>2013-06-10T13:44:46+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -32,7 +32,7 @@
 </ol>
 
 
-<p>```</p>
+<p>```javascript</p>
 
 <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
 
@@ -63,7 +63,8 @@ window.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
-
+<p><code>
+</code>html</p>
 
 <p>First name: <input data-bind="value: firstName" /></p>
 

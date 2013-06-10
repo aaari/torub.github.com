@@ -147,7 +147,7 @@
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -172,43 +172,45 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'&gt;&lt;/script&gt;
-</span><span class='line'>&lt;script&gt;
-</span><span class='line'>window.addEventListener('DOMContentLoaded', function(){
-</span><span class='line'>  var flag = true;
-</span><span class='line'>  function AppViewModel() {
-</span><span class='line'>      this.firstName = ko.observable("hello");    // 1
-</span><span class='line'>      this.lastName = ko.observable("world!");
-</span><span class='line'>      this.fullName = ko.computed(function() {    // 2
-</span><span class='line'>          return this.firstName() + " " + this.lastName();
-</span><span class='line'>      }, this);
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js&#39;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">AppViewModel</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>    <span class="c1">// 1</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// 2</span>
+</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
+</span><span class='line'>      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>      this.toggleLastName = function() {
-</span><span class='line'>          var current = this.lastName();
-</span><span class='line'>          if (flag) {
-</span><span class='line'>              this.lastName(current.toUpperCase());
-</span><span class='line'>          } else {
-</span><span class='line'>              this.lastName(current.toLowerCase());
-</span><span class='line'>          }
-</span><span class='line'>          flag = !flag;
-</span><span class='line'>        };
-</span><span class='line'>    }
-</span><span class='line'>  // Activates knockout.js
-</span><span class='line'>  ko.applyBindings(new AppViewModel());   // 3
-</span><span class='line'>});
-</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">toggleLastName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="nx">flag</span> <span class="o">=</span> <span class="o">!</span><span class="nx">flag</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="c1">// Activates knockout.js</span>
+</span><span class='line'>  <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">AppViewModel</span><span class="p">());</span>   <span class="c1">// 3</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p&gt;</span>First name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: firstName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span> <span class="c">&lt;!-- 4 --&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Last name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: lastName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>FULL NAME: <span class="nt">&lt;strong</span> <span class="na">data-bind=</span><span class="s">&quot;text: fullName&quot;</span><span class="nt">&gt;&lt;/strong&gt;&lt;/P&gt;</span>
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;First name: &lt;input data-bind="value: firstName" /&gt;&lt;/p&gt;   &lt;!-- 4 --&gt;
-</span><span class='line'>&lt;p&gt;Last name: &lt;input data-bind="value: lastName" /&gt;&lt;/p&gt;
-</span><span class='line'>&lt;p&gt;FULL NAME: &lt;strong data-bind="text: fullName"&gt;&lt;/strong&gt;&lt;/P&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;button data-bind="click: toggleLastName"&gt;toggle!&lt;/button&gt;    &lt;!-- 5 --&gt;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="nt">&lt;button</span> <span class="na">data-bind=</span><span class="s">&quot;click: toggleLastName&quot;</span><span class="nt">&gt;</span>toggle!<span class="nt">&lt;/button&gt;</span>   <span class="c">&lt;!-- 5 --&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>実行結果は↓</p>
