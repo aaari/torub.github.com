@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Saturday Programmer</title>
+  <title>Knockout.jsお試し(2) - Saturday Programmer</title>
   <meta name="author" content="torub">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sat-pg.com/index.html">
+  <link rel="canonical" href="http://sat-pg.com/blog/2013/06/10/knockoutjs2.html">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -102,15 +102,13 @@
 </nav>
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
       
+<article class="hentry span9" role="article">
+
+  
   <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/06/10/knockoutjs2.html">Knockout.jsお試し(2)</a></h1>
+      <h1 class="entry-title">Knockout.jsお試し(2)</h1>
     
     
       <p class="meta">
@@ -133,7 +131,7 @@
   </header>
 
 
-  <div class="entry-content"><h4>サンプル2</h4>
+<div class="entry-content"><h4>サンプル2</h4>
 
 <ol>
 <li>複数の要素を監視対象にするにはobservableArrayを使う</li>
@@ -278,148 +276,99 @@
 
 <p>実行結果は↓</p>
 
+<!-- more -->
+
+
+<h4>サンプル2実行結果</h4>
+
+<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    function Checkout(name, menu, num) {
+        var self = this;
+        self.name = name;
+        self.menu = ko.observable(menu);    // 1
+        self.num = ko.observable(num);
+        self.check = ko.computed(function() {
+            return self.menu().price * self.num();
+        });
+    }
+
+    function CashierViewModel() {
+        var self = this;
+        self.menuList = [
+            { menuName:'Aランチ', price:1000 },
+            { menuName:'Bランチ', price:1500 },
+            { menuName:'スペシャルランチ', price:3000 }
+        ];
+        self.newmenu = self.menuList[0];
+        self.newnum = 1;
+        self.checkoutList = ko.observableArray([
+            new Checkout('鈴木', self.menuList[0], 1),
+            new Checkout('鈴木', self.menuList[1], 2),
+        ]);
+        self.removeData = function(data) { self.checkoutList.remove(data); }
+        self.addData = function() {
+            self.checkoutList.push(new Checkout('佐藤', self.newmenu, self.newnum));
+        }
+
+        self.total = ko.computed(function() {
+            var t = 0;
+            for(var i = 0; i < self.checkoutList().length; i ++) {
+                t += self.checkoutList()[i].check();
+            }
+            return t;
+        });
+    }
+
+    ko.applyBindings(new CashierViewModel());
+});
+</script>
+
+
+<p><strong>配列表示のテスト(レストランの会計)</strong></p>
+
+<p>売り上げ合計：<span data-bind="text: total()"></span>円</p>
+
+
+<table>
+    <thead><tr>
+        <th>レジ担当者</th><th>メニュー</th><th>数量</th><th>価格</th><th></th>
+    </tr></thead>
+    <tbody data-bind="foreach: checkoutList"> <!-- -->
+        <tr>
+            <td data-bind="text: name"></td>
+            <td><select data-bind="options: $root.menuList, value: menu, optionsText: 'menuName'"></select></td>
+            <td><input type="text" data-bind="value: num" /></td>
+            <td data-bind="text: check"></td>
+            <td><a href="#" data-bind="click: $root.removeData">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>データ追加</p>
+
+
+<p>メニュー：<select data-bind="options: $root.menuList, value: newmenu, optionsText: 'menuName'"></select>
+数量：<input type="text" data-bind="value: newnum" />
+<button data-bind="click: addData">追加</button></p>
+
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/10/knockoutjs2.html">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/10/knockoutjs1.html">Knockout.jsお試し(1)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">torub</span></span>
 
-<time datetime="2013-06-10T01:37:00+09:00" pubdate data-updated="true">2013/06/10</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
-<a href="http://learn.knockoutjs.com/">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
-
-<h4>サンプル1</h4>
-
-<ol>
-<li>変数をko.observable()で囲うことで、監視対象にできる。</li>
-<li>computedを使うことで、複数のobservableな変数を組み合わせた値を作れる。observableな変数が変更されると、computedな値も変更される。</li>
-<li>applyBindingでViewModelを登録</li>
-<li>data-bindを利用してDOMとViewModelの変数を関連付け</li>
-<li>clickイベントと関数の紐付け。サンプルはクリックで大文字小文字を変更。</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js&#39;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">function</span> <span class="nx">AppViewModel</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>    <span class="c1">// 1</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// 2</span>
-</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">toggleLastName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="nx">flag</span> <span class="o">=</span> <span class="o">!</span><span class="nx">flag</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">};</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="c1">// Activates knockout.js</span>
-</span><span class='line'>  <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">AppViewModel</span><span class="p">());</span>   <span class="c1">// 3</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p&gt;</span>First name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: firstName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span> <span class="c">&lt;!-- 4 --&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Last name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: lastName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>FULL NAME: <span class="nt">&lt;strong</span> <span class="na">data-bind=</span><span class="s">&quot;text: fullName&quot;</span><span class="nt">&gt;&lt;/strong&gt;&lt;/P&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;button</span> <span class="na">data-bind=</span><span class="s">&quot;click: toggleLastName&quot;</span><span class="nt">&gt;</span>toggle!<span class="nt">&lt;/button&gt;</span>   <span class="c">&lt;!-- 5 --&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実行結果は↓</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/10/knockoutjs1.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/08/buildinsider.html">第1回 Build Insider OFFLINEメモ</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -431,360 +380,42 @@
   
 
 
-<time datetime="2013-06-08T23:45:00+09:00" pubdate data-updated="true">2013/06/08</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/08/buildinsider.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-06-10T11:09:00+09:00" pubdate data-updated="true">2013/06/10</time>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/28/html5.html">第39回html5とか勉強会+日本Androidの会5月定例</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/knockoutjs/'>knockoutjs</a>
+  
+</span>
 
 
-<time datetime="2013-05-28T18:58:00+09:00" pubdate data-updated="true">2013/05/28</time>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
-
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sat-pg.com/blog/2013/06/10/knockoutjs2.html" data-via="" data-counturl="http://sat-pg.com/blog/2013/06/10/knockoutjs2.html" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/28/html5.html">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    
+    <ul class="pager">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/25/phonegap1.html">PhoneGap準備</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-25T22:46:00+09:00" pubdate data-updated="true">2013/05/25</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載。</p>
-
-<p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/25/phonegap1.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2013/06/10/knockoutjs1.html" title="Previous Post:
+        Knockout.jsお試し(1)">&laquo; Knockout.jsお試し(1)</a></li>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/19/svctest.html">SVCのテスト</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-19T11:35:00+09:00" pubdate data-updated="true">2013/05/19</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>SVCのサンプルを記載します。</p>
-
-<ul>
-<li><a href="#base">基本図形</a></li>
-<li><a href="#gra">グラデーション</a></li>
-<li><a href="#poly">線、ポリゴン</a></li>
-<li><a href="#text">テキスト</a></li>
-<li><a href="#animation">アニメーション</a></li>
-<li><a href="#sanko">参考</a></li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/19/svctest.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+      <li><a href="/blog/archives">Blog Archives</a></li>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/06/webrtc.html">WebRTCサンプル</a></h1>
-    
-    
-      <p class="meta">
-        
+    </ul>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-06T04:05:00+09:00" pubdate data-updated="true">2013/05/06</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>WebRTCのサンプルを動かしてみたのでまとめます。</p>
-
-<h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>
-
-<p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。</p>
-
-<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='/downloads/code/webrtc.html'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
-</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;ja&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;title&gt;</span>WebRTC<span class="nt">&lt;/title&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;video</span> <span class="na">id=</span><span class="s">&quot;myvideo&quot;</span> <span class="na">width=</span><span class="s">&quot;320&quot;</span> <span class="na">height=</span><span class="s">&quot;240&quot;</span> <span class="na">autoplay</span> <span class="na">style=</span><span class="s">&quot;border:1px solid black&quot;</span><span class="nt">&gt;&lt;/video&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span><span class="p">({</span><span class="nx">video</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">audio</span><span class="o">:</span><span class="kc">true</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">myvideo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myvideo&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">myvideo</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
-</span><span class='line'><span class="nt">&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Androidでは、version26を利用し、アドレスバーに
-<code>about:flags</code>と入力後、以下の「WebRTCを有効にする」を選択してChromeを再起動することで
-実行が可能になります。</p>
-
-<p><img src="/images/cap/webrtc_android.png"></p>
-
-<p>iOSは現状ではSafari, Chromeとも動作しない模様です。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/06/octopress-config.html">Octopressのいろいろ</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-06T03:02:00+09:00" pubdate data-updated="true">2013/05/06</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Octopressの設定など色々まとめていきます。<br/>
-設定追加毎に記事も追加していきます。</p>
-
-<ul>
-<li><a href="#include_code">ソースコードの引用</a></li>
-<li><a href="#escape">特殊文字のエスケープ</a></li>
-<li><a href="#image">画像貼り付け</a></li>
-<li><a href="#publish">記事の非公開設定</a></li>
-<li><a href="#domain">ドメインの設定</a></li>
-<li><a href="#table">テーブルの作成</a></li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/06/octopress-config.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/04/octopress.html">Octopressの導入</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-04T03:37:00+09:00" pubdate data-updated="true">2013/05/04</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
-
-<p>以下4点、順番に説明します。</p>
-
-<ol>
-<li><a href="#ruby_install">Rubyインストール</a></li>
-<li><a href="#github_pages">GitHub Pagesレポジトリ作成</a></li>
-<li><a href="#octopress">Octopressインストール</a></li>
-<li><a href="#newpost">記事作成</a></li>
-</ol>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/04/octopress.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <ul class="pager">
-    
-    <li><a href="/blog/archives">Blog Archives</a></li>
-    
-  </ul>
-</div>
 <aside class="sidebar-nav span3">
   
     <section class="well">
@@ -829,6 +460,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

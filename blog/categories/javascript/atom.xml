@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-06-10T13:44:46+09:00</updated>
+  <updated>2013-06-10T13:45:03+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -12,6 +12,191 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Knockout.jsお試し(2)]]></title>
+    <link href="http://sat-pg.com/blog/2013/06/10/knockoutjs2.html"/>
+    <updated>2013-06-10T11:09:00+09:00</updated>
+    <id>http://sat-pg.com/blog/2013/06/10/knockoutjs2</id>
+    <content type="html"><![CDATA[<h4>サンプル2</h4>
+
+<ol>
+<li>複数の要素を監視対象にするにはobservableArrayを使う</li>
+<li>データの削除にはremoveを使う</li>
+<li>データの追加にはpushを使う</li>
+<li>ここがobservableでなくても動くのがよくわからない??</li>
+<li>繰り返したい項目はforeachを使う</li>
+</ol>
+
+
+<p>```javascript</p>
+
+<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    function Checkout(name, menu, num) {
+        var self = this;
+        self.name = name;
+        self.menu = ko.observable(menu);
+        self.num = ko.observable(num);
+        self.check = ko.computed(function() {
+            return self.menu().price * self.num();
+        });
+    }
+
+    function CashierViewModel() {
+        var self = this;
+        self.menuList = [
+            { menuName:'Aランチ', price:1000 },
+            { menuName:'Bランチ', price:1500 },
+            { menuName:'スペシャルランチ', price:3000 }
+        ];
+        self.checkoutList = ko.observableArray([    // 1
+            new Checkout('鈴木', self.menuList[0], 1),
+            new Checkout('鈴木', self.menuList[1], 2),
+        ]);
+        self.removeData = function(data) { self.checkoutList.remove(data); }    // 2
+        self.addData = function() {
+            self.checkoutList.push(new Checkout('佐藤', self.newmenu, self.newnum));  //3
+        }
+        self.total = ko.computed(function() {
+            var t = 0;
+            for(var i = 0; i < self.checkoutList().length; i ++) {
+                t += self.checkoutList()[i].check();
+            }
+            return t;
+        });
+
+        self.newmenu = self.menuList[0];    //4
+        self.newnum = 1;    //4
+    }
+
+    ko.applyBindings(new CashierViewModel());
+});
+</script>
+
+
+<p><code>
+</code>html
+<strong>配列表示のテスト(レストランの会計)</strong></p>
+
+<p>売り上げ合計：<span data-bind="text: total()"></span>円</p>
+
+
+<table>
+    <thead><tr>
+        <th>レジ担当者</th><th>メニュー</th><th>数量</th><th>価格</th><th></th>
+    </tr></thead>
+    <tbody data-bind="foreach: checkoutList"> <!-- 5 -->
+        <tr>
+            <td data-bind="text: name"></td>
+            <td><select data-bind="options: $root.menuList, value: menu, optionsText: 'menuName'"></select></td>
+            <td><input type="text" data-bind="value: num" /></td>
+            <td data-bind="text: check"></td>
+            <td><a href="#" data-bind="click: $root.removeData">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>データ追加</p>
+
+
+<p>メニュー：<select data-bind="options: $root.menuList, value: newmenu, optionsText: 'menuName'"></select>
+数量：<input type="text" data-bind="value: newnum" />
+<button data-bind="click: addData">追加</button></p>
+
+
+<p>```</p>
+
+<p>実行結果は↓</p>
+
+<!-- more -->
+
+
+<h4>サンプル2実行結果</h4>
+
+<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    function Checkout(name, menu, num) {
+        var self = this;
+        self.name = name;
+        self.menu = ko.observable(menu);    // 1
+        self.num = ko.observable(num);
+        self.check = ko.computed(function() {
+            return self.menu().price * self.num();
+        });
+    }
+
+    function CashierViewModel() {
+        var self = this;
+        self.menuList = [
+            { menuName:'Aランチ', price:1000 },
+            { menuName:'Bランチ', price:1500 },
+            { menuName:'スペシャルランチ', price:3000 }
+        ];
+        self.newmenu = self.menuList[0];
+        self.newnum = 1;
+        self.checkoutList = ko.observableArray([
+            new Checkout('鈴木', self.menuList[0], 1),
+            new Checkout('鈴木', self.menuList[1], 2),
+        ]);
+        self.removeData = function(data) { self.checkoutList.remove(data); }
+        self.addData = function() {
+            self.checkoutList.push(new Checkout('佐藤', self.newmenu, self.newnum));
+        }
+
+        self.total = ko.computed(function() {
+            var t = 0;
+            for(var i = 0; i < self.checkoutList().length; i ++) {
+                t += self.checkoutList()[i].check();
+            }
+            return t;
+        });
+    }
+
+    ko.applyBindings(new CashierViewModel());
+});
+</script>
+
+
+<p><strong>配列表示のテスト(レストランの会計)</strong></p>
+
+<p>売り上げ合計：<span data-bind="text: total()"></span>円</p>
+
+
+<table>
+    <thead><tr>
+        <th>レジ担当者</th><th>メニュー</th><th>数量</th><th>価格</th><th></th>
+    </tr></thead>
+    <tbody data-bind="foreach: checkoutList"> <!-- -->
+        <tr>
+            <td data-bind="text: name"></td>
+            <td><select data-bind="options: $root.menuList, value: menu, optionsText: 'menuName'"></select></td>
+            <td><input type="text" data-bind="value: num" /></td>
+            <td data-bind="text: check"></td>
+            <td><a href="#" data-bind="click: $root.removeData">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>データ追加</p>
+
+
+<p>メニュー：<select data-bind="options: $root.menuList, value: newmenu, optionsText: 'menuName'"></select>
+数量：<input type="text" data-bind="value: newnum" />
+<button data-bind="click: addData">追加</button></p>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(1)]]></title>
