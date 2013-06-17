@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Backbone.jsのtutorial(1) - Saturday Programmer</title>
+  <meta name="author" content="torub">
+
+  
+  <meta name="description" content="">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1.html">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+    }
+    .sharing, .meta, .pager {
+      margin: 20px 0px 20px 0px;
+    }
+    .page-footer p {
+      text-align: center;
+    }
+  </style>
+  <script src="/javascripts/libs/jquery.js"></script>
+  <script src="/javascripts/libs/modernizr-2.0.js"></script>
+  <script src="/javascripts/libs/bootstrap.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5777765-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="/">Saturday Programmer</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+
+        <ul class="nav pull-right" data-subscription="rss">
+          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+          
+        </ul>
+
+        
+          <form class="pull-right navbar-search" action="http://google.com/search" method="get">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:sat-pg.com" />
+              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+            </fieldset>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</nav>
+  <div class="container">
+    <div class="row-fluid">
+      
+<article class="hentry span9" role="article">
+
+  
+  <header class="page-header">
+    
+      <h1 class="entry-title">Backbone.jsのtutorial(1)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T02:57:00+09:00" pubdate data-updated="true">2013/06/18</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>ひきつづきBackbone.jsの勉強。</p>
+
+<p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
+不明点だらけのため、調べたことをメモ。</p>
+
+<h3>Step1: package.json</h3>
+
+<ul>
+<li>node.jsによるパッケージ管理ツール(npm)で、パッケージのバージョン管理をするためのもの。</li>
+<li>package.jsonを記載して、<code>npm install</code>とすることで必要なモジュールがインストールされる。</li>
+<li><code>./node_modules</code>以下にファイルがコピーされるため、git使う場合は.gitignoreに記載したほうがいい。</li>
+<li>gruntのバージョンが変わっているためサンプルを一部修正。(gruntは、gruntの他にgrunt-cliとgrunt-initの3つに分かれたとのこと。<a href="https://github.com/gruntjs/grunt/wiki/Upgrading-from-0.3-to-0.4">gruntのmigration guide</a>)</li>
+</ul>
+
+
+<h3>Step2: server.js</h3>
+
+<ul>
+<li><a href="http://www.senchalabs.org/connect/">Connect</a>はNode.jsのミドルウェアフレームワークで、複数のミドルウェアが扱える。</li>
+<li>Connectのstaticは、静的なファイルを返すサーバを作れるみたい。</li>
+<li>Connect#useで、マウントポイントやルーティングの設定等ができるので、サンプルでは、<code>app</code>をルートディレクトリとし、<code>node_modules</code>はそのまま、<code>/js/lib/</code>は、<code>node_modules/requirejs/</code>にマウントをしている。</li>
+<li>例) <code>http://localhost:8000/js/lib/require.js</code>と<code>http://localhost:8000/node_modules/requirejs/require.js</code>は同じファイルで、両方ともブラウザからアクセスできる。</li>
+</ul>
+
+
+<h3>Step3: RequrireJS</h3>
+
+<p><a href="http://requirejs.org/">RequreJSの公式</a>から引用。</p>
+
+<pre><code>RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, 
+but it can be used in other JavaScript environments, like Rhino and Node. 
+Using a modular script loader like RequireJS will improve the speed and quality of your code.
+</code></pre>
+
+<ul>
+<li>JavaScriptのファイル・モジュールの読み込み用ライブラリで、必要になったとき読み込む等で、スピードと品質を改善する。</li>
+<li>RequireJSの設定はmain.jsに書くのが普通らしい。(このサンプルでもapp/js/main.jsに<code>requirejs.config..</code>を記載)</li>
+<li><code>require(['hoge']..</code>と書くとapp/js/hoge.jsを読み込む</li>
+<li><code>require</code>の後は、読み込んだjs内の関数や変数が使える。サンプルでは、<code>require['app']</code>として、app.js内のAppを<code>new App()</code>として呼び出している。</li>
+<li>呼び出されるjs側では、1つのモジュールの単位毎にdefineで定義する模様。</li>
+<li>defineの後の[]には、依存関係にあるモジュールを記載して使う。例えば<code>define(['lib/jquery'], function($){ ... })</code> のようにすると、jquery.jsに依存するモジュールが書ける。(define内部で$も使える。)</li>
+<li>JSHintでエラーが出ないようにするには、JSHintの設定ファイルで、<code>"dojo" : true</code>とすればいい。(defineとrequireが許可される模様。)</li>
+</ul>
+
+
+<h3>Step4: テストの環境(Mocha, Chai)</h3>
+
+<p><a href="http://visionmedia.github.io/mocha/">Mochaフレームワーク</a>を利用する環境の作成。</p>
+
+<ul>
+<li>Mochaは、先日のBuildInsiderの講演によると、TDDとかBDD(テストドリブン開発とビヘイビアドリブン開発)を実現するためのフレームワークらしい。</li>
+<li>TDDとBDDで利用する関数が異なる。
+
+<ul>
+<li>TDDは、suite()、test()、setup()とteardown()</li>
+<li>BDDは、describe()、it()、before()、beforeEach()とafterEach()</li>
+</ul>
+</li>
+<li>setup.jsでTDD or BDD等を設定する。</li>
+<li><p><code>require['app']</code>でapp.jsを読み込んで、<code>mocha.run();</code>としてテスト実行</p></li>
+<li><p>(この作者は?)<a href="http://chaijs.com/api/assert/">chaiのassert</a>を使ってテストする。簡単のためっぽい。</p></li>
+<li>server.jsのマウントポイントに/testを追加。(test/とapp両方を/testに。こうしないとrequire[&#8216;app&#8217;]が動かない。)</li>
+</ul>
+
+
+<h3>Step5: ビルド環境(grunt)</h3>
+
+<ul>
+<li><a href="http://grantjs.com">grant.js</a>は、JavaScriptのタスクランナー。
+
+<ul>
+<li>antとかMakefileのJavaScript版みたいなもの(?)</li>
+</ul>
+</li>
+<li>JSHintのチェックとか、CoffeeScriptのコンパイルとかRequireJSの設定とかを自動化できる</li>
+<li>grunt.jsが0.4系にバージョンアップしているので、サンプルを以下の通り修正
+
+<ul>
+<li>grunt.jsは、バージョンアップに伴いGrantfile.jsに変更(中身は同じ)</li>
+<li>package.jsonに、<code>"grunt-cli": "latest", "grunt-init": "latest"</code>を追加</li>
+<li>scriptsのgrunt部分を<code>"grunt" : "grunt"</code>に修正</li>
+</ul>
+</li>
+<li>grunt.jsのコマンドラインインターフェイス(CLI)はgrunt-cliにある。<code>./node_modules/grunt-cli/bin/grunt</code>が本体。</li>
+<li>全てのgrunt.jsのコードは、<code>module.exports = function(grunt) { };</code>内に書く必要がある。</li>
+<li>loadNpmTasksでプラグインをロード、initConfigでロードしたプラグインの設定。</li>
+<li>registerTaskは、プラグインを使わないような作業の設定(多分)。</li>
+<li>defaultはgruntに引数を与えない場合に実行されるタスク。</li>
+<li>サンプルの例で言えば、grunt とすると、execとcopy-requireが実行される。</li>
+<li>grunt execとするとexec部分のみが実行される。</li>
+</ul>
+
+
+<p>※今後チュートリアルを進めていくのと並行して、出てきたライブラリ(RequireJS、mocha.js、grunt.jsなどなど)のサンプルを書いてみたい。</p>
+
+<h3><a href="https://github.com/torub/backbone-tutorial/tree/7081a6f20be7e3a29a359dcc3904d40c09bfb11d">動作版のファイル - github</a></h3>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">torub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T02:57:00+09:00" pubdate data-updated="true">2013/06/18</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/backbonejs/'>backbonejs</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1.html" data-via="" data-counturl="http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1.html" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2013/06/17/backbonejs1.html" title="Previous Post:
+        Backbone.jsお試し">&laquo; Backbone.jsお試し</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+<aside class="sidebar-nav span3">
+  
+    <section class="well">
+  <ul id="recent_posts" class="nav nav-list">
+    <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/18/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/17/backbonejs1.html">Backbone.jsお試し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/10/knockoutjs2.html">Knockout.jsお試し(2)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/10/knockoutjs1.html">Knockout.jsお試し(1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/08/buildinsider.html">第1回 Build Insider OFFLINEメモ</a>
+      </li>
+    
+  </ul>
+</section>
+<section class="well">
+  <ul id="categories" class="nav nav-list">
+    <li class="nav-header">Categories</li>  	
+    <li class='category'><a href='/blog/categories/backbonejs/'>backbonejs (2)</a></li>
+<li class='category'><a href='/blog/categories/html5/'>html5 (4)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (5)</a></li>
+<li class='category'><a href='/blog/categories/knockoutjs/'>knockoutjs (2)</a></li>
+<li class='category'><a href='/blog/categories/memo/'>memo (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
+<li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
+
+  </ul>
+</section><iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=14&l=st1&mode=books-jp&search=JavaScript&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo" class="page-footer"><hr>
+<p>
+  Copyright &copy; 2013 - torub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
