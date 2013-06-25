@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>日本Androidの会 2013年6月定例会メモ - Saturday Programmer</title>
+  <meta name="author" content="torub">
+
+  
+  <meta name="description" content="">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sat-pg.com/blog/2013/06/25/android-study201306.html">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+    }
+    .sharing, .meta, .pager {
+      margin: 20px 0px 20px 0px;
+    }
+    .page-footer p {
+      text-align: center;
+    }
+  </style>
+  <script src="/javascripts/libs/jquery.js"></script>
+  <script src="/javascripts/libs/modernizr-2.0.js"></script>
+  <script src="/javascripts/libs/bootstrap.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5777765-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="/">Saturday Programmer</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+
+        <ul class="nav pull-right" data-subscription="rss">
+          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+          
+        </ul>
+
+        
+          <form class="pull-right navbar-search" action="http://google.com/search" method="get">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:sat-pg.com" />
+              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+            </fieldset>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</nav>
+  <div class="container">
+    <div class="row-fluid">
+      
+<article class="hentry span9" role="article">
+
+  
+  <header class="page-header">
+    
+      <h1 class="entry-title">日本Androidの会 2013年6月定例会メモ</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-25T18:59:00+09:00" pubdate data-updated="true">2013/06/25</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://www.android-group.jp/event/event19.html">日本Androidの会 2013年6月定例会</a>
+に行ってきたので、聞いてきた話をメモ。</p>
+
+<p>会場は4月に移転したばっかりというデジタルハリウッドさんのところで、
+凄く綺麗ないいところでした。</p>
+
+<h2>オフラインで動くPackaged Web Appのクラウド利用</h2>
+
+<p>丸山先生の講演。</p>
+
+<p>接続されるクライアントの多さから、負荷、NW帯域が増大するなど、サーバサイドでは問題が起きているが、対比的にクライアント側は、8コアのAndroid端末が出るなど性能が向上しており、
+余裕が生まれている。</p>
+
+<p>今後は、Rich Client + Thin Server Architect(TSA)の考え方で、
+P層をデバイス側に移し、サーバに負担をかけずにクライアント側に処理を移す、が想定される。
+クライアント側は、Androidネイティブもあれば、Packaged Web Appもあるだろう。</p>
+
+<p>TSAにより、サーバ開発者はビジネスロジックに集中でき、
+クライアント開発者はP層に集中できる。</p>
+
+<h4>Package web appの特徴</h4>
+
+<ul>
+<li>ブラウザの使うランタイムを利用する形をとり、WebViewは使わない。</li>
+<li>Offline enabled by default</li>
+<li>Cloud enabled by default。</li>
+<li>デバイスのHW、OSリソースへのアクセスが可能な点は、Packagedならではの特徴。</li>
+<li>アプリはマーケットから配布できる</li>
+<li>Contents Security Policy(CSP)：セキュリティ面では制約がある。
+
+<ul>
+<li>Inline-JavaScriptの禁止：HTML内にJavaScriptを書いてはいけない。</li>
+<li>eval禁止</li>
+<li>上記より、webのソースそのままでは動かない</li>
+</ul>
+</li>
+<li>Offline First
+
+<ul>
+<li>つながっていなくても動くのが魅力。</li>
+<li>マルチデバイスで有効(シームレスな切り替えをしたい)</li>
+<li>ローカルのストレージにデータを保存可能</li>
+</ul>
+</li>
+<li>Offline-enabledのルール
+
+<ul>
+<li>可能ならばいつでもローカルなデータを使う。ローカルデータといってもクラウドとも同期できる仕組みが存在する。
+
+<ul>
+<li>Chrome Storage API：小規模な文字列データ。容量制限あり。LocalとSyncがある。Syncは自動的にWebと連携する。Cookieみたいな使い方か。Syncは便利。上限は102,400 byte</li>
+<li>IndexDB: HTML5標準。Googleはメインに考えてない? クラウドとの同期が面倒だからか??</li>
+<li>Chrome FileSystem API</li>
+<li>Chrome SyncFileSystem API: ローカルに書くと、クラウド(google drive)と勝手に同期する。これは便利。</li>
+</ul>
+</li>
+<li>UIをデータから分離する</li>
+<li>MVCモデルを使う。クライアントのなかにMVCを持つ流れは、JavaScriptのフレームワーク等と同様。</li>
+</ul>
+</li>
+<li>Google Cloud Messaging(GCM)でメッセージPush配信。
+
+<ul>
+<li>Packaged Web Appの目玉のひとつ。(もう1つはデータのsync)</li>
+</ul>
+</li>
+<li>Network Communications
+
+<ul>
+<li>ソケットを自由に使うことができる。</li>
+<li>httpを使わず、データをやりとりする。</li>
+</ul>
+</li>
+<li>googleはクラウド同期を柱にしている。目玉ふたつをおさらいすると以下2つ。
+
+<ul>
+<li>ストレージ同期</li>
+<li>GCM</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Google Glassが変える世界。</h2>
+
+<p>株式会社GClueの佐々木さんの講演。</p>
+
+<ul>
+<li>Google Glassはそれだけで完結(Androidが動いている)。</li>
+<li>1年前くらいのスマートフォン。Android4.0.4。</li>
+<li><p>メガネの横にタッチパッドがついてる。バッテリは後ろ。
+骨伝導用デバイスもあり。裏側には接触センサもあり。
+写真もとれる。</p></li>
+<li><p>Google GlassはHome Laucherを作り変えているのみで、通常のAndroid。Android Appも動く
+専用APをGlasswareと呼んでいる。Glasswareで書くと、HomeLaucnherから起動ができる。</p></li>
+<li><p>上30度を見るとONになる。
+またはOK Glassとしゃべると音声認識で動きだす。</p></li>
+</ul>
+
+
+<h2>Google I/O報告 &amp; Android Studio</h2>
+
+<p>進藤さんの講演。</p>
+
+<h4>Google I/O</h4>
+
+<ul>
+<li>Androidは、9億アクティベート/年(去年は4億、その前は1億)</li>
+<li>Googleは2つのPF(Android、Chrome)</li>
+<li>Androidの新しいAPI
+
+<ul>
+<li>Location
+
+<ul>
+<li>Fused Location Provider: 基地局、Wifi、GPSから効率よく位置情報取得</li>
+<li>Geofenceing API: 位置情報をエリア毎に識別。出入りを通知。1アプリにつき100箇所登録可能。バッテリーにやさしい。</li>
+<li>Activity Recognition: ユーザの動きを識別。歩き or 車 or 停止中など。バッテリーにやさしい。</li>
+</ul>
+</li>
+<li>Google+</li>
+<li>GCM
+
+<ul>
+<li>毎秒20万、1日170億メッセージ。1件60msで処理。</li>
+<li>3つの機能追加
+
+<ul>
+<li>persistent connections。多数のメッセージを多数のデバイスへ</li>
+<li>Upstream。アプリからサーバ側へもプッシュできる</li>
+<li>notification synchronization。タブレットとスマホの通知の同期。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Google Play game service
+
+<ul>
+<li>cloud save</li>
+<li>Achievements</li>
+<li>Leaderboard(ランキング)</li>
+<li>multi play</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Android以外のUpdate
+
+<ul>
+<li>Google Mapのアップデート。GoogleEarthとの統合。水中Map。</li>
+<li>Chrome
+
+<ul>
+<li>7.5億ユーザ</li>
+<li>JavaScript高速化</li>
+<li>WebP(画像)、VP9(動画)</li>
+<li>Web Component</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>その他
+
+<ul>
+<li><a href="https://github.com/adamrocker/volley">Volley</a>(<a href="http://www.adamrocker.com/blog/341/volley-easy-fast-networking-for-android.html">参考</a>)： HTTPを効率化、かつ簡単化するライブラリ。大規模データをマルチスレッドで取得するなど。</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Android Studio</h4>
+
+<ul>
+<li>次期IntelJの中に入ってくる。</li>
+<li>まだPreview版でアップデートが多い。業務用は時期尚早か。</li>
+<li>NDK(Native Development Kit)未対応。</li>
+<li>当面はADKのリリースは続くはず。すぐには移行は不要かも。</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">torub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-25T18:59:00+09:00" pubdate data-updated="true">2013/06/25</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/memo/'>memo</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sat-pg.com/blog/2013/06/25/android-study201306.html" data-via="" data-counturl="http://sat-pg.com/blog/2013/06/25/android-study201306.html" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2013/06/18/backbone-tutorial-1.html" title="Previous Post:
+        Backbone.jsのtutorial(1)">&laquo; Backbone.jsのtutorial(1)</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+<aside class="sidebar-nav span3">
+  
+    <section class="well">
+  <ul id="recent_posts" class="nav nav-list">
+    <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/25/android-study201306.html">日本Androidの会 2013年6月定例会メモ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/18/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/17/backbonejs1.html">Backbone.jsお試し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/10/knockoutjs2.html">Knockout.jsお試し(2)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/10/knockoutjs1.html">Knockout.jsお試し(1)</a>
+      </li>
+    
+  </ul>
+</section>
+<section class="well">
+  <ul id="categories" class="nav nav-list">
+    <li class="nav-header">Categories</li>  	
+    <li class='category'><a href='/blog/categories/android/'>android (1)</a></li>
+<li class='category'><a href='/blog/categories/backbonejs/'>backbonejs (2)</a></li>
+<li class='category'><a href='/blog/categories/html5/'>html5 (4)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (5)</a></li>
+<li class='category'><a href='/blog/categories/knockoutjs/'>knockoutjs (2)</a></li>
+<li class='category'><a href='/blog/categories/memo/'>memo (3)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
+<li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
+
+  </ul>
+</section><iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=14&l=st1&mode=books-jp&search=JavaScript&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo" class="page-footer"><hr>
+<p>
+  Copyright &copy; 2013 - torub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
