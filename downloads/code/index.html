@@ -110,6 +110,53 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2013/06/29/sublimetext2.html">Sublime Text 2の設定まとめ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-29T19:42:00+09:00" pubdate data-updated="true">2013/06/29</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
+
+<ul>
+<li><a href="#config">設定ファイル</a></li>
+<li><a href="#package">パッケージ</a></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/29/sublimetext2.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2013/06/25/android-study201306.html">日本Androidの会 2013年6月定例会メモ</a></h1>
     
     
@@ -976,96 +1023,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 
     </article>
   
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/06/webrtc.html">WebRTCサンプル</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-06T04:05:00+09:00" pubdate data-updated="true">2013/05/06</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>WebRTCのサンプルを動かしてみたのでまとめます。</p>
-
-<h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>
-
-<p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。</p>
-
-<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='/downloads/code/webrtc.html'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
-</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;ja&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;title&gt;</span>WebRTC<span class="nt">&lt;/title&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;video</span> <span class="na">id=</span><span class="s">&quot;myvideo&quot;</span> <span class="na">width=</span><span class="s">&quot;320&quot;</span> <span class="na">height=</span><span class="s">&quot;240&quot;</span> <span class="na">autoplay</span> <span class="na">style=</span><span class="s">&quot;border:1px solid black&quot;</span><span class="nt">&gt;&lt;/video&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span><span class="p">({</span><span class="nx">video</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">audio</span><span class="o">:</span><span class="kc">true</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">myvideo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myvideo&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">myvideo</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
-</span><span class='line'><span class="nt">&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Androidでは、version26を利用し、アドレスバーに
-<code>about:flags</code>と入力後、以下の「WebRTCを有効にする」を選択してChromeを再起動することで
-実行が可能になります。</p>
-
-<p><img src="/images/cap/webrtc_android.png"></p>
-
-<p>iOSは現状ではSafari, Chromeとも動作しない模様です。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1079,6 +1036,10 @@ Using a modular script loader like RequireJS will improve the speed and quality 
     <section class="well">
   <ul id="recent_posts" class="nav nav-list">
     <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/29/sublimetext2.html">Sublime Text 2の設定まとめ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/06/25/android-study201306.html">日本Androidの会 2013年6月定例会メモ</a>
@@ -1096,10 +1057,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
         <a href="/blog/2013/06/10/knockoutjs2.html">Knockout.jsお試し(2)</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/06/10/knockoutjs1.html">Knockout.jsお試し(1)</a>
-      </li>
-    
   </ul>
 </section>
 <section class="well">
@@ -1113,6 +1070,7 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 <li class='category'><a href='/blog/categories/memo/'>memo (3)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
 <li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
+<li class='category'><a href='/blog/categories/sublimetext/'>sublimetext (1)</a></li>
 
   </ul>
 </section><iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=14&l=st1&mode=books-jp&search=JavaScript&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
