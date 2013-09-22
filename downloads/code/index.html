@@ -110,6 +110,248 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2013/08/26/html5j.html">第41回 HTML5とか勉強会</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-26T19:54:00+09:00" pubdate data-updated="true">2013/08/26</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>「Inside wri.pe」</h2>
+
+<p>増井雄一郎さん（@masuidrive）（FrogApps）</p>
+
+<ul>
+<li><a href="https://wri.pe/app">wri.pe</a></li>
+<li><p><a href="https://masuidrive.tadalist.com/lists/1941485/public">masuidriveの作りたい物&amp;試作品リスト</a></p></li>
+<li><p>煩雑なメモをどうにかしたい!</p></li>
+<li>認証はGithubとFacebook</li>
+<li>サーバはRails 4.0.0RC + Ruby2.0</li>
+<li>サーバは600行程度</li>
+<li>JavaScriptはBackbone.js + HTML5 storage</li>
+<li>自分で使うために。。
+
+<ul>
+<li>サーバの運用は自分でしない</li>
+<li>バックアップも全自動</li>
+</ul>
+</li>
+<li>英語とデザインをなんとかしたい
+
+<ul>
+<li>英語は友達にお願い</li>
+<li>デザイン: dribbbleを参考にした</li>
+<li>アイコンだけはデザイナにお任せした</li>
+<li>Heroku使った</li>
+</ul>
+</li>
+<li>事業の継続性が信用できない??
+
+<ul>
+<li>Dropboxにバックアップを自動で保存している</li>
+</ul>
+</li>
+<li>品質は??
+
+<ul>
+<li>セレニウム?? カピバラ??でRuby on Railsの自動試験を行っている。</li>
+<li>ブラウザ〜DBの中身まで続けて実行</li>
+<li>試験環境はは2weeksかかっている。</li>
+<li>Development * 10-15 = Production</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>「Inside &#8220;お台場合衆国　リアルスコープブースサイネージ&#8221;」</h2>
+
+<p>比留間 和也さん（@edo_m18）（カヤック）</p>
+
+<h3>今回使った機能</h3>
+
+<ul>
+<li>Canvas WebGLメインで、video/audio、Camera、Canvas2D、etc多数。</li>
+<li>課題: クオリティの担保。8時間連続稼動でリロード・再起動なし。そもそもブラウザで大丈夫か?</li>
+<li>42inchの縦置きディスプレイ。クイズ3問出して解答してもらう。写真も撮ってもらう。</li>
+<li><p>1回のプレイで動画8本+WebGL</p></li>
+<li><p>普段どれだけ「技術的にはできるのに断念しているか」を知ることができた。</p>
+
+<ul>
+<li>WebGL</li>
+<li>プラグインなし</li>
+<li>カメラ撮影→XHRでサーバに</li>
+<li>Full Canvas</li>
+<li>タッチパネル</li>
+</ul>
+</li>
+<li>Inka3D?? がMaya2014に対応。Mayaからエクスポートするだけでできる。</li>
+<li><p>Inka3DでMayaの世界を完全再現。再生ができるツール。</p></li>
+<li><p>苦労した点</p>
+
+<ul>
+<li>WebGLのcontext lostが多発</li>
+<li>Three.jsでは実現できなかった</li>
+<li>httpsではカメラアクセスが最初の1回のみ</li>
+<li>画像を別サーバに保存できない</li>
+</ul>
+</li>
+<li><p>動画再生で苦労した点</p>
+
+<ul>
+<li>長時間やっていると、再生が止まることがある
+
+<ul>
+<li>例外拾って強制的にload/playを実行して再起動する</li>
+</ul>
+</li>
+<li>video/canvasには、CSS Shaderが効かない</li>
+</ul>
+</li>
+<li><p>8時間</p>
+
+<ul>
+<li>メモリ管理を徹底</li>
+<li>苦労した点: 耐久テスト朝起動→帰りまで再生しっぱなし</li>
+<li>実機テスト。現場設置のために実機がオフィスを離れる</li>
+</ul>
+</li>
+</ul>
+
+
+<p>DEMO
+http://goo.gl./iOt7na (?動かない)</p>
+
+<h3>HTML5でサイネージは作れる</h3>
+
+<h2>「Inside World Wide Maze」・・・@Saqoosha（Katamari Inc）</h2>
+
+<ul>
+<li>IS Parade</li>
+<li>androp.jp/bell</li>
+<li>World Wide Maze
+
+<ul>
+<li>WebGL(three.js)</li>
+<li>Web Workers(ammo.js, Physijs): ボールの動きを物理演算するのに使っている</li>
+<li>WebSocket(スマホの傾きデータをブラウザに)</li>
+<li>DeviceOrientation</li>
+</ul>
+</li>
+<li>苦労したポイント
+
+<ul>
+<li>全て。開発環境作りからも全て。6ヶ月かかった</li>
+<li>スマホの傾き情報をPCに送るには??</li>
+<li>DeviceOrientationイベントを使う。100〜200ms</li>
+<li>α、β、γの傾きをもとに使う。実装が全て違う。</li>
+</ul>
+</li>
+<li>WebSocket使った
+
+<ul>
+<li>スマホ→PC直接送れない</li>
+<li>間にサーバをかませた。</li>
+<li>node.js + Socket.io</li>
+<li>さまざまなドラフトプロトコルがある。</li>
+<li>たくさんのクライアント、どれとどれをつなげる??</li>
+<li>番号によるペアリング
+
+<ul>
+<li>PCから。
+
+<ul>
+<li>PCからサーバに接続</li>
+<li>ランダム生成の番号をPCに渡す。サーバは覚えておく</li>
+<li>モバイルから番号を指定して、探す</li>
+<li>あればペアリング</li>
+</ul>
+</li>
+<li>saqoo.sh:13000</li>
+<li>ソースコードもあり</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>レイテンシー
+
+<ul>
+<li>スマホから送信したデータがどれくらい時間かかるか
+
+<ul>
+<li>WebSocketのサーバはどこ?</li>
+<li>開発側: 5ms</li>
+<li>日本のサーバ: 30ms</li>
+<li>USのサーバ: 200ms</li>
+</ul>
+</li>
+<li>サーバを経由せずにスマホからPCに直接送る方法: WebRTCのDataChannelをつかう。
+
+<ul>
+<li>ペアリングするためのサーバはやはり必要</li>
+</ul>
+</li>
+<li><p>HTML5 Rocksに記事を書いた</p></li>
+<li><p>http://saqoo.sh:13000/</p></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>「Inside マンガテレビ」・・・小松健作さん（@komasshu）（NTT Communications）</h2>
+
+<p>http://goo.gl/O2YkkJ</p>
+
+<p>WebSpeech API: Chromeのみ。認識はGoogleががんばる。
+HeadTrackr.js: OperaのAudunさんが開発している顔検出ライブラリ
+  - Face.jsより高速で動く。1回目の認識は遅い</p>
+
+<ul>
+<li>getUserMedia()でビデオ取得</li>
+<li>CanvasPixelArray取得</li>
+<li>フィルタ処理</li>
+<li><p>httpsにしないと毎回アクセスOKかどうかを確認しにくるので、デバイス系はサイトをhttpsにすべき</p></li>
+<li><p>How to Performance。</p></li>
+<li>30万回のループ処理
+
+<ul>
+<li>60fps @ MBPで。</li>
+<li>1回あたりの処理：10msec。</li>
+<li>ループ1回あたり30nsec。</li>
+<li>Chromeの、ツールで、Profile→レコードして中身見る</li>
+<li>プロパティは呼ばないで変数使う。関数は呼ばないで直接計算する。</li>
+<li>文字列の数値化は、parseInt(&#8216;1&#8217;) &lt; &#8216;1&#8217; | 0 でparseIntの法が速い</li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2013/08/24/web-ui.html">使いたくなる UI をつくる！ フロントエンド 勉強会</a></h1>
     
     
@@ -1254,47 +1496,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 
     </article>
   
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/28/html5.html">第39回html5とか勉強会+日本Androidの会5月定例</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-28T18:58:00+09:00" pubdate data-updated="true">2013/05/28</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/28/html5.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1310,6 +1511,10 @@ Using a modular script loader like RequireJS will improve the speed and quality 
     <li class="nav-header">Recent Posts</li>
     
       <li class="post">
+        <a href="/blog/2013/08/26/html5j.html">第41回 HTML5とか勉強会</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/24/web-ui.html">使いたくなる UI をつくる！ フロントエンド 勉強会</a>
       </li>
     
@@ -1323,10 +1528,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
     
       <li class="post">
         <a href="/blog/2013/06/25/android-study201306.html">日本Androidの会 2013年6月定例会メモ</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/18/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a>
       </li>
     
   </ul>

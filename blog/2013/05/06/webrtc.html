@@ -135,8 +135,49 @@
 
 <h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>
 
-<p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。
-File /Users/toru/Dropbox/octopress/source/downloads/code/webrtc.html could not be found</p>
+<p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。</p>
+
+<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='/downloads/code/webrtc.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;ja&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>WebRTC<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;video</span> <span class="na">id=</span><span class="s">&quot;myvideo&quot;</span> <span class="na">width=</span><span class="s">&quot;320&quot;</span> <span class="na">height=</span><span class="s">&quot;240&quot;</span> <span class="na">autoplay</span> <span class="na">style=</span><span class="s">&quot;border:1px solid black&quot;</span><span class="nt">&gt;&lt;/video&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span><span class="p">({</span><span class="nx">video</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">audio</span><span class="o">:</span><span class="kc">true</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">myvideo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myvideo&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">myvideo</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Androidでは、version26を利用し、アドレスバーに
 <code>about:flags</code>と入力後、以下の「WebRTCを有効にする」を選択してChromeを再起動することで
@@ -214,6 +255,10 @@ File /Users/toru/Dropbox/octopress/source/downloads/code/webrtc.html could not b
     <li class="nav-header">Recent Posts</li>
     
       <li class="post">
+        <a href="/blog/2013/08/26/html5j.html">第41回 HTML5とか勉強会</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/24/web-ui.html">使いたくなる UI をつくる！ フロントエンド 勉強会</a>
       </li>
     
@@ -227,10 +272,6 @@ File /Users/toru/Dropbox/octopress/source/downloads/code/webrtc.html could not b
     
       <li class="post">
         <a href="/blog/2013/06/25/android-study201306.html">日本Androidの会 2013年6月定例会メモ</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/18/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a>
       </li>
     
   </ul>
