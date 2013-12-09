@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-11-25T01:12:37+09:00</updated>
+  <updated>2013-12-10T02:02:10+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[第1回 Build Insider OFFLINEメモ]]></title>
-    <link href="http://sat-pg.com/blog/2013/06/08/buildinsider.html"/>
+    <link href="http://sat-pg.com/blog/buildinsider.html"/>
     <updated>2013-06-08T23:45:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/06/08/buildinsider</id>
+    <id>http://sat-pg.com/blog/buildinsider</id>
     <content type="html"><![CDATA[<p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
 
 <!-- more -->
@@ -393,9 +393,9 @@ value1(10);
   
   <entry>
     <title type="html"><![CDATA[第39回html5とか勉強会+日本Androidの会5月定例]]></title>
-    <link href="http://sat-pg.com/blog/2013/05/28/html5.html"/>
+    <link href="http://sat-pg.com/blog/html5.html"/>
     <updated>2013-05-28T18:58:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/05/28/html5</id>
+    <id>http://sat-pg.com/blog/html5</id>
     <content type="html"><![CDATA[<p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
 
 <!-- more -->

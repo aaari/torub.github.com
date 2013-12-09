@@ -4,7 +4,7 @@
   <title><![CDATA[Category: knockoutjs | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/knockoutjs/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-11-25T01:12:37+09:00</updated>
+  <updated>2013-12-10T02:02:10+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(2)]]></title>
-    <link href="http://sat-pg.com/blog/2013/06/10/knockoutjs2.html"/>
+    <link href="http://sat-pg.com/blog/knockoutjs2.html"/>
     <updated>2013-06-10T11:09:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/06/10/knockoutjs2</id>
+    <id>http://sat-pg.com/blog/knockoutjs2</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
 
 <h4>サンプル2</h4>
@@ -202,9 +202,9 @@ window.addEventListener('DOMContentLoaded', function(){
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(1)]]></title>
-    <link href="http://sat-pg.com/blog/2013/06/10/knockoutjs1.html"/>
+    <link href="http://sat-pg.com/blog/knockoutjs1.html"/>
     <updated>2013-06-10T01:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/06/10/knockoutjs1</id>
+    <id>http://sat-pg.com/blog/knockoutjs1</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
 <a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
 

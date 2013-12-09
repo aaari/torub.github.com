@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-11-25T01:12:37+09:00</updated>
+  <updated>2013-12-10T02:02:10+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressのいろいろ]]></title>
-    <link href="http://sat-pg.com/blog/2013/05/06/octopress-config.html"/>
+    <link href="http://sat-pg.com/blog/octopress-config.html"/>
     <updated>2013-05-06T03:02:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/05/06/octopress-config</id>
+    <id>http://sat-pg.com/blog/octopress-config</id>
     <content type="html"><![CDATA[<p>Octopressの設定など色々まとめていきます。<br/>
 設定追加毎に記事も追加していきます。</p>
 
@@ -208,9 +208,9 @@ comments: true</p>
   
   <entry>
     <title type="html"><![CDATA[Octopressの導入]]></title>
-    <link href="http://sat-pg.com/blog/2013/05/04/octopress.html"/>
+    <link href="http://sat-pg.com/blog/octopress.html"/>
     <updated>2013-05-04T03:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/05/04/octopress</id>
+    <id>http://sat-pg.com/blog/octopress</id>
     <content type="html"><![CDATA[<p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
 
 <p>以下4点、順番に説明します。</p>

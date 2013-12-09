@@ -1,52 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/04/octopress.html</loc>
+        <loc>http://sat-pg.com/blog/octopress.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/06/octopress-config.html</loc>
+        <loc>http://sat-pg.com/blog/octopress-config.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/06/webrtc.html</loc>
+        <loc>http://sat-pg.com/blog/webrtc.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/19/svctest.html</loc>
+        <loc>http://sat-pg.com/blog/svctest.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/25/phonegap1.html</loc>
+        <loc>http://sat-pg.com/blog/phonegap1.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/05/28/html5.html</loc>
+        <loc>http://sat-pg.com/blog/html5.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/06/08/buildinsider.html</loc>
+        <loc>http://sat-pg.com/blog/buildinsider.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/06/10/knockoutjs1.html</loc>
+        <loc>http://sat-pg.com/blog/knockoutjs1.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/06/10/knockoutjs2.html</loc>
+        <loc>http://sat-pg.com/blog/knockoutjs2.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/06/17/backbonejs1.html</loc>
+        <loc>http://sat-pg.com/blog/backbonejs1.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1.html</loc>
+        <loc>http://sat-pg.com/blog/backbone-tutorial-1.html</loc>
         <lastmod>2013-11-20T01:35:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/2013/11/24/yeoman.html</loc>
+        <loc>http://sat-pg.com/blog/yeoman.html</loc>
         <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://sat-pg.com/blog/meanstack.html</loc>
+        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/about.html</loc>
@@ -70,7 +74,7 @@
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/</loc>
-        <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/javascript.html</loc>
@@ -78,15 +82,15 @@
     </url>
     <url>
         <loc>http://sat-pg.com/blog/archives/</loc>
-        <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/downloads/code/</loc>
-        <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/</loc>
-        <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/robots.txt</loc>

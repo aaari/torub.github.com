@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Saturday Programmer</title>
+  <title>AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る - Saturday Programmer</title>
   <meta name="author" content="torub">
 
   
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sat-pg.com/index.html">
+  <link rel="canonical" href="http://sat-pg.com/blog/meanstack.html">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
 
@@ -92,12 +92,8 @@
         <div id="content">
           <div class="row">
   <div class="page-content col-md-9">
-    <div class="blog-index">
+    <article class="hentry" role="article">
       
-      
-      
-        <article class="post">
-          
   <header class="page-header">
     
       <p class="meta text-muted text-uppercase">
@@ -119,12 +115,15 @@
       </p>
     
     
-      <h1 class="entry-title"><a href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a></h1>
+    <h1 class="entry-title">
+        AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る
+        
+    </h1>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
+<div class="entry-content clearfix"><p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
 簡単なTodoリストを作ります。</p>
 
 <h1>AngularJS+NodeJS(ExpressJS)+MongoDB</h1>
@@ -826,156 +825,16 @@ Facebookでの認証も付けてみるとか、色々応用ができると思い
 </ul>
 
 </div>
-  
-  
 
 
-        </article>
-      
-      
-        <article class="post">
+      <footer>
+        <p class="meta text-muted">
           
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-11-24T01:33:00+09:00" pubdate data-updated="true">2013/11/24</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/yeoman.html">Yeomanの設定</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>Webアプリを作る際に、Yeomanを使うと雛形作成やデバッグが楽になるので愛用しています。
-YeomanはYo(プロジェクト管理) + Bower(依存性管理) + Grunt(ビルド・テスト実施)からなり、JavaScript開発を助けてくれるNodejsのライブラリです。</p>
-
-<p>Node.jsは入っているものとして、以下でインストールします。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm install -g yo grunt-cli bower generator-angular generator-karma</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Yo</h3>
-
-<p>Yoを使うと各種雛形をインストールできます。
-雛形はnpmで探すことが出来て、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm saerch yeoman-generator</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とすることで検索できます。
-検索結果より、使いたい雛形を選択して</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% yo webapp</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とか、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% yo angular</span></code></pre></td></tr></table></div></figure>
-
-
-<p>などとすることで、各種の雛形を生成できます。</p>
-
-<h3>Bower</h3>
-
-<p>Yoで雛形作った後、必要に応じてJavaScriptライブラリを追加する際、
-Bowerを使うことで管理が容易にできるようになります。</p>
-
-<p>自分でダウンロードしてフォルダに置くのではなく、</p>
-
-<p>bower.jsonに設定を記入しつつインストールするには、例えばjquery後から追加する場合、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% bower install jquery --save</span></code></pre></td></tr></table></div></figure>
-
-
-<p>と記入します。&#8211;saveを付けておくことで、インストールと同時にbower.jsonという設定ファイルに
-記録されていきます。bower.jsonがディレクトリにあれば、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% bower install</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とすることで、記載したライブラリを後からまとめてインストール可能です。</p>
-
-<h3>Grunt</h3>
-
-<p>gruntはビルドツールです。
-yoで雛形を作ったあとは、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% grunt server</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とすると、デバッグ用のWebサーバが起動して、ブラウザまで勝手に立ち上がって動作の確認を行うことができます。起動中のソースコードの変更などもすぐ反映されて使いやすいです。</p>
-
-<p>また、minifyなど、リリース用の作業を実施する、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% grunt build</span></code></pre></td></tr></table></div></figure>
-
-
-<p>や、jasminなどと連携してテストができる、</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% grunt test</span></code></pre></td></tr></table></div></figure>
-
-
-<p>などもあります。</p>
-
-<h3>AngularJSのテンプレートインストール</h3>
-
-<p>試しにAngularJSのテンプレートをインストールしてみます。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% mkdir angular
-</span><span class='line'>% cd angular
-</span><span class='line'>% yo angular</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とすると、Bootstrap、Compassを使うか否かと、いくつかのangularのモジュールを使うかの
-選択が出てきます。全部インストールして、
-<code>grunt server</code> とすると、以下の
-サンプル画面が出てきます。</p>
-
-<p><img src="/images/cap/yoangular.png"></p>
-
-<p>画面を表示したまま、ファイルを更新していくと
-即座に反映されるので、楽に開発することができます。</p>
-</div>
-  
   
 
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">torub</span></span>
 
-        </article>
-      
-      
-        <article class="post">
           
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
 
 
 
@@ -988,676 +847,67 @@ yoで雛形を作ったあとは、</p>
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-18T02:57:00+09:00" pubdate data-updated="true">2013/06/18</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>ひきつづきBackbone.jsの勉強。</p>
-
-<p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
-不明点だらけのため、調べたことをメモ。</p>
-
-<h3>Step1: package.json</h3>
-
-<ul>
-<li>node.jsによるパッケージ管理ツール(npm)で、パッケージのバージョン管理をするためのもの。</li>
-<li>package.jsonを記載して、<code>npm install</code>とすることで必要なモジュールがインストールされる。</li>
-<li><code>./node_modules</code>以下にファイルがコピーされるため、git使う場合は.gitignoreに記載したほうがいい。</li>
-<li>gruntのバージョンが変わっているためサンプルを一部修正。(gruntは、gruntの他にgrunt-cliとgrunt-initの3つに分かれたとのこと。<a href="https://github.com/gruntjs/grunt/wiki/Upgrading-from-0.3-to-0.4">gruntのmigration guide</a>)</li>
-</ul>
-
-
-<h3>Step2: server.js</h3>
-
-<ul>
-<li><a href="http://www.senchalabs.org/connect/">Connect</a>はNode.jsのミドルウェアフレームワークで、複数のミドルウェアが扱える。</li>
-<li>Connectのstaticは、静的なファイルを返すサーバを作れるみたい。</li>
-<li>Connect#useで、マウントポイントやルーティングの設定等ができるので、サンプルでは、<code>app</code>をルートディレクトリとし、<code>node_modules</code>はそのまま、<code>/js/lib/</code>は、<code>node_modules/requirejs/</code>にマウントをしている。</li>
-<li>例) <code>http://localhost:8000/js/lib/require.js</code>と<code>http://localhost:8000/node_modules/requirejs/require.js</code>は同じファイルで、両方ともブラウザからアクセスできる。</li>
-</ul>
-
-
-<h3>Step3: RequrireJS</h3>
-
-<p><a href="http://requirejs.org/">RequreJSの公式</a>から引用。</p>
-
-<pre><code>RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, 
-but it can be used in other JavaScript environments, like Rhino and Node. 
-Using a modular script loader like RequireJS will improve the speed and quality of your code.
-</code></pre>
-
-<ul>
-<li>JavaScriptのファイル・モジュールの読み込み用ライブラリで、必要になったとき読み込む等で、スピードと品質を改善する。</li>
-<li>RequireJSの設定はmain.jsに書くのが普通らしい。(このサンプルでもapp/js/main.jsに<code>requirejs.config..</code>を記載)</li>
-<li><code>require(['hoge']..</code>と書くとapp/js/hoge.jsを読み込む</li>
-<li><code>require</code>の後は、読み込んだjs内の関数や変数が使える。サンプルでは、<code>require['app']</code>として、app.js内のAppを<code>new App()</code>として呼び出している。</li>
-<li>呼び出されるjs側では、1つのモジュールの単位毎にdefineで定義する模様。</li>
-<li>defineの後の[]には、依存関係にあるモジュールを記載して使う。例えば<code>define(['lib/jquery'], function($){ ... })</code> のようにすると、jquery.jsに依存するモジュールが書ける。(define内部で$も使える。)</li>
-<li>JSHintでエラーが出ないようにするには、JSHintの設定ファイルで、<code>"dojo" : true</code>とすればいい。(defineとrequireが許可される模様。)</li>
-</ul>
-
-
-<h3>Step4: テストの環境(Mocha, Chai)</h3>
-
-<p><a href="http://visionmedia.github.io/mocha/">Mochaフレームワーク</a>を利用する環境の作成。</p>
-
-<ul>
-<li>Mochaは、先日のBuildInsiderの講演によると、TDDとかBDD(テストドリブン開発とビヘイビアドリブン開発)を実現するためのフレームワークらしい。</li>
-<li>TDDとBDDで利用する関数が異なる。
-
-<ul>
-<li>TDDは、suite()、test()、setup()とteardown()</li>
-<li>BDDは、describe()、it()、before()、beforeEach()とafterEach()</li>
-</ul>
-</li>
-<li>setup.jsでTDD or BDD等を設定する。</li>
-<li><p><code>require['app']</code>でapp.jsを読み込んで、<code>mocha.run();</code>としてテスト実行</p></li>
-<li><p>(この作者は?)<a href="http://chaijs.com/api/assert/">chaiのassert</a>を使ってテストする。簡単のためっぽい。</p></li>
-<li>server.jsのマウントポイントに/testを追加。(test/とapp両方を/testに。こうしないとrequire[&#8216;app&#8217;]が動かない。)</li>
-</ul>
-
-
-<h3>Step5: ビルド環境(grunt)</h3>
-
-<ul>
-<li><a href="http://grantjs.com">grant.js</a>は、JavaScriptのタスクランナー。
-
-<ul>
-<li>antとかMakefileのJavaScript版みたいなもの(?)</li>
-</ul>
-</li>
-<li>JSHintのチェックとか、CoffeeScriptのコンパイルとかRequireJSの設定とかを自動化できる</li>
-<li>grunt.jsが0.4系にバージョンアップしているので、サンプルを以下の通り修正
-
-<ul>
-<li>grunt.jsは、バージョンアップに伴いGrantfile.jsに変更(中身は同じ)</li>
-<li>package.jsonに、<code>"grunt-cli": "latest", "grunt-init": "latest"</code>を追加</li>
-<li>scriptsのgrunt部分を<code>"grunt" : "grunt"</code>に修正</li>
-</ul>
-</li>
-<li>grunt.jsのコマンドラインインターフェイス(CLI)はgrunt-cliにある。<code>./node_modules/grunt-cli/bin/grunt</code>が本体。</li>
-<li>全てのgrunt.jsのコードは、<code>module.exports = function(grunt) { };</code>内に書く必要がある。</li>
-<li>loadNpmTasksでプラグインをロード、initConfigでロードしたプラグインの設定。</li>
-<li>registerTaskは、プラグインを使わないような作業の設定(多分)。</li>
-<li>defaultはgruntに引数を与えない場合に実行されるタスク。</li>
-<li>サンプルの例で言えば、grunt とすると、execとcopy-requireが実行される。</li>
-<li>grunt execとするとexec部分のみが実行される。</li>
-</ul>
-
-
-<p>※今後チュートリアルを進めていくのと並行して、出てきたライブラリ(RequireJS、mocha.js、grunt.jsなどなど)のサンプルを書いてみたい。</p>
-
-<h3><a href="https://github.com/torub/backbone-tutorial/tree/7081a6f20be7e3a29a359dcc3904d40c09bfb11d">動作版のファイル - github</a></h3>
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article class="post">
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-12-10T02:00:00+09:00" pubdate data-updated="true">2013/12/10</time>
           
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/nodejs/'>nodejs</a>
+  
+</span>
+
+
+        </p>
         
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sat-pg.com/blog/meanstack.html" data-via="" data-counturl="http://sat-pg.com/blog/meanstack.html" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-17T00:21:00+09:00" pubdate data-updated="true">2013/06/17</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/backbonejs1.html">Backbone.jsお試し</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>Knockout.jsの次はBackbone.jsのテスト。</p>
-
-<p><a href="http://dotinstall.com/lessons/basic_backbonejs">ドットインストールのBackbone.js入門</a>を試してみた結果を添付します。</p>
+  <!-- hatebu-start -->
+  
+  <a href="http://b.hatena.ne.jp/entry/http://sat-pg.com/blog/meanstack.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <!-- hatebu-end -->
 
 </div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/backbonejs1.html">続きを読む &rarr;</a>
-    </footer>
-  
 
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
         
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-10T11:09:00+09:00" pubdate data-updated="true">2013/06/10</time>
         
-      </p>
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/yeoman.html" title="Previous Post: Yeomanの設定">&laquo; Yeomanの設定</a></li>
+            
+            
+          </ul>
+        
+      </footer>
+    </article>
     
-    
-      <h1 class="entry-title"><a href="/blog/knockoutjs2.html">Knockout.jsお試し(2)</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
-
-<h4>サンプル2</h4>
-
-<ol>
-<li>複数の要素を監視対象にするにはobservableArrayを使う</li>
-<li>observableArrayからのデータ削除にはremoveを使う</li>
-<li>observableArrayへのデータ追加にはpushを使う</li>
-<li>ここがobservableでなくても動くのがよくわからない??</li>
-<li>繰り返したい項目はforeachを使う</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js&#39;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="kd">function</span> <span class="nx">Checkout</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">menu</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">menu</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="nx">menu</span><span class="p">);</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">check</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">menu</span><span class="p">().</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">self</span><span class="p">.</span><span class="nx">num</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">function</span> <span class="nx">CashierViewModel</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">menuList</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'>          <span class="p">{</span> <span class="nx">menuName</span><span class="o">:</span><span class="s1">&#39;Aランチ&#39;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span><span class="mi">1000</span> <span class="p">},</span>
-</span><span class='line'>          <span class="p">{</span> <span class="nx">menuName</span><span class="o">:</span><span class="s1">&#39;Bランチ&#39;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span><span class="mi">1500</span> <span class="p">},</span>
-</span><span class='line'>          <span class="p">{</span> <span class="nx">menuName</span><span class="o">:</span><span class="s1">&#39;スペシャルランチ&#39;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span><span class="mi">3000</span> <span class="p">}</span>
-</span><span class='line'>      <span class="p">];</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">checkoutList</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observableArray</span><span class="p">([</span>    <span class="c1">// 1</span>
-</span><span class='line'>          <span class="k">new</span> <span class="nx">Checkout</span><span class="p">(</span><span class="s1">&#39;鈴木&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">menuList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
-</span><span class='line'>          <span class="k">new</span> <span class="nx">Checkout</span><span class="p">(</span><span class="s1">&#39;鈴木&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">menuList</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
-</span><span class='line'>      <span class="p">]);</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">removeData</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span> <span class="nx">self</span><span class="p">.</span><span class="nx">checkoutList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="p">}</span>  <span class="c1">// 2</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">addData</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">self</span><span class="p">.</span><span class="nx">checkoutList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Checkout</span><span class="p">(</span><span class="s1">&#39;佐藤&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">newmenu</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">newnum</span><span class="p">));</span>    <span class="c1">//3</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>          <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">checkoutList</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="nx">t</span> <span class="o">+=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">checkoutList</span><span class="p">()[</span><span class="nx">i</span><span class="p">].</span><span class="nx">check</span><span class="p">();</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="k">return</span> <span class="nx">t</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">newmenu</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">menuList</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//4</span>
-</span><span class='line'>      <span class="nx">self</span><span class="p">.</span><span class="nx">newnum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">//4</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">CashierViewModel</span><span class="p">());</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;strong&gt;</span>配列表示のテスト(レストランの会計)<span class="nt">&lt;/strong&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>売り上げ合計：<span class="nt">&lt;span</span> <span class="na">data-bind=</span><span class="s">&quot;text: total()&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>円<span class="nt">&lt;/p&gt;</span>
-</span><span class='line'><span class="nt">&lt;table&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;thead&gt;&lt;tr&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;th&gt;</span>レジ担当者<span class="nt">&lt;/th&gt;&lt;th&gt;</span>メニュー<span class="nt">&lt;/th&gt;&lt;th&gt;</span>数量<span class="nt">&lt;/th&gt;&lt;th&gt;</span>価格<span class="nt">&lt;/th&gt;&lt;th&gt;&lt;/th&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/tr&gt;&lt;/thead&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;tbody</span> <span class="na">data-bind=</span><span class="s">&quot;foreach: checkoutList&quot;</span><span class="nt">&gt;</span> <span class="c">&lt;!-- 5 --&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;tr&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;td</span> <span class="na">data-bind=</span><span class="s">&quot;text: name&quot;</span><span class="nt">&gt;&lt;/td&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;td&gt;&lt;select</span> <span class="na">data-bind=</span><span class="s">&quot;options: $root.menuList, value: menu, optionsText: &#39;menuName&#39;&quot;</span><span class="nt">&gt;&lt;/select&gt;&lt;/td&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-bind=</span><span class="s">&quot;value: num&quot;</span> <span class="nt">/&gt;&lt;/td&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;td</span> <span class="na">data-bind=</span><span class="s">&quot;text: check&quot;</span><span class="nt">&gt;&lt;/td&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bind=</span><span class="s">&quot;click: $root.removeData&quot;</span><span class="nt">&gt;</span>Remove<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/tr&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/tbody&gt;</span>
-</span><span class='line'><span class="nt">&lt;/table&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>データ追加<span class="nt">&lt;/p&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>メニュー：<span class="nt">&lt;select</span> <span class="na">data-bind=</span><span class="s">&quot;options: $root.menuList, value: newmenu, optionsText: &#39;menuName&#39;&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
-</span><span class='line'>数量：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-bind=</span><span class="s">&quot;value: newnum&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'><span class="nt">&lt;button</span> <span class="na">data-bind=</span><span class="s">&quot;click: addData&quot;</span><span class="nt">&gt;</span>追加<span class="nt">&lt;/button&gt;&lt;/p&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実行結果は↓</p>
-
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/knockoutjs2.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
+      </section>
     
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-10T01:37:00+09:00" pubdate data-updated="true">2013/06/10</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/knockoutjs1.html">Knockout.jsお試し(1)</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
-<a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
-
-<h4>サンプル1</h4>
-
-<ol>
-<li>変数をko.observable()で囲うことで、監視対象にできる。</li>
-<li>computedを使うことで、複数のobservableな変数を組み合わせた値を作れる。observableな変数が変更されると、computedな値も変更される。</li>
-<li>applyBindingでViewModelを登録</li>
-<li>data-bindを利用してDOMとViewModelの変数を関連付け</li>
-<li>clickイベントと関数の紐付け。サンプルはクリックで大文字小文字を変更。</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js&#39;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">function</span> <span class="nx">AppViewModel</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>    <span class="c1">// 1</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// 2</span>
-</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">toggleLastName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="nx">flag</span> <span class="o">=</span> <span class="o">!</span><span class="nx">flag</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">};</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="c1">// Activates knockout.js</span>
-</span><span class='line'>  <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">AppViewModel</span><span class="p">());</span>   <span class="c1">// 3</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p&gt;</span>First name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: firstName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span> <span class="c">&lt;!-- 4 --&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Last name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: lastName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>FULL NAME: <span class="nt">&lt;strong</span> <span class="na">data-bind=</span><span class="s">&quot;text: fullName&quot;</span><span class="nt">&gt;&lt;/strong&gt;&lt;/P&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;button</span> <span class="na">data-bind=</span><span class="s">&quot;click: toggleLastName&quot;</span><span class="nt">&gt;</span>toggle!<span class="nt">&lt;/button&gt;</span>   <span class="c">&lt;!-- 5 --&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実行結果は↓</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/knockoutjs1.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-08T23:45:00+09:00" pubdate data-updated="true">2013/06/08</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/buildinsider.html">第1回 Build Insider OFFLINEメモ</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/buildinsider.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-28T18:58:00+09:00" pubdate data-updated="true">2013/05/28</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/html5.html">第39回html5とか勉強会+日本Androidの会5月定例</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/html5.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-25T22:46:00+09:00" pubdate data-updated="true">2013/05/25</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/phonegap1.html">PhoneGap準備</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載。</p>
-
-<p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行。</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/phonegap1.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-19T11:35:00+09:00" pubdate data-updated="true">2013/05/19</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/svctest.html">SVCのテスト</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>SVCのサンプルを記載します。</p>
-
-<ul>
-<li><a href="#base">基本図形</a></li>
-<li><a href="#gra">グラデーション</a></li>
-<li><a href="#poly">線、ポリゴン</a></li>
-<li><a href="#text">テキスト</a></li>
-<li><a href="#animation">アニメーション</a></li>
-<li><a href="#sanko">参考</a></li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/svctest.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-    </div>
-
-    <ul class="pager">
-      
-        <li class="previous"><a href="/blog/page/2/">&larr;&nbsp;Older</a></li>
-      
-      <li><a href="/blog/archives">Blog Archives</a></li>
-      
-        <li class="next disabled"><a href="#">Newer&nbsp;&rarr;</a></li>
-      
-    </ul>
   </div>
 
   
-    <aside class="sidebar col-md-3">
-      
-        <section class="panel panel-default">
+  <aside class="sidebar col-md-3">
+    
+      <section class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Recent Posts</h3>
   </div>
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a>
+    <a class="list-group-item active" href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a>
     
     <a class="list-group-item " href="/blog/yeoman.html">Yeomanの設定</a>
     
@@ -1686,8 +936,8 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 </section><iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=mugi2-22&o=9&p=14&l=st1&mode=books-jp&search=JavaScript&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
 
 
-      
-    </aside>
+    
+  </aside>
   
 </div>
 
@@ -1713,7 +963,10 @@ Using a modular script loader like RequireJS will improve the speed and quality 
       var disqus_shortname = 'sat-pg';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sat-pg.com/blog/meanstack.html';
+        var disqus_url = 'http://sat-pg.com/blog/meanstack.html';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: backbonejs | Saturday Programmer]]></title>
   <link href="http://sat-pg.com/blog/categories/backbonejs/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2013-11-25T01:12:37+09:00</updated>
+  <updated>2013-12-10T02:02:10+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsのtutorial(1)]]></title>
-    <link href="http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1.html"/>
+    <link href="http://sat-pg.com/blog/backbone-tutorial-1.html"/>
     <updated>2013-06-18T02:57:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/06/18/backbone-tutorial-1</id>
+    <id>http://sat-pg.com/blog/backbone-tutorial-1</id>
     <content type="html"><![CDATA[<p>ひきつづきBackbone.jsの勉強。</p>
 
 <p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
@@ -119,9 +119,9 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsお試し]]></title>
-    <link href="http://sat-pg.com/blog/2013/06/17/backbonejs1.html"/>
+    <link href="http://sat-pg.com/blog/backbonejs1.html"/>
     <updated>2013-06-17T00:21:00+09:00</updated>
-    <id>http://sat-pg.com/blog/2013/06/17/backbonejs1</id>
+    <id>http://sat-pg.com/blog/backbonejs1</id>
     <content type="html"><![CDATA[<p>Knockout.jsの次はBackbone.jsのテスト。</p>
 
 <p><a href="http://dotinstall.com/lessons/basic_backbonejs">ドットインストールのBackbone.js入門</a>を試してみた結果を添付します。</p>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: angularjs | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/angularjs/atom.xml" rel="self"/>
+  <title><![CDATA[Category: nodejs | Saturday Programmer]]></title>
+  <link href="http://sat-pg.com/blog/categories/nodejs/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
   <updated>2013-12-10T02:02:10+09:00</updated>
   <id>http://sat-pg.com/</id>
@@ -807,106 +807,6 @@ Facebookでの認証も付けてみるとか、色々応用ができると思い
 <li><a href="http://taka512.hatenablog.com/entry/20110220/1298195574">SQL脳に優しいMongoDBクエリー入門 - taka512's blog</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Yeomanの設定]]></title>
-    <link href="http://sat-pg.com/blog/yeoman.html"/>
-    <updated>2013-11-24T01:33:00+09:00</updated>
-    <id>http://sat-pg.com/blog/yeoman</id>
-    <content type="html"><![CDATA[<p>Webアプリを作る際に、Yeomanを使うと雛形作成やデバッグが楽になるので愛用しています。
-YeomanはYo(プロジェクト管理) + Bower(依存性管理) + Grunt(ビルド・テスト実施)からなり、JavaScript開発を助けてくれるNodejsのライブラリです。</p>
-
-<p>Node.jsは入っているものとして、以下でインストールします。</p>
-
-<p><code>
-% npm install -g yo grunt-cli bower generator-angular generator-karma
-</code></p>
-
-<h3>Yo</h3>
-
-<p>Yoを使うと各種雛形をインストールできます。
-雛形はnpmで探すことが出来て、</p>
-
-<p><code>
-% npm saerch yeoman-generator
-</code></p>
-
-<p>とすることで検索できます。
-検索結果より、使いたい雛形を選択して</p>
-
-<p><code>
-% yo webapp
-</code></p>
-
-<p>とか、</p>
-
-<p><code>
-% yo angular
-</code></p>
-
-<p>などとすることで、各種の雛形を生成できます。</p>
-
-<h3>Bower</h3>
-
-<p>Yoで雛形作った後、必要に応じてJavaScriptライブラリを追加する際、
-Bowerを使うことで管理が容易にできるようになります。</p>
-
-<p>自分でダウンロードしてフォルダに置くのではなく、</p>
-
-<p>bower.jsonに設定を記入しつつインストールするには、例えばjquery後から追加する場合、</p>
-
-<p><code>
-% bower install jquery --save
-</code></p>
-
-<p>と記入します。--saveを付けておくことで、インストールと同時にbower.jsonという設定ファイルに
-記録されていきます。bower.jsonがディレクトリにあれば、</p>
-
-<p><code>
-% bower install
-</code>
-とすることで、記載したライブラリを後からまとめてインストール可能です。</p>
-
-<h3>Grunt</h3>
-
-<p>gruntはビルドツールです。
-yoで雛形を作ったあとは、
-<code>
-% grunt server
-</code>
-とすると、デバッグ用のWebサーバが起動して、ブラウザまで勝手に立ち上がって動作の確認を行うことができます。起動中のソースコードの変更などもすぐ反映されて使いやすいです。</p>
-
-<p>また、minifyなど、リリース用の作業を実施する、
-<code>
-% grunt build
-</code>
-や、jasminなどと連携してテストができる、
-<code>
-% grunt test
-</code>
-などもあります。</p>
-
-<h3>AngularJSのテンプレートインストール</h3>
-
-<p>試しにAngularJSのテンプレートをインストールしてみます。</p>
-
-<p><code>
-% mkdir angular
-% cd angular
-% yo angular
-</code></p>
-
-<p>とすると、Bootstrap、Compassを使うか否かと、いくつかのangularのモジュールを使うかの
-選択が出てきます。全部インストールして、
-<code>grunt server</code> とすると、以下の
-サンプル画面が出てきます。</p>
-
-<p><img src="/images/cap/yoangular.png"></p>
-
-<p>画面を表示したまま、ファイルを更新していくと
-即座に反映されるので、楽に開発することができます。</p>
 ]]></content>
   </entry>
   
