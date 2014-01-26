@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: android | Saturday Programmer]]></title>
+  <link href="http://sat-pg.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://sat-pg.com/"/>
+  <updated>2014-01-26T18:12:53+09:00</updated>
+  <id>http://sat-pg.com/</id>
+  <author>
+    <name><![CDATA[torub]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Androidでの簡易なWidget作り方]]></title>
+    <link href="http://sat-pg.com/blog/android-widget.html"/>
+    <updated>2014-01-26T17:13:00+09:00</updated>
+    <id>http://sat-pg.com/blog/android-widget</id>
+    <content type="html"><![CDATA[<p>Nexus5を買ったのでAndroidのウィジェットを作ってみます．
+初Androidのためかなりシンプルなサンプルを作ります．</p>
+
+<p><img src="/images/blog/widget.png" alt="WidgetSample" /></p>
+
+<p>ボタンをクリックするとカウントアップするだけ．．．です．</p>
+
+<h2>Androidのウィジェットとは</h2>
+
+<p>ウィジェットはAndroidの特徴でホームに色々貼り付けることができる，iPhoneとの大きな差異の1つで，APIのLevel3(Android1.5)から使えているそうです．今はAPI Level19(Android4.4)だからかなり初期から利用できているものです．</p>
+
+<p>ウィジェットは次の手順で作ることができます．</p>
+
+<ol>
+<li>ウィジェットの設定ファイル作成</li>
+<li>ウィジェットのレイアウト作成</li>
+<li>AppWidgetProviderのサブクラス作成</li>
+<li>BroadcastReceiverのサブクラス作成</li>
+<li>AndroidManifest修正</li>
+</ol>
+
+
+<h2>1. ウィジェットの設定ファイル作成</h2>
+
+<p>以下のようなXMLファイルを，ウィジェットの設定ファイルとして定義します．</p>
+
+<p>```
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"</p>
+
+<pre><code>android:initialLayout="@layout/widget_layout"
+android:minHeight="146dp"
+android:minWidth="292dp"
+android:previewImage="@drawable/widget"
+android:updatePeriodMillis="1000000" &gt;
+</code></pre>
+
+<p></appwidget-provider>
+```</p>
+
+<ul>
+<li>initialLayoutはレイアウトファイルを設定．</li>
+<li>previewImageに画像を設定すると，ウィジェットの追加画面でサムネイルが表示可能．</li>
+<li>updatePeriodMills属性は，ウィジェットの更新タイマを定義します．このタイマに従ってAppWidgetProviderはonUpdateコールバックメソッドで呼ばれる(と書いてありますが，このサンプルでは時間を短くしても動作しなかったです)．</li>
+</ul>
+
+
+<p>細かい点は<a href="http://developer.android.com/guide/practices/ui_guidelines/widget_design.html">ガイドライン</a>に記載されているようです．</p>
+
+<h2>2. ウィジェットのレイアウト作成</h2>
+
+<p>ウィジェットは他のアクティビティと同じようにレイアウトを作ることができるますが，制限があります．</p>
+
+<p>レイアウトは以下4つのみが利用可能です．</p>
+
+<ol>
+<li>FrameLayout</li>
+<li>LinearLayout</li>
+<li>RelativeLayout</li>
+<li>GridLayout</li>
+</ol>
+
+
+<p>ウィジェットのクラスは以下をサポートしています．</p>
+
+<ol>
+<li>AnalogClock</li>
+<li>Button</li>
+<li>Chronometer</li>
+<li>ImageButton</li>
+<li>ImageView</li>
+<li>ProgressBar</li>
+<li>TextView</li>
+<li>ViewFlipper</li>
+<li>ListView</li>
+<li>GridView</li>
+<li>StackView</li>
+<li>AdapterViewFlipper</li>
+</ol>
+
+
+<p>今回のサンプルでは以下のようなテキストフィールドとボタンだけのものを作ります．</p>
+
+<p>```
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</p>
+
+<pre><code>android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_margin="5sp"
+android:orientation="vertical" &gt;
+
+&lt;TextView
+    android:id="@+id/title"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:maxLines="2"
+    android:paddingBottom="5dp"
+    android:textColor="#fcfcfc"
+    android:textSize="16sp"
+    android:textStyle="bold"
+     /&gt;
+
+&lt;Button
+    android:id="@+id/button"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:text="click" /&gt;
+</code></pre>
+
+<p></RelativeLayout>
+```</p>
+
+<h2>3. AppWidgetProviderのサブクラス作成</h2>
+
+<p>ウィジェットをコントロールするため，AppWidgetProviderクラスを継承したクラスを追加します．
+onUpdateメソッドが実行時に画面を変更するために使われます．
+このクラスはウィジェットとのインターフェイスとなります．サンプルではonUpdateしか使っていませんが，ウィジェットの更新や有効・無効化・削除などのイベントを受けとることができるそうです．</p>
+
+<p>```
+public class MyWidgetProvider extends AppWidgetProvider {</p>
+
+<pre><code>@Override
+public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+    // ウィジェットレイアウトの初期化
+    RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+
+    // ボタンイベントを登録
+    remoteViews.setOnClickPendingIntent(R.id.button, clickButton(context));
+
+    // テキストフィールドに"初期画面"と表示
+    remoteViews.setTextViewText(R.id.title, "初期画面");
+
+    // アップデートメソッド呼び出し
+    pushWidgetUpdate(context, remoteViews);
+}
+
+public static PendingIntent clickButton(Context context) {
+    // クリック回数を増加
+    MyWidgetIntentReceiver.clickCount ++;
+
+    // initiate widget update request
+    Intent intent = new Intent();
+    intent.setAction("UPDATE_WIDGET");
+    return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+}
+
+// アップデート
+public static void pushWidgetUpdate(Context context, RemoteViews remoteViews) {
+    ComponentName myWidget = new ComponentName(context, MyWidgetProvider.class);
+    AppWidgetManager manager = AppWidgetManager.getInstance(context);
+    manager.updateAppWidget(myWidget, remoteViews);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>4. BroadcastReceiverのサブクラス作成</h2>
+
+<p>ボタンクリック時のアクションを実現するためにBroadcastReceiverを実装します．
+ウィジェットのをonReceiveメソッドで実現します．</p>
+
+<p>```
+public class MyWidgetIntentReceiver extends BroadcastReceiver {</p>
+
+<pre><code>public static int clickCount = 0;
+
+@Override
+public void onReceive(Context context, Intent intent) {
+    if (intent.getAction().equals("UPDATE_WIDGET")) {
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+
+        // テキストをクリック回数を元に更新
+        remoteViews.setTextViewText(R.id.title, "クリック回数: " + MyWidgetIntentReceiver.clickCount);
+
+        // もう一回クリックイベントを登録(毎回登録しないと上手く動かず)
+        remoteViews.setOnClickPendingIntent(R.id.button, MyWidgetProvider.clickButton(context));
+
+        MyWidgetProvider.pushWidgetUpdate(context.getApplicationContext(), remoteViews);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h1>5. Androidマニフェストにreceiverを登録する</h1>
+
+<p>最後に，マニフェストファイルを記載して，ウィジェットを登録します．
+(demo_widget_providerは，1で定義したXMLファイルです．)</p>
+
+<p>```
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"</p>
+
+<pre><code>package="com.torua.hellowidget"
+android:versionCode="1"
+android:versionName="1.0" &gt;
+
+&lt;uses-sdk
+    android:minSdkVersion="8"
+    android:targetSdkVersion="18" /&gt;
+
+&lt;application
+    android:allowBackup="true"
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme" &gt;
+     &lt;receiver android:name=".MyWidgetProvider" &gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name="android.appwidget.action.APPWIDGET_UPDATE" /&gt;
+        &lt;/intent-filter&gt;
+
+        &lt;meta-data
+            android:name="android.appwidget.provider"
+            android:resource="@xml/demo_widget_provider" /&gt;
+    &lt;/receiver&gt;
+    &lt;receiver
+        android:name=".MyWidgetIntentReceiver"
+        android:label="@string/app_name" &gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name="UPDATE_WIDGET" /&gt;
+        &lt;/intent-filter&gt;
+
+        &lt;meta-data
+            android:name="android.appwidget.provider"
+            android:resource="@xml/demo_widget_provider" /&gt;
+    &lt;/receiver&gt;
+&lt;/application&gt;
+</code></pre>
+
+<p></manifest>
+```</p>
+
+<p>動作の流れは以下の通りです．</p>
+
+<ul>
+<li>ウィジェット登録→MyWidgetProvier.onUpdate→描画</li>
+<li>ボタンクリック→インテント(UPDATE_WIDGET)→MyWidgetIntentReceiver.onReceive→描画</li>
+</ul>
+
+
+<h1>参考</h1>
+
+<ul>
+<li><a href="http://developer.android.com/guide/topics/appwidgets/index.html">App Widgets | Android Developers</a></li>
+<li><a href="http://developer.android.com/guide/practices/ui_guidelines/widget_design.html">App Widget Design Guidelines</a></li>
+<li><a href="http://javatechig.com/android/app-widgets-example-in-android">Homescreen App Widgets Example in Android</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sublimetext | Saturday Programmer]]></title>
+  <link href="http://sat-pg.com/blog/categories/sublimetext/atom.xml" rel="self"/>
+  <link href="http://sat-pg.com/"/>
+  <updated>2014-01-26T18:12:53+09:00</updated>
+  <id>http://sat-pg.com/</id>
+  <author>
+    <name><![CDATA[torub]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Text 2の設定まとめ]]></title>
+    <link href="http://sat-pg.com/blog/sublimetext2.html"/>
+    <updated>2013-06-29T19:42:00+09:00</updated>
+    <id>http://sat-pg.com/blog/sublimetext2</id>
+    <content type="html"><![CDATA[<p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
+
+<ul>
+<li><a href="#shortcut">ショートカットキー</a></li>
+<li><a href="#config">設定ファイル</a></li>
+<li><a href="#package">パッケージ</a></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2><a name="shortcut"></a>ショートカットキー</h2>
+
+<p>すぐ忘れるショートカットキーをメモ。Windows版は、CmdをCtrlに置き換えると大体上手くいくはず。</p>
+
+<ul>
+<li>Cmd + Shift + p: コマンドパレット表示。ここでinstallと打つと、パッケージのインストールができる。</li>
+<li>Cmd + p: ファイルの検索</li>
+<li>Cmd + /: 行全体をコメントアウト。もう一回押すと解除される。</li>
+<li>Cmd + Shift + d: 行のコピーを作る。ctrl+a, ctrl+k, ctrl + yを2回、と同じ。</li>
+<li>Ctrl + Shift + k: 行を削除する。ctrl+a, ctrl+kと同じ。</li>
+</ul>
+
+
+<h2><a name="config"></a>設定ファイル</h2>
+
+<p>メインの設定ファイルは<a href="https://github.com/torub/sublime-settings">github</a>に保存。</p>
+
+<h2><a name="package"></a>パッケージ</h2>
+
+<p>試してみたパッケージのリストは以下gistのまとめの通り。</p>
+
+<p><div><script src='https://gist.github.com/5890884.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+</feed>
