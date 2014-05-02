@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
@@ -8,6 +9,14 @@
   <meta name="author" content="torub">
 
   
+  <meta name="description" content="Octopressの設定など色々まとめていきます。
+設定追加毎に記事も追加していきます。 ソースコードの引用
+特殊文字のエスケープ
+画像貼り付け
+記事の非公開設定
+ドメインの設定
+テーブルの作成
+デザインテーマの変更 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,15 +26,17 @@
 
   
   <link rel="canonical" href="http://sat-pg.com/downloads/code/index.html">
-  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Saturday Programmer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-
-  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -42,63 +53,40 @@
 
 </head>
 
-  <body   >
-    <div id="wrap">
-      <header role="banner">
-        <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Saturday Programmer</a>
-        </div>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Saturday Programmer</a></h1>
+  
+    <h2>JavaScript/HTML5/モバイル系のフロントエンド技術を勉強中です</h2>
+  
+</hgroup>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li >
-                    <a href="/">Blog</a>
-                </li>
-                <li >
-                    <a href="/blog/archives">Archives</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
-                        <span class="visible-xs">RSS</span>
-                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
-                    </a>
-                </li>
-                
-            </ul>
-            
-                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
-                    <input type="hidden" name="q" value="site:sat-pg.com">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="q" placeholder="Search">
-                    </div>
-                </form>
-            
-        </div>
-    </div>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
 </nav>
-
-
-      </header>
-      <div id="main" class="container">
-        <div id="content">
-          <div class="blog-index">
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
   
   
   
     <article>
       
-  <header class="page-header">
+  <header>
     
-      <p class="meta text-muted text-uppercase">
+      <h1 class="entry-title"><a href="/blog/octopress-config.html">Octopressのいろいろ</a></h1>
+    
+    
+      <p class="meta">
         
 
 
@@ -108,21 +96,106 @@
 
 
 
+  
 
 
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-01-26T17:13:00+09:00" pubdate data-updated="true">2014/01/26</time>
+<time datetime="2014-05-03T01:22:00+09:00" pubdate data-updated="true">2014/05/03</time>
         
       </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/android-widget.html">Androidでの簡易なWidget作り方</a></h1>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>Nexus5を買ったのでAndroidのウィジェットを作ってみます．
+  <div class="entry-content"><p>Octopressの設定など色々まとめていきます。<br/>
+設定追加毎に記事も追加していきます。</p>
+
+<ul>
+<li><a href="#include_code">ソースコードの引用</a></li>
+<li><a href="#escape">特殊文字のエスケープ</a></li>
+<li><a href="#image">画像貼り付け</a></li>
+<li><a href="#publish">記事の非公開設定</a></li>
+<li><a href="#domain">ドメインの設定</a></li>
+<li><a href="#table">テーブルの作成</a></li>
+<li><a href="#theme">デザインテーマの変更</a></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/octopress-config.html">続きを読む &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/modernizr.html">Modernizr</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T00:57:00+09:00" pubdate data-updated="true">2014/01/29</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/android-widget.html">Androidでの簡易なWidget作り方</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-26T17:13:00+09:00" pubdate data-updated="true">2014/01/26</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Nexus5を買ったのでAndroidのウィジェットを作ってみます．
 初Androidのためかなりシンプルなサンプルを作ります．</p>
 
 <p><img src="/images/blog/widget.png" alt="WidgetSample" /></p>
@@ -491,33 +564,32 @@ onUpdateメソッドが実行時に画面を変更するために使われます
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-12-10T02:00:00+09:00" pubdate data-updated="true">2013/12/10</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-10T02:00:00+09:00" pubdate data-updated="true">2013/12/10</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
+  <div class="entry-content"><p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
 簡単なTodoリストを作ります。</p>
 
 <h1>AngularJS+NodeJS(ExpressJS)+MongoDB</h1>
@@ -1228,33 +1300,32 @@ Facebookでの認証も付けてみるとか、色々応用ができると思い
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-11-24T01:33:00+09:00" pubdate data-updated="true">2013/11/24</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/yeoman.html">Yeomanの設定</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-24T01:33:00+09:00" pubdate data-updated="true">2013/11/24</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>Webアプリを作る際に、Yeomanを使うと雛形作成やデバッグが楽になるので愛用しています。
+  <div class="entry-content"><p>Webアプリを作る際に、Yeomanを使うと雛形作成やデバッグが楽になるので愛用しています。
 YeomanはYo(プロジェクト管理) + Bower(依存性管理) + Grunt(ビルド・テスト実施)からなり、JavaScript開発を助けてくれるNodejsのライブラリです。</p>
 
 <p>Node.jsは入っているものとして、以下でインストールします。</p>
@@ -1365,33 +1436,32 @@ yoで雛形を作ったあとは、</p>
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-29T19:42:00+09:00" pubdate data-updated="true">2013/06/29</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/sublimetext2.html">Sublime Text 2の設定まとめ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-29T19:42:00+09:00" pubdate data-updated="true">2013/06/29</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
+  <div class="entry-content"><p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
 
 <ul>
 <li><a href="#shortcut">ショートカットキー</a></li>
@@ -1404,7 +1474,7 @@ yoで雛形を作ったあとは、</p>
   
   
     <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/sublimetext2.html">続きを読む &rarr;</a>
+      <a rel="full-article" href="/blog/sublimetext2.html">続きを読む &rarr;</a>
     </footer>
   
 
@@ -1414,33 +1484,32 @@ yoで雛形を作ったあとは、</p>
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-18T02:57:00+09:00" pubdate data-updated="true">2013/06/18</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T02:57:00+09:00" pubdate data-updated="true">2013/06/18</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>ひきつづきBackbone.jsの勉強。</p>
+  <div class="entry-content"><p>ひきつづきBackbone.jsの勉強。</p>
 
 <p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
 不明点だらけのため、調べたことをメモ。</p>
@@ -1546,33 +1615,32 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-17T00:21:00+09:00" pubdate data-updated="true">2013/06/17</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/backbonejs1.html">Backbone.jsお試し</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-17T00:21:00+09:00" pubdate data-updated="true">2013/06/17</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>Knockout.jsの次はBackbone.jsのテスト。</p>
+  <div class="entry-content"><p>Knockout.jsの次はBackbone.jsのテスト。</p>
 
 <p><a href="http://dotinstall.com/lessons/basic_backbonejs">ドットインストールのBackbone.js入門</a>を試してみた結果を添付します。</p>
 
@@ -1580,7 +1648,7 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   
     <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/backbonejs1.html">続きを読む &rarr;</a>
+      <a rel="full-article" href="/blog/backbonejs1.html">続きを読む &rarr;</a>
     </footer>
   
 
@@ -1590,33 +1658,32 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-10T11:09:00+09:00" pubdate data-updated="true">2013/06/10</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/knockoutjs2.html">Knockout.jsお試し(2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-10T11:09:00+09:00" pubdate data-updated="true">2013/06/10</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
+  <div class="entry-content"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
 
 <h4>サンプル2</h4>
 
@@ -1767,7 +1834,7 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   
     <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/knockoutjs2.html">続きを読む &rarr;</a>
+      <a rel="full-article" href="/blog/knockoutjs2.html">続きを読む &rarr;</a>
     </footer>
   
 
@@ -1777,33 +1844,32 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
     <article>
       
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-10T01:37:00+09:00" pubdate data-updated="true">2013/06/10</time>
-        
-      </p>
-    
+  <header>
     
       <h1 class="entry-title"><a href="/blog/knockoutjs1.html">Knockout.jsお試し(1)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-10T01:37:00+09:00" pubdate data-updated="true">2013/06/10</time>
+        
+      </p>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
+  <div class="entry-content"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
 <a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
 
 <h4>サンプル1</h4>
@@ -1889,91 +1955,7 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   
     <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/knockoutjs1.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-06-08T23:45:00+09:00" pubdate data-updated="true">2013/06/08</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/buildinsider.html">第1回 Build Insider OFFLINEメモ</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/buildinsider.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-28T18:58:00+09:00" pubdate data-updated="true">2013/05/28</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blog/html5.html">第39回html5とか勉強会+日本Androidの会5月定例</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blog/html5.html">続きを読む &rarr;</a>
+      <a rel="full-article" href="/blog/knockoutjs1.html">続きを読む &rarr;</a>
     </footer>
   
 
@@ -1990,24 +1972,31 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 </div>
 <aside class="sidebar">
   
-    <section class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Recent Posts</h3>
-  </div>
-  
-  <div id="recent_posts" class="list-group">
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
     
-    <a class="list-group-item " href="/blog/android-widget.html">Androidでの簡易なWidget作り方</a>
+      <li class="post">
+        <a href="/blog/octopress-config.html">Octopressのいろいろ</a>
+      </li>
     
-    <a class="list-group-item " href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a>
+      <li class="post">
+        <a href="/blog/modernizr.html">Modernizr</a>
+      </li>
     
-    <a class="list-group-item " href="/blog/yeoman.html">Yeomanの設定</a>
+      <li class="post">
+        <a href="/blog/android-widget.html">Androidでの簡易なWidget作り方</a>
+      </li>
     
-    <a class="list-group-item " href="/blog/sublimetext2.html">Sublime Text 2の設定まとめ</a>
+      <li class="post">
+        <a href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a>
+      </li>
     
-    <a class="list-group-item " href="/blog/backbone-tutorial-1.html">Backbone.jsのtutorial(1)</a>
+      <li class="post">
+        <a href="/blog/yeoman.html">Yeomanの設定</a>
+      </li>
     
-  </div>
+  </ul>
 </section>
 <section class="well">
   <ul id="categories" class="nav nav-list">
@@ -2031,23 +2020,15 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
 </aside>
 
-        </div>
-      </div>
     </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - torub<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
-  </small>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - torub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
-</div>
 </footer>
-    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/javascripts/modernizr-2.0.js"></script>
-
+  
 
 <script type="text/javascript">
       var disqus_shortname = 'sat-pg';
@@ -2057,7 +2038,7 @@ Using a modular script loader like RequireJS will improve the speed and quality 
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -2089,7 +2070,28 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 
 
 
+<script>
+  $(document).ready(function() {  
+  var stickyNavTop = $('nav').offset().top;  
+    
+  var stickyNav = function(){  
+  var scrollTop = $(window).scrollTop();  
+         
+  if (scrollTop > stickyNavTop) {   
+      $('nav').addClass('sticky');  
+  } else {  
+      $('nav').removeClass('sticky');   
+  }  
+  };  
+    
+  stickyNav();  
+    
+  $(window).scroll(function() {  
+      stickyNav();  
+  });  
+  });  
+</script>
 
 
-  </body>
+</body>
 </html>

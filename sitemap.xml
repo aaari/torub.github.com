@@ -2,106 +2,110 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://sat-pg.com/blog/octopress.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://sat-pg.com/blog/octopress-config.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/webrtc.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/svctest.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/phonegap1.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/html5.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/buildinsider.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/knockoutjs1.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/knockoutjs2.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/backbonejs1.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/backbone-tutorial-1.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/sublimetext2.html</loc>
-        <lastmod>2013-12-29T02:45:32+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/yeoman.html</loc>
-        <lastmod>2013-11-24T18:21:37+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/meanstack.html</loc>
-        <lastmod>2013-12-10T02:01:45+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/android-widget.html</loc>
-        <lastmod>2014-01-26T18:17:56+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://sat-pg.com/blog/modernizr.html</loc>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://sat-pg.com/blog/octopress-config.html</loc>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/about.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/components.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/css.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/customize.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/getting-started.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/</loc>
-        <lastmod>2014-01-26T18:17:56+09:00</lastmod>
+        <lastmod>2014-05-03T01:22:23+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/assets/bootstrap/javascript.html</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/blog/archives/</loc>
-        <lastmod>2014-01-26T18:17:56+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/downloads/code/</loc>
-        <lastmod>2014-01-26T18:17:56+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/</loc>
-        <lastmod>2014-01-26T18:17:56+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
         <loc>http://sat-pg.com/robots.txt</loc>
-        <lastmod>2013-11-20T01:35:09+09:00</lastmod>
+        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
 </urlset>
