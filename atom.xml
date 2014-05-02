@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Programmer]]></title>
   <link href="http://sat-pg.com/atom.xml" rel="self"/>
   <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:10:26+09:00</updated>
+  <updated>2014-05-03T02:37:25+09:00</updated>
   <id>http://sat-pg.com/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -226,15 +226,6 @@
 </span><span class='line'>$ rake install['THEME_NAME']
 </span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Modernizr]]></title>
-    <link href="http://sat-pg.com/blog/modernizr.html"/>
-    <updated>2014-01-29T00:57:00+09:00</updated>
-    <id>http://sat-pg.com/blog/modernizr</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
