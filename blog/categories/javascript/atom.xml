@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Javascript | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る]]></title>
-    <link href="http://sat-pg.com/blog/meanstack.html"/>
+    <link href="http://torub.github.io/blog/meanstack.html"/>
     <updated>2013-12-10T02:00:00+09:00</updated>
-    <id>http://sat-pg.com/blog/meanstack</id>
+    <id>http://torub.github.io/blog/meanstack</id>
     <content type="html"><![CDATA[<p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
 簡単なTodoリストを作ります。</p>
 
@@ -37,6 +37,9 @@ MongoDBのサイトでは、<a href="http://jp.blog.mongodb.org/post/49262866911
 <li><a href="#oauth">NodeJSでのOAuth認証</a></li>
 <li><a href="#matome">まとめと参考</a></li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2><a name="yeoman"></a>Yeomanの設定</h2>
@@ -812,9 +815,9 @@ Facebookでの認証も付けてみるとか、色々応用ができると思い
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsのtutorial(1)]]></title>
-    <link href="http://sat-pg.com/blog/backbone-tutorial-1.html"/>
+    <link href="http://torub.github.io/blog/backbone-tutorial-1.html"/>
     <updated>2013-06-18T02:57:00+09:00</updated>
-    <id>http://sat-pg.com/blog/backbone-tutorial-1</id>
+    <id>http://torub.github.io/blog/backbone-tutorial-1</id>
     <content type="html"><![CDATA[<p>ひきつづきBackbone.jsの勉強。</p>
 
 <p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
@@ -916,9 +919,9 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsお試し]]></title>
-    <link href="http://sat-pg.com/blog/backbonejs1.html"/>
+    <link href="http://torub.github.io/blog/backbonejs1.html"/>
     <updated>2013-06-17T00:21:00+09:00</updated>
-    <id>http://sat-pg.com/blog/backbonejs1</id>
+    <id>http://torub.github.io/blog/backbonejs1</id>
     <content type="html"><![CDATA[<p>Knockout.jsの次はBackbone.jsのテスト。</p>
 
 <p><a href="http://dotinstall.com/lessons/basic_backbonejs">ドットインストールのBackbone.js入門</a>を試してみた結果を添付します。</p>
@@ -1212,9 +1215,9 @@ $('#tasks').html(tasksView.render().el)
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(2)]]></title>
-    <link href="http://sat-pg.com/blog/knockoutjs2.html"/>
+    <link href="http://torub.github.io/blog/knockoutjs2.html"/>
     <updated>2013-06-10T11:09:00+09:00</updated>
-    <id>http://sat-pg.com/blog/knockoutjs2</id>
+    <id>http://torub.github.io/blog/knockoutjs2</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
 
 <h4>サンプル2</h4>
@@ -1399,9 +1402,9 @@ window.addEventListener('DOMContentLoaded', function(){
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(1)]]></title>
-    <link href="http://sat-pg.com/blog/knockoutjs1.html"/>
+    <link href="http://torub.github.io/blog/knockoutjs1.html"/>
     <updated>2013-06-10T01:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/knockoutjs1</id>
+    <id>http://torub.github.io/blog/knockoutjs1</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
 <a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
 

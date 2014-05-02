@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Html5 | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/html5/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Html5 | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/html5/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[第1回 Build Insider OFFLINEメモ]]></title>
-    <link href="http://sat-pg.com/blog/buildinsider.html"/>
+    <link href="http://torub.github.io/blog/buildinsider.html"/>
     <updated>2013-06-08T23:45:00+09:00</updated>
-    <id>http://sat-pg.com/blog/buildinsider</id>
+    <id>http://torub.github.io/blog/buildinsider</id>
     <content type="html"><![CDATA[<p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
 
 <!-- more -->
@@ -393,9 +393,9 @@ value1(10);
   
   <entry>
     <title type="html"><![CDATA[第39回html5とか勉強会+日本Androidの会5月定例]]></title>
-    <link href="http://sat-pg.com/blog/html5.html"/>
+    <link href="http://torub.github.io/blog/html5.html"/>
     <updated>2013-05-28T18:58:00+09:00</updated>
-    <id>http://sat-pg.com/blog/html5</id>
+    <id>http://torub.github.io/blog/html5</id>
     <content type="html"><![CDATA[<p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
 
 <!-- more -->
@@ -892,9 +892,9 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[SVCのテスト]]></title>
-    <link href="http://sat-pg.com/blog/svctest.html"/>
+    <link href="http://torub.github.io/blog/svctest.html"/>
     <updated>2013-05-19T11:35:00+09:00</updated>
-    <id>http://sat-pg.com/blog/svctest</id>
+    <id>http://torub.github.io/blog/svctest</id>
     <content type="html"><![CDATA[<p>SVCのサンプルを記載します。</p>
 
 <ul>
@@ -1180,9 +1180,9 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[WebRTCサンプル]]></title>
-    <link href="http://sat-pg.com/blog/webrtc.html"/>
+    <link href="http://torub.github.io/blog/webrtc.html"/>
     <updated>2013-05-06T04:05:00+09:00</updated>
-    <id>http://sat-pg.com/blog/webrtc</id>
+    <id>http://torub.github.io/blog/webrtc</id>
     <content type="html"><![CDATA[<p>WebRTCのサンプルを動かしてみたのでまとめます。</p>
 
 <h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>

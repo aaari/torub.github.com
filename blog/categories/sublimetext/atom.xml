@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Sublimetext | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/sublimetext/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Sublimetext | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/sublimetext/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Sublime Text 2の設定まとめ]]></title>
-    <link href="http://sat-pg.com/blog/sublimetext2.html"/>
+    <link href="http://torub.github.io/blog/sublimetext2.html"/>
     <updated>2013-06-29T19:42:00+09:00</updated>
-    <id>http://sat-pg.com/blog/sublimetext2</id>
+    <id>http://torub.github.io/blog/sublimetext2</id>
     <content type="html"><![CDATA[<p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
 
 <ul>

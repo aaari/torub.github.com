@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/android/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Android | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Androidでの簡易なWidget作り方]]></title>
-    <link href="http://sat-pg.com/blog/android-widget.html"/>
+    <link href="http://torub.github.io/blog/android-widget.html"/>
     <updated>2014-01-26T17:13:00+09:00</updated>
-    <id>http://sat-pg.com/blog/android-widget</id>
+    <id>http://torub.github.io/blog/android-widget</id>
     <content type="html"><![CDATA[<p>Nexus5を買ったのでAndroidのウィジェットを作ってみます．
 初Androidのためかなりシンプルなサンプルを作ります．</p>
 
@@ -38,6 +38,9 @@
 <li>BroadcastReceiverのサブクラス作成</li>
 <li>AndroidManifest修正</li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2>1. ウィジェットの設定ファイル作成</h2>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Phonegap | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/phonegap/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Phonegap | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/phonegap/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[PhoneGap準備]]></title>
-    <link href="http://sat-pg.com/blog/phonegap1.html"/>
+    <link href="http://torub.github.io/blog/phonegap1.html"/>
     <updated>2013-05-25T22:46:00+09:00</updated>
-    <id>http://sat-pg.com/blog/phonegap1</id>
+    <id>http://torub.github.io/blog/phonegap1</id>
     <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載。</p>
 
 <p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行。</p>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Octopress | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Octopress | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressのいろいろ]]></title>
-    <link href="http://sat-pg.com/blog/octopress-config.html"/>
+    <link href="http://torub.github.io/blog/octopress-config.html"/>
     <updated>2014-05-03T01:22:00+09:00</updated>
-    <id>http://sat-pg.com/blog/octopress-config</id>
+    <id>http://torub.github.io/blog/octopress-config</id>
     <content type="html"><![CDATA[<p>Octopressの設定など色々まとめていきます。<br/>
 設定追加毎に記事も追加していきます。</p>
 
@@ -220,9 +220,9 @@ $ rake generate
   
   <entry>
     <title type="html"><![CDATA[Octopressの導入]]></title>
-    <link href="http://sat-pg.com/blog/octopress.html"/>
+    <link href="http://torub.github.io/blog/octopress.html"/>
     <updated>2013-05-04T03:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/octopress</id>
+    <id>http://torub.github.io/blog/octopress</id>
     <content type="html"><![CDATA[<p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
 
 <p>以下4点、順番に説明します。</p>

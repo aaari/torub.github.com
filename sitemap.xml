@@ -1,107 +1,107 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://sat-pg.com/blog/octopress.html</loc>
+        <loc>http://torub.github.io/blog/octopress.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/webrtc.html</loc>
+        <loc>http://torub.github.io/blog/webrtc.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/svctest.html</loc>
+        <loc>http://torub.github.io/blog/svctest.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/phonegap1.html</loc>
+        <loc>http://torub.github.io/blog/phonegap1.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/html5.html</loc>
+        <loc>http://torub.github.io/blog/html5.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/buildinsider.html</loc>
+        <loc>http://torub.github.io/blog/buildinsider.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/knockoutjs1.html</loc>
+        <loc>http://torub.github.io/blog/knockoutjs1.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/knockoutjs2.html</loc>
+        <loc>http://torub.github.io/blog/knockoutjs2.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/backbonejs1.html</loc>
+        <loc>http://torub.github.io/blog/backbonejs1.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/backbone-tutorial-1.html</loc>
+        <loc>http://torub.github.io/blog/backbone-tutorial-1.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/sublimetext2.html</loc>
+        <loc>http://torub.github.io/blog/sublimetext2.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/yeoman.html</loc>
+        <loc>http://torub.github.io/blog/yeoman.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/meanstack.html</loc>
+        <loc>http://torub.github.io/blog/meanstack.html</loc>
+        <lastmod>2014-05-03T02:39:42+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://torub.github.io/blog/android-widget.html</loc>
+        <lastmod>2014-05-03T02:39:29+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://torub.github.io/blog/octopress-config.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/android-widget.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/about.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/octopress-config.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/components.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/about.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/css.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/components.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/customize.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/css.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/getting-started.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/customize.html</loc>
+        <loc>http://torub.github.io/assets/bootstrap/</loc>
+        <lastmod>2014-05-03T02:39:42+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://torub.github.io/assets/bootstrap/javascript.html</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/getting-started.html</loc>
-        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
+        <loc>http://torub.github.io/blog/archives/</loc>
+        <lastmod>2014-05-03T02:39:42+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/</loc>
-        <lastmod>2014-05-03T01:22:23+09:00</lastmod>
+        <loc>http://torub.github.io/downloads/code/</loc>
+        <lastmod>2014-05-03T02:39:42+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/assets/bootstrap/javascript.html</loc>
-        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
+        <loc>http://torub.github.io/</loc>
+        <lastmod>2014-05-03T02:39:42+09:00</lastmod>
     </url>
     <url>
-        <loc>http://sat-pg.com/blog/archives/</loc>
-        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://sat-pg.com/downloads/code/</loc>
-        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://sat-pg.com/</loc>
-        <lastmod>2014-05-03T01:24:54+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://sat-pg.com/robots.txt</loc>
+        <loc>http://torub.github.io/robots.txt</loc>
         <lastmod>2014-05-03T01:24:54+09:00</lastmod>
     </url>
 </urlset>

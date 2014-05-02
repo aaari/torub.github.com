@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://sat-pg.com/sitemap.xml 
+Sitemap: http://torub.github.io/sitemap.xml 

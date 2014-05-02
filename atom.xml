@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Saturday Coding]]></title>
+  <link href="http://torub.github.io/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressのいろいろ]]></title>
-    <link href="http://sat-pg.com/blog/octopress-config.html"/>
+    <link href="http://torub.github.io/blog/octopress-config.html"/>
     <updated>2014-05-03T01:22:00+09:00</updated>
-    <id>http://sat-pg.com/blog/octopress-config</id>
+    <id>http://torub.github.io/blog/octopress-config</id>
     <content type="html"><![CDATA[<p>Octopressの設定など色々まとめていきます。<br/>
 設定追加毎に記事も追加していきます。</p>
 
@@ -52,7 +52,7 @@
 
 <p>と書くと、以下の通り出力されます。</p>
 
-<figure class='code'><figcaption><span> (index.html)</span> <a href='http://sat-pg.com/downloads/code/index.html'>download</a></figcaption>
+<figure class='code'><figcaption><span> (index.html)</span> <a href='http://torub.github.io/downloads/code/index.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -151,7 +151,7 @@
 
 <p>と記載することで以下の通り表示されます。</p>
 
-<p><img class="[class names]" src="http://sat-pg.com/images/search.png"></p>
+<p><img class="[class names]" src="http://torub.github.io/images/search.png"></p>
 
 <ul>
 <li><a href="http://octopress.org/docs/plugins/image-tag/">公式の説明ページ</a></li>
@@ -231,13 +231,13 @@
   
   <entry>
     <title type="html"><![CDATA[Androidでの簡易なWidget作り方]]></title>
-    <link href="http://sat-pg.com/blog/android-widget.html"/>
+    <link href="http://torub.github.io/blog/android-widget.html"/>
     <updated>2014-01-26T17:13:00+09:00</updated>
-    <id>http://sat-pg.com/blog/android-widget</id>
+    <id>http://torub.github.io/blog/android-widget</id>
     <content type="html"><![CDATA[<p>Nexus5を買ったのでAndroidのウィジェットを作ってみます．
 初Androidのためかなりシンプルなサンプルを作ります．</p>
 
-<p><img src="http://sat-pg.com/images/blog/widget.png" alt="WidgetSample" /></p>
+<p><img src="http://torub.github.io/images/blog/widget.png" alt="WidgetSample" /></p>
 
 <p>ボタンをクリックするとカウントアップするだけ．．．です．</p>
 
@@ -254,6 +254,9 @@
 <li>BroadcastReceiverのサブクラス作成</li>
 <li>AndroidManifest修正</li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2>1. ウィジェットの設定ファイル作成</h2>
@@ -598,9 +601,9 @@ onUpdateメソッドが実行時に画面を変更するために使われます
   
   <entry>
     <title type="html"><![CDATA[AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る]]></title>
-    <link href="http://sat-pg.com/blog/meanstack.html"/>
+    <link href="http://torub.github.io/blog/meanstack.html"/>
     <updated>2013-12-10T02:00:00+09:00</updated>
-    <id>http://sat-pg.com/blog/meanstack</id>
+    <id>http://torub.github.io/blog/meanstack</id>
     <content type="html"><![CDATA[<p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
 簡単なTodoリストを作ります。</p>
 
@@ -620,6 +623,9 @@ MongoDBのサイトでは、<a href="http://jp.blog.mongodb.org/post/49262866911
 <li><a href="#oauth">NodeJSでのOAuth認証</a></li>
 <li><a href="#matome">まとめと参考</a></li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2><a name="yeoman"></a>Yeomanの設定</h2>
@@ -1022,7 +1028,7 @@ yeomanを使ってyo angular後の状態として編集をしていきます。<
 
 <p>動かすと、以下のような画面になります。</p>
 
-<p><img src="http://sat-pg.com/images/cap/todo.png"></p>
+<p><img src="http://torub.github.io/images/cap/todo.png"></p>
 
 <h2><a name="oauth"></a>NodeJSでのOAuth認証</h2>
 
@@ -1307,9 +1313,9 @@ Facebookでの認証も付けてみるとか、色々応用ができると思い
   
   <entry>
     <title type="html"><![CDATA[Yeomanの設定]]></title>
-    <link href="http://sat-pg.com/blog/yeoman.html"/>
+    <link href="http://torub.github.io/blog/yeoman.html"/>
     <updated>2013-11-24T01:33:00+09:00</updated>
-    <id>http://sat-pg.com/blog/yeoman</id>
+    <id>http://torub.github.io/blog/yeoman</id>
     <content type="html"><![CDATA[<p>Webアプリを作る際に、Yeomanを使うと雛形作成やデバッグが楽になるので愛用しています。
 YeomanはYo(プロジェクト管理) + Bower(依存性管理) + Grunt(ビルド・テスト実施)からなり、JavaScript開発を助けてくれるNodejsのライブラリです。</p>
 
@@ -1407,7 +1413,7 @@ yoで雛形を作ったあとは、</p>
 <code>grunt server</code> とすると、以下の
 サンプル画面が出てきます。</p>
 
-<p><img src="http://sat-pg.com/images/cap/yoangular.png"></p>
+<p><img src="http://torub.github.io/images/cap/yoangular.png"></p>
 
 <p>画面を表示したまま、ファイルを更新していくと
 即座に反映されるので、楽に開発することができます。</p>
@@ -1416,9 +1422,9 @@ yoで雛形を作ったあとは、</p>
   
   <entry>
     <title type="html"><![CDATA[Sublime Text 2の設定まとめ]]></title>
-    <link href="http://sat-pg.com/blog/sublimetext2.html"/>
+    <link href="http://torub.github.io/blog/sublimetext2.html"/>
     <updated>2013-06-29T19:42:00+09:00</updated>
-    <id>http://sat-pg.com/blog/sublimetext2</id>
+    <id>http://torub.github.io/blog/sublimetext2</id>
     <content type="html"><![CDATA[<p>最近Sublime Text 2をメインのエディタとして使っているのでメモ。</p>
 
 <ul>
@@ -1462,9 +1468,9 @@ yoで雛形を作ったあとは、</p>
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsのtutorial(1)]]></title>
-    <link href="http://sat-pg.com/blog/backbone-tutorial-1.html"/>
+    <link href="http://torub.github.io/blog/backbone-tutorial-1.html"/>
     <updated>2013-06-18T02:57:00+09:00</updated>
-    <id>http://sat-pg.com/blog/backbone-tutorial-1</id>
+    <id>http://torub.github.io/blog/backbone-tutorial-1</id>
     <content type="html"><![CDATA[<p>ひきつづきBackbone.jsの勉強。</p>
 
 <p><a href="http://dailyjs.com/2012/11/29/backbone-tutorial-1/">DailyJSのBackboneチュートリアルPart1</a>見てみたけど、
@@ -1566,9 +1572,9 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   <entry>
     <title type="html"><![CDATA[Backbone.jsお試し]]></title>
-    <link href="http://sat-pg.com/blog/backbonejs1.html"/>
+    <link href="http://torub.github.io/blog/backbonejs1.html"/>
     <updated>2013-06-17T00:21:00+09:00</updated>
-    <id>http://sat-pg.com/blog/backbonejs1</id>
+    <id>http://torub.github.io/blog/backbonejs1</id>
     <content type="html"><![CDATA[<p>Knockout.jsの次はBackbone.jsのテスト。</p>
 
 <p><a href="http://dotinstall.com/lessons/basic_backbonejs">ドットインストールのBackbone.js入門</a>を試してみた結果を添付します。</p>
@@ -1982,9 +1988,9 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(2)]]></title>
-    <link href="http://sat-pg.com/blog/knockoutjs2.html"/>
+    <link href="http://torub.github.io/blog/knockoutjs2.html"/>
     <updated>2013-06-10T11:09:00+09:00</updated>
-    <id>http://sat-pg.com/blog/knockoutjs2</id>
+    <id>http://torub.github.io/blog/knockoutjs2</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かすその2。 <a href="http://learn.knockoutjs.com/#/?tutorial=collections">公式ページのサンプルその2</a>の内容をちょっとだけ変更。</p>
 
 <h4>サンプル2</h4>
@@ -2219,9 +2225,9 @@ window.addEventListener('DOMContentLoaded', function(){
   
   <entry>
     <title type="html"><![CDATA[Knockout.jsお試し(1)]]></title>
-    <link href="http://sat-pg.com/blog/knockoutjs1.html"/>
+    <link href="http://torub.github.io/blog/knockoutjs1.html"/>
     <updated>2013-06-10T01:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/knockoutjs1</id>
+    <id>http://torub.github.io/blog/knockoutjs1</id>
     <content type="html"><![CDATA[<p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
 <a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
 
@@ -2359,9 +2365,9 @@ window.addEventListener('DOMContentLoaded', function(){
   
   <entry>
     <title type="html"><![CDATA[第1回 Build Insider OFFLINEメモ]]></title>
-    <link href="http://sat-pg.com/blog/buildinsider.html"/>
+    <link href="http://torub.github.io/blog/buildinsider.html"/>
     <updated>2013-06-08T23:45:00+09:00</updated>
-    <id>http://sat-pg.com/blog/buildinsider</id>
+    <id>http://torub.github.io/blog/buildinsider</id>
     <content type="html"><![CDATA[<p><a href="http://www.buildinsider.net/event/offline/01">第1回 Build Insider OFFLINE</a>に行ってきたので、聞いてきた話をメモ。</p>
 
 <!-- more -->
@@ -2759,9 +2765,9 @@ github上ではbackbone.jsが人気の模様。(backbone/knockout/Angularは2つ
   
   <entry>
     <title type="html"><![CDATA[第39回html5とか勉強会+日本Androidの会5月定例]]></title>
-    <link href="http://sat-pg.com/blog/html5.html"/>
+    <link href="http://torub.github.io/blog/html5.html"/>
     <updated>2013-05-28T18:58:00+09:00</updated>
-    <id>http://sat-pg.com/blog/html5</id>
+    <id>http://torub.github.io/blog/html5</id>
     <content type="html"><![CDATA[<p>第39回html5とか勉強会+日本Androidの会5月定例のでメモ</p>
 
 <!-- more -->
@@ -3258,9 +3264,9 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[PhoneGap準備]]></title>
-    <link href="http://sat-pg.com/blog/phonegap1.html"/>
+    <link href="http://torub.github.io/blog/phonegap1.html"/>
     <updated>2013-05-25T22:46:00+09:00</updated>
-    <id>http://sat-pg.com/blog/phonegap1</id>
+    <id>http://torub.github.io/blog/phonegap1</id>
     <content type="html"><![CDATA[<p>PhoneGapを使う初めの一歩。ここではiOS版を想定して、xcodeで実装する例を記載。</p>
 
 <p>※PhoneGap関連は、Mac OS X10.8.2 xcode4.6.2、phonegap2.7.0で実行。</p>
@@ -3279,11 +3285,11 @@ WEB-RTCで画像編集→ GLFxjsは使える。
 </ol>
 
 
-<p><img src="http://sat-pg.com/images/blog/phonegap1_tree.png" alt="起動時" /></p>
+<p><img src="http://torub.github.io/images/blog/phonegap1_tree.png" alt="起動時" /></p>
 
 <p>何も変更せず、ビルドして実行すると、以下のように表示されます。</p>
 
-<p><img src="http://sat-pg.com/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
+<p><img src="http://torub.github.io/images/blog/phonegap1_build.png" alt="初回ビルド" /></p>
 
 <ul>
 <li>index.htmlに必要な処理
@@ -3349,9 +3355,9 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[SVCのテスト]]></title>
-    <link href="http://sat-pg.com/blog/svctest.html"/>
+    <link href="http://torub.github.io/blog/svctest.html"/>
     <updated>2013-05-19T11:35:00+09:00</updated>
-    <id>http://sat-pg.com/blog/svctest</id>
+    <id>http://torub.github.io/blog/svctest</id>
     <content type="html"><![CDATA[<p>SVCのサンプルを記載します。</p>
 
 <ul>
@@ -3694,16 +3700,16 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[WebRTCサンプル]]></title>
-    <link href="http://sat-pg.com/blog/webrtc.html"/>
+    <link href="http://torub.github.io/blog/webrtc.html"/>
     <updated>2013-05-06T04:05:00+09:00</updated>
-    <id>http://sat-pg.com/blog/webrtc</id>
+    <id>http://torub.github.io/blog/webrtc</id>
     <content type="html"><![CDATA[<p>WebRTCのサンプルを動かしてみたのでまとめます。</p>
 
 <h3><a href="http://dl.dropboxusercontent.com/u/321302/html5/webrtc.html">カメラから映像を取り込み、そのまま流すのみのサンプル</a></h3>
 
 <p>2013/5/6現在、MacのGoogle Chorome Version 26では以下を読み込んで動作しました。</p>
 
-<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='http://sat-pg.com/downloads/code/webrtc.html'>download</a></figcaption>
+<figure class='code'><figcaption><span> (webrtc.html)</span> <a href='http://torub.github.io/downloads/code/webrtc.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -3749,7 +3755,7 @@ WEB-RTCで画像編集→ GLFxjsは使える。
 <code>about:flags</code>と入力後、以下の「WebRTCを有効にする」を選択してChromeを再起動することで
 実行が可能になります。</p>
 
-<p><img src="http://sat-pg.com/images/cap/webrtc_android.png"></p>
+<p><img src="http://torub.github.io/images/cap/webrtc_android.png"></p>
 
 <p>iOSは現状ではSafari, Chromeとも動作しない模様です。</p>
 ]]></content>
@@ -3757,9 +3763,9 @@ WEB-RTCで画像編集→ GLFxjsは使える。
   
   <entry>
     <title type="html"><![CDATA[Octopressの導入]]></title>
-    <link href="http://sat-pg.com/blog/octopress.html"/>
+    <link href="http://torub.github.io/blog/octopress.html"/>
     <updated>2013-05-04T03:37:00+09:00</updated>
-    <id>http://sat-pg.com/blog/octopress</id>
+    <id>http://torub.github.io/blog/octopress</id>
     <content type="html"><![CDATA[<p>GitHubを初めるにあたって、Octopressを導入したのでその方法についてまとめました。</p>
 
 <p>以下4点、順番に説明します。</p>

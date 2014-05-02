@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Nodejs | Saturday Programmer]]></title>
-  <link href="http://sat-pg.com/blog/categories/nodejs/atom.xml" rel="self"/>
-  <link href="http://sat-pg.com/"/>
-  <updated>2014-05-03T02:37:25+09:00</updated>
-  <id>http://sat-pg.com/</id>
+  <title><![CDATA[Category: Nodejs | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-03T03:13:21+09:00</updated>
+  <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る]]></title>
-    <link href="http://sat-pg.com/blog/meanstack.html"/>
+    <link href="http://torub.github.io/blog/meanstack.html"/>
     <updated>2013-12-10T02:00:00+09:00</updated>
-    <id>http://sat-pg.com/blog/meanstack</id>
+    <id>http://torub.github.io/blog/meanstack</id>
     <content type="html"><![CDATA[<p>JavaScriptの勉強を兼ねて、Webサービスの作り方まとめです。
 簡単なTodoリストを作ります。</p>
 
@@ -37,6 +37,9 @@ MongoDBのサイトでは、<a href="http://jp.blog.mongodb.org/post/49262866911
 <li><a href="#oauth">NodeJSでのOAuth認証</a></li>
 <li><a href="#matome">まとめと参考</a></li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2><a name="yeoman"></a>Yeomanの設定</h2>
