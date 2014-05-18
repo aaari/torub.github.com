@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Storyboard | Saturday Coding]]></title>
+  <link href="http://torub.github.io/blog/categories/storyboard/atom.xml" rel="self"/>
+  <link href="http://torub.github.io/"/>
+  <updated>2014-05-18T22:31:03+09:00</updated>
+  <id>http://torub.github.io/</id>
+  <author>
+    <name><![CDATA[torub]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Storyboard] 単純な利用例]]></title>
+    <link href="http://torub.github.io/blog/storyboard-tutorial1.html"/>
+    <updated>2014-05-18T22:57:00+09:00</updated>
+    <id>http://torub.github.io/blog/storyboard-tutorial1</id>
+    <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブを実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
+
+<!-- more -->
+
+
+<h2>タブを使ってWebサイトを表示する</h2>
+
+<ol>
+<li>XCode→ファイル→New→Project→Single View Application を選択
+ <img class="center" src="/images/blog/storyboard1_01.png" width="400"></li>
+<li>Next ボタン押下後，以下のプロジェクトを作成し，Main.storyboard を選択
+
+<ul>
+<li>Product Name: TabBookmark</li>
+<li>Device: iPhone
+<img class="center" src="/images/blog/storyboard1_02.png" width="600"></li>
+</ul>
+</li>
+<li>ストーリーボード部分をダブルクリックするとサイズの切り替えができるのでズームアウトして全体を表示する</li>
+<li>右下のオブジェクトライブラリから，Tab Bar Controller を選択してストーリーボードにドラッグアンドドロップ</li>
+<li>アプリ起動時の初期画面に表示される画面は，ストーリーボードの最初の矢印で決まるため，4で作成したTab Bar Controller にドラッグして付けかえる．元からあったTab Bookmark View Controller はクリック→DELETE で削除してもOK．TabBookmarkViewController.m，TabBookmarkViewController.hも不要のため消してOK
+ <img class="center" src="/images/blog/storyboard1_03.png" width="600"></li>
+<li>ViewController - Item 1 を選択してダブルクリックでズーム
+ <img class="center" src="/images/blog/storyboard1_04.png" width="400"></li>
+<li>右下のオブジェクトライブラリから，Web View をドラッグして View Controller - Item 1に合わせる
+ <img class="center" src="/images/blog/storyboard1_05.png" width="600"></li>
+<li>View Controller - Item 1用のクラスを作るため，File→New→File→Objective-C クラスを選択，ここではTab1ViewController とし，UIViewController のサブクラスとして作成する
+ <img class="center" src="/images/blog/storyboard1_06.png" width="400"></li>
+<li>再度 Main.storyboard を選択して左側の View Controller - Item 1となっている箇所をクリック．その後，右側の Identity Inspector をクリックして，8で作成したクラス名を入力する
+ <img class="center" src="/images/blog/storyboard1_07.png" width="600"></li>
+<li>右上のエリアの蝶ネクタイのようなアイコンをクリック．ストーリーボードで選択しているオブジェクト(この場合Tab1ViewController)のソースコードが表示されるので，表示後にWeb Viewをクリック
+<img class="center" src="/images/blog/storyboard1_08.png" width="750"></li>
+<li>Ctrlキーを押したままソースコードの@interfaceの部分までドラッグして離す
+<img class="center" src="/images/blog/storyboard1_09.png" width="750"></li>
+<li>名前を入力を求められるため，任意の名前を入力(ここではwebView)すると，ストーリーボードに関連付いた変数がソースコード内に自動で挿入される
+<img class="center" src="/images/blog/storyboard1_10.png" width="400">
+<img class="center" src="/images/blog/storyboard1_11.png" width="400"></li>
+<li>タブの名前を変えるため，左側の Tab Bar Item - Item 1 をクリックし，右側の Attribute Inspector の Tab Bar Item 欄の Identifier を変更すると，iOS デフォルトのアイコンに設定できる．また Bar Item 欄の Title を変更するとリンクのタイトルを自分で設定することも出来る．(好きなタブ名を自分で決める場合は，画像が必要であれば別途用意して Image に入力する必要がある)
+<img class="center" src="/images/blog/storyboard1_12.png" width="750"></li>
+<li>左のプロジェクトナビゲータから Tab1ViewContrller.m を選択し，viewDidLoadを以下のように修正する．例ではYahooを表示</li>
+</ol>
+
+
+<p>```objc
+- (void)viewDidLoad
+{</p>
+
+<pre><code>[super viewDidLoad];
+
+NSURL *url = [NSURL URLWithString:@"http://www.yahoo.co.jp"];
+NSURLRequest *req = [NSURLRequest requestWithURL:url];
+[self.webView loadRequest:req];
+</code></pre>
+
+<p>}
+```</p>
+
+<p>上記の6 〜 14を各タブ毎に繰り返せば簡易なタブ切り替えリンク集が出来る．</p>
+
+<h2>新たなタブの追加</h2>
+
+<ol>
+<li>右下から View Controller をストーリーボードにドラッグ</li>
+<li>Tab Bar Controller から1で作成した View Controller にCtrl+ドラッグで線をひっぱって離す</li>
+<li>以下画面から Relationship Segue →view controllers を選択すればOK
+ <img class="center" src="/images/blog/storyboard1_13.png" width="750"></li>
+</ol>
+
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.raywenderlich.com/50308/storyboards-tutorial-in-ios-7-part-1">Storyboards Tutorial in iOS 7: Part 1</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
