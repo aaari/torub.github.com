@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Saturday Coding]]></title>
   <link href="http://torub.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://torub.github.io/"/>
-  <updated>2014-05-18T22:31:03+09:00</updated>
+  <updated>2014-05-19T00:38:40+09:00</updated>
   <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -14,11 +14,180 @@
 
   
   <entry>
+    <title type="html"><![CDATA[[Storyboard] テーブルとカスタムセル]]></title>
+    <link href="http://torub.github.io/blog/storyboard-tutorial2.html"/>
+    <updated>2014-05-19T00:40:00+09:00</updated>
+    <id>http://torub.github.io/blog/storyboard-tutorial2</id>
+    <content type="html"><![CDATA[<p><a href="storyboard-tutorial1.html">その1</a>では単純なタブの表示を行いました．
+次は，テーブルとカスタムセルの作成を実施します．
+今回はブックマークもどきを作ってみます．</p>
+
+<!-- more -->
+
+
+<h2>ストーリーボードでテーブルの概要作成</h2>
+
+<ol>
+<li>BookmarkSample という名前で，シングルページアプリケーションを作成</li>
+<li>Table View Controller を右下のオブジェクトライブラリからドラッグする．元々あったView Controller は削除．
+ <img class="center" src="/images/blog/storyboard2_01.png" width="400"></li>
+<li>ドラッグ後，XcodeメニューでEditor->Embed In->Navigation Controller を選択．(最初にNavigation Controllerをドラッグしても，内部にTable Controller が含まれていて同じ)
+ <img class="center" src="/images/blog/storyboard2_02.png" width="600"></li>
+<li>Table View のヘッダの部分をダブルクリックしてタイトルを付けられる．テーブルのタイトルにBookmarks と付ける．
+ <img class="center" src="/images/blog/storyboard2_03.png" width="400"></li>
+<li>Table View の内部の Cell をクリックしてから，Attribuets Inspector を開き，Identifier を入力する．(ここに値を設定せずに以下の手順を実施すると，SIGABRT エラーとなってしまうので注意)
+ <img class="center" src="/images/blog/storyboard2_05.png" width="600"></li>
+</ol>
+
+
+<h2>テーブルセルに表示するクラスを作成</h2>
+
+<p>テーブルのセル(1行毎)に利用するクラスとして，ブックマークの中身を表す Bookmark クラスを追加する．中身は以下のような簡単なもの．</p>
+
+<p><code>objectivec
+@interface Bookmark : NSObject
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *game;
+@property (nonatomic, assign) NSDate *last_access;
+@end
+</code></p>
+
+<h2>テーブルのコントローラを作成</h2>
+
+<ol>
+<li>テーブルをプログラムから制御するには，UITableViewController のサブクラスを作成して行う．ここでは，BookmarksController という名前で新しいクラスを作る．以下のイメージのようにして，作ったクラスとTable View Controller を関連付ける．
+ <img class="center" src="/images/blog/storyboard2_04.png" width="600"></li>
+<li>BookmarksController は以下のように作成する．
+```objectivec
+@interface BookmarksController ()
+// Table Cell に表示するためのデータ
+@property (nonatomic, strong) NSMutableArray *bookmarks;
+@end</li>
+</ol>
+
+
+<p>@implementation BookmarksController
+- (void)viewDidLoad {</p>
+
+<pre><code>[super viewDidLoad];
+
+// テーブルのセルに表示するための配列を作成
+self.bookmarks = [[NSMutableArray alloc] init];
+
+// テーブルのセルに表示する中身を作成
+Bookmark *b = [[Bookmark alloc] init];
+b.name = @"Yahoo";
+b.url = @"http://www.yahoo.co.jp";
+[self.bookmarks addObject: b];
+
+b = [[Bookmark alloc] init];
+b.name = @"Google";
+b.url = @"http://www.google.com";
+[self.bookmarks addObject: b];
+
+b = [[Bookmark alloc] init];
+b.name = @"Facebook";
+b.url = @"http://www.facebook.com";
+[self.bookmarks addObject: b];
+</code></pre>
+
+<p>}</p>
+
+<p>// テーブルのセクション数を返す
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {</p>
+
+<pre><code>return 1;
+</code></pre>
+
+<p>}
+// テーブルの行数を返す．ここでは配列の数を返す
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {</p>
+
+<pre><code>return [self.bookmarks count];
+</code></pre>
+
+<p>}
+// テーブルの中身を返す．Storyboardで設定した Identifier を使う
+ - (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ {</p>
+
+<pre><code> UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Bookmark" forIndexPath:indexPath];
+ Bookmark *b = (self.bookmarks)[indexPath.row];
+ cell.textLabel.text = b.name;
+ return cell;
+</code></pre>
+
+<p> }
+```</p>
+
+<p>ここまでで以下の通り一通りできあがる．
+<img class="center" src="/images/blog/storyboard2_06.png" width="400"></p>
+
+<h2>カスタムセルの作成</h2>
+
+<p>テーブルのセルをカスタマイズするには，以下のようにする．</p>
+
+<h4>ストーリーボードでセルを配置</h4>
+
+<p>右下の Object Library からセルにドラッグして好きな形式を作成．以下の例ではラベルを2つドラッグしてタイトルとURLを表示するようなサンプルを実現する
+<img class="center" src="/images/blog/storyboard2_07.png" width="400"></p>
+
+<h4>UITableViewCell クラスのサブクラスを作成</h4>
+
+<p>作成時に，ストーリーボードと紐付けができるように，上記で作成したものと同じプロパティを IBOutlet で定義．</p>
+
+<p><code>
+@interface BookmarkCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel *title;
+@property (nonatomic, weak) IBOutlet UILabel *url;
+@end
+</code></p>
+
+<h4>作成したクラスとストーリーボードの紐付け</h4>
+
+<p>まず，Identify Inspector で Class の欄に作成したクラスを紐付けする
+<img class="center" src="/images/blog/storyboard2_08.png" width="800"></p>
+
+<p>次に，ストーリーボード上のラベルと，作成したクラスのラベルを紐付けする
+<img class="center" src="/images/blog/storyboard2_09.png" width="800"></p>
+
+<p><img class="center" src="/images/blog/storyboard2_10.png" width="400"></p>
+
+<p>設定したい分だけ繰り返す．</p>
+
+<h4>Table View Controller を修正する</h4>
+
+<p>UITableViewCell の箇所を独自で作成したクラスに置き替え，値の設定を行う</p>
+
+<p>```objectivec
+- (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath <em>)indexPath
+ {
+//     UITableViewCell </em>cell = [tableView dequeueReusableCellWithIdentifier:@"Bookmark" forIndexPath:indexPath];</p>
+
+<pre><code>BookmarkCell *cell = (BookmarkCell *)[tableView dequeueReusableCellWithIdentifier:@"Bookmark" forIndexPath:indexPath];
+
+Bookmark *b = (self.bookmarks)[indexPath.row];
+cell.title.text = b.name;
+cell.url.text = b.url;
+
+return cell;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>実行すると，意図した内容になっていることが確認できる</p>
+
+<p><img class="center" src="/images/blog/storyboard2_11.png" width="400"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[[Storyboard] 単純な利用例]]></title>
     <link href="http://torub.github.io/blog/storyboard-tutorial1.html"/>
     <updated>2014-05-18T22:57:00+09:00</updated>
     <id>http://torub.github.io/blog/storyboard-tutorial1</id>
-    <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブを実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
+    <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブで実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
 
 <!-- more -->
 

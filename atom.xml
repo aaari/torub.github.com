@@ -4,7 +4,7 @@
   <title><![CDATA[Saturday Coding]]></title>
   <link href="http://torub.github.io/atom.xml" rel="self"/>
   <link href="http://torub.github.io/"/>
-  <updated>2014-05-18T22:31:03+09:00</updated>
+  <updated>2014-05-19T00:38:40+09:00</updated>
   <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -14,11 +14,231 @@
 
   
   <entry>
+    <title type="html"><![CDATA[[Storyboard] テーブルとカスタムセル]]></title>
+    <link href="http://torub.github.io/blog/storyboard-tutorial2.html"/>
+    <updated>2014-05-19T00:40:00+09:00</updated>
+    <id>http://torub.github.io/blog/storyboard-tutorial2</id>
+    <content type="html"><![CDATA[<p><a href="storyboard-tutorial1.html">その1</a>では単純なタブの表示を行いました．
+次は，テーブルとカスタムセルの作成を実施します．
+今回はブックマークもどきを作ってみます．</p>
+
+<!-- more -->
+
+
+<h2>ストーリーボードでテーブルの概要作成</h2>
+
+<ol>
+<li>BookmarkSample という名前で，シングルページアプリケーションを作成</li>
+<li>Table View Controller を右下のオブジェクトライブラリからドラッグする．元々あったView Controller は削除．
+ <img class="center" src="http://torub.github.io/images/blog/storyboard2_01.png" width="400"></li>
+<li>ドラッグ後，XcodeメニューでEditor->Embed In->Navigation Controller を選択．(最初にNavigation Controllerをドラッグしても，内部にTable Controller が含まれていて同じ)
+ <img class="center" src="http://torub.github.io/images/blog/storyboard2_02.png" width="600"></li>
+<li>Table View のヘッダの部分をダブルクリックしてタイトルを付けられる．テーブルのタイトルにBookmarks と付ける．
+ <img class="center" src="http://torub.github.io/images/blog/storyboard2_03.png" width="400"></li>
+<li>Table View の内部の Cell をクリックしてから，Attribuets Inspector を開き，Identifier を入力する．(ここに値を設定せずに以下の手順を実施すると，SIGABRT エラーとなってしまうので注意)
+ <img class="center" src="http://torub.github.io/images/blog/storyboard2_05.png" width="600"></li>
+</ol>
+
+
+<h2>テーブルセルに表示するクラスを作成</h2>
+
+<p>テーブルのセル(1行毎)に利用するクラスとして，ブックマークの中身を表す Bookmark クラスを追加する．中身は以下のような簡単なもの．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="k">@interface</span> <span class="nc">Bookmark</span> : <span class="nc">NSObject</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">game</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">last_access</span><span class="p">;</span>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>テーブルのコントローラを作成</h2>
+
+<ol>
+<li>テーブルをプログラムから制御するには，UITableViewController のサブクラスを作成して行う．ここでは，BookmarksController という名前で新しいクラスを作る．以下のイメージのようにして，作ったクラスとTable View Controller を関連付ける．
+ <img class="center" src="http://torub.github.io/images/blog/storyboard2_04.png" width="600"></li>
+<li>BookmarksController は以下のように作成する．</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="k">@interface</span> <span class="nc">BookmarksController</span> <span class="p">()</span>
+</span><span class='line'><span class="c1">// Table Cell に表示するためのデータ</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">bookmarks</span><span class="p">;</span>
+</span><span class='line'><span class="k">@end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@implementation</span> <span class="nc">BookmarksController</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// テーブルのセルに表示するための配列を作成</span>
+</span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// テーブルのセルに表示する中身を作成</span>
+</span><span class='line'>    <span class="n">Bookmark</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Bookmark</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Yahoo&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">@&quot;http://www.yahoo.co.jp&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span> <span class="nl">addObject:</span> <span class="n">b</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Bookmark</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Google&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">@&quot;http://www.google.com&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span> <span class="nl">addObject:</span> <span class="n">b</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Bookmark</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Facebook&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">b</span><span class="p">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">@&quot;http://www.facebook.com&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span> <span class="nl">addObject:</span> <span class="n">b</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// テーブルのセクション数を返す</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfSectionsInTableView:</span><span class="p">(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">// テーブルの行数を返す．ここでは配列の数を返す</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">numberOfRowsInSection:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">section</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span> <span class="n">count</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">// テーブルの中身を返す．Storyboardで設定した Identifier を使う</span>
+</span><span class='line'> <span class="o">-</span> <span class="p">(</span><span class="n">UITableViewCell</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView:</span><span class="p">(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">cellForRowAtIndexPath:</span><span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>     <span class="n">UITableViewCell</span> <span class="o">*</span><span class="n">cell</span> <span class="o">=</span> <span class="p">[</span><span class="n">tableView</span> <span class="nl">dequeueReusableCellWithIdentifier:</span><span class="s">@&quot;Bookmark&quot;</span> <span class="nl">forIndexPath:</span><span class="n">indexPath</span><span class="p">];</span>
+</span><span class='line'>     <span class="n">Bookmark</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span><span class="p">)[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+</span><span class='line'>     <span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">cell</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ここまでで以下の通り一通りできあがる．
+<img class="center" src="http://torub.github.io/images/blog/storyboard2_06.png" width="400"></p>
+
+<h2>カスタムセルの作成</h2>
+
+<p>テーブルのセルをカスタマイズするには，以下のようにする．</p>
+
+<h4>ストーリーボードでセルを配置</h4>
+
+<p>右下の Object Library からセルにドラッグして好きな形式を作成．以下の例ではラベルを2つドラッグしてタイトルとURLを表示するようなサンプルを実現する
+<img class="center" src="http://torub.github.io/images/blog/storyboard2_07.png" width="400"></p>
+
+<h4>UITableViewCell クラスのサブクラスを作成</h4>
+
+<p>作成時に，ストーリーボードと紐付けができるように，上記で作成したものと同じプロパティを IBOutlet で定義．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="k">@interface</span> <span class="nc">BookmarkCell</span> : <span class="nc">UITableViewCell</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">title</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">url</span><span class="p">;</span>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>作成したクラスとストーリーボードの紐付け</h4>
+
+<p>まず，Identify Inspector で Class の欄に作成したクラスを紐付けする
+<img class="center" src="http://torub.github.io/images/blog/storyboard2_08.png" width="800"></p>
+
+<p>次に，ストーリーボード上のラベルと，作成したクラスのラベルを紐付けする
+<img class="center" src="http://torub.github.io/images/blog/storyboard2_09.png" width="800"></p>
+
+<p><img class="center" src="http://torub.github.io/images/blog/storyboard2_10.png" width="400"></p>
+
+<p>設定したい分だけ繰り返す．</p>
+
+<h4>Table View Controller を修正する</h4>
+
+<p>UITableViewCell の箇所を独自で作成したクラスに置き替え，値の設定を行う</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">UITableViewCell</span> <span class="o">*</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">cellForRowAtIndexPath:</span><span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'><span class="c1">//     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@&quot;Bookmark&quot; forIndexPath:indexPath];</span>
+</span><span class='line'>    <span class="n">BookmarkCell</span> <span class="o">*</span><span class="n">cell</span> <span class="o">=</span> <span class="p">(</span><span class="n">BookmarkCell</span> <span class="o">*</span><span class="p">)[</span><span class="n">tableView</span> <span class="nl">dequeueReusableCellWithIdentifier:</span><span class="s">@&quot;Bookmark&quot;</span> <span class="nl">forIndexPath:</span><span class="n">indexPath</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">Bookmark</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">bookmarks</span><span class="p">)[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">cell</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">cell</span><span class="p">.</span><span class="n">url</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">url</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">cell</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実行すると，意図した内容になっていることが確認できる</p>
+
+<p><img class="center" src="http://torub.github.io/images/blog/storyboard2_11.png" width="400"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[[Storyboard] 単純な利用例]]></title>
     <link href="http://torub.github.io/blog/storyboard-tutorial1.html"/>
     <updated>2014-05-18T22:57:00+09:00</updated>
     <id>http://torub.github.io/blog/storyboard-tutorial1</id>
-    <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブを実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
+    <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブで実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
 
 <!-- more -->
 

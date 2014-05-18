@@ -9,7 +9,9 @@
   <meta name="author" content="torub">
 
   
-  <meta name="description" content="iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブを実現します．(あまり意味は無いですが定期巡回サイトのイメージ) ">
+  <meta name="description" content="その1では単純なタブの表示を行いました．
+次は，テーブルとカスタムセルの作成を実施します．
+今回はブックマークもどきを作ってみます． ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,8 +70,62 @@
 </nav>
   <div id="main">
     <div id="content">
+      
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- google adsense -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-1535559712245713"
+           data-ad-slot="5940697961"></ins>
+      <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/storyboard-tutorial2.html">[Storyboard] テーブルとカスタムセル</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-19T00:40:00+09:00" pubdate data-updated="true">2014/05/19</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="storyboard-tutorial1.html">その1</a>では単純なタブの表示を行いました．
+次は，テーブルとカスタムセルの作成を実施します．
+今回はブックマークもどきを作ってみます．</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/storyboard-tutorial2.html">続きを読む &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -99,7 +155,7 @@
   </header>
 
 
-  <div class="entry-content"><p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブを実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
+  <div class="entry-content"><p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブで実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
 
 </div>
   
@@ -830,127 +886,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/knockoutjs1.html">Knockout.jsお試し(1)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-10T01:37:00+09:00" pubdate data-updated="true">2013/06/10</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>せっかく勉強会で概要を聞いてきたので、サンプルを動かしてみる。
-<a href="http://learn.knockoutjs.com/#/?tutorial=intro">公式ページのサンプル</a>の内容をちょっとだけ変更。</p>
-
-<h4>サンプル1</h4>
-
-<ol>
-<li>変数をko.observable()で囲うことで、監視対象にできる。</li>
-<li>computedを使うことで、複数のobservableな変数を組み合わせた値を作れる。observableな変数が変更されると、computedな値も変更される。</li>
-<li>applyBindingでViewModelを登録</li>
-<li>data-bindを利用してDOMとViewModelの変数を関連付け</li>
-<li>clickイベントと関数の紐付け。サンプルはクリックで大文字小文字を変更。</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js&#39;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">function</span> <span class="nx">AppViewModel</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>    <span class="c1">// 1</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// 2</span>
-</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">toggleLastName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">();</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="nx">flag</span> <span class="o">=</span> <span class="o">!</span><span class="nx">flag</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">};</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="c1">// Activates knockout.js</span>
-</span><span class='line'>  <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">AppViewModel</span><span class="p">());</span>   <span class="c1">// 3</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p&gt;</span>First name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: firstName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span> <span class="c">&lt;!-- 4 --&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Last name: <span class="nt">&lt;input</span> <span class="na">data-bind=</span><span class="s">&quot;value: lastName&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>FULL NAME: <span class="nt">&lt;strong</span> <span class="na">data-bind=</span><span class="s">&quot;text: fullName&quot;</span><span class="nt">&gt;&lt;/strong&gt;&lt;/P&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;button</span> <span class="na">data-bind=</span><span class="s">&quot;click: toggleLastName&quot;</span><span class="nt">&gt;</span>toggle!<span class="nt">&lt;/button&gt;</span>   <span class="c">&lt;!-- 5 --&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実行結果は↓</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/knockoutjs1.html">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -974,6 +909,10 @@ Using a modular script loader like RequireJS will improve the speed and quality 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/storyboard-tutorial2.html">[Storyboard] テーブルとカスタムセル</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/storyboard-tutorial1.html">[Storyboard] 単純な利用例</a>
       </li>
     
@@ -989,10 +928,6 @@ Using a modular script loader like RequireJS will improve the speed and quality 
         <a href="/blog/meanstack.html">AngularJS+NodeJS+MongoDB+OAuthでWebサービスを作る</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/yeoman.html">Yeomanの設定</a>
-      </li>
-    
   </ul>
 </section>
 <section class="well">
@@ -1002,14 +937,14 @@ Using a modular script loader like RequireJS will improve the speed and quality 
 <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href='/blog/categories/backbonejs/'>backbonejs (2)</a></li>
 <li class='category'><a href='/blog/categories/html5/'>html5 (4)</a></li>
-<li class='category'><a href='/blog/categories/ios/'>iOS (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>iOS (2)</a></li>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (6)</a></li>
 <li class='category'><a href='/blog/categories/knockoutjs/'>knockoutjs (2)</a></li>
 <li class='category'><a href='/blog/categories/memo/'>memo (2)</a></li>
 <li class='category'><a href='/blog/categories/nodejs/'>nodejs (1)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a></li>
 <li class='category'><a href='/blog/categories/phonegap/'>phonegap (1)</a></li>
-<li class='category'><a href='/blog/categories/storyboard/'>storyboard (1)</a></li>
+<li class='category'><a href='/blog/categories/storyboard/'>storyboard (2)</a></li>
 <li class='category'><a href='/blog/categories/sublimetext/'>sublimetext (1)</a></li>
 
   </ul>
