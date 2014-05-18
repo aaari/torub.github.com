@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Saturday Coding]]></title>
   <link href="http://torub.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://torub.github.io/"/>
-  <updated>2014-05-19T00:38:40+09:00</updated>
+  <updated>2014-05-19T01:30:56+09:00</updated>
   <id>http://torub.github.io/</id>
   <author>
     <name><![CDATA[torub]]></name>
@@ -22,10 +22,18 @@
 次は，テーブルとカスタムセルの作成を実施します．
 今回はブックマークもどきを作ってみます．</p>
 
+<ul>
+<li><a href="/blog/storyboard-tutorial2.html#newtable">ストーリーボードでテーブルの概要作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#newcell">テーブルセルに表示するクラスを作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#newctrl">テーブルのコントローラを作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#customcell">カスタムセルの作成</a></li>
+</ul>
+
+
 <!-- more -->
 
 
-<h2>ストーリーボードでテーブルの概要作成</h2>
+<h2><a name="newtable"></a>ストーリーボードでテーブルの概要作成</h2>
 
 <ol>
 <li>BookmarkSample という名前で，シングルページアプリケーションを作成</li>
@@ -40,7 +48,7 @@
 </ol>
 
 
-<h2>テーブルセルに表示するクラスを作成</h2>
+<h2><a name="newcell"></a>テーブルセルに表示するクラスを作成</h2>
 
 <p>テーブルのセル(1行毎)に利用するクラスとして，ブックマークの中身を表す Bookmark クラスを追加する．中身は以下のような簡単なもの．</p>
 
@@ -52,7 +60,7 @@
 @end
 </code></p>
 
-<h2>テーブルのコントローラを作成</h2>
+<h2><a name="newctrl"></a>テーブルのコントローラを作成</h2>
 
 <ol>
 <li>テーブルをプログラムから制御するには，UITableViewController のサブクラスを作成して行う．ここでは，BookmarksController という名前で新しいクラスを作る．以下のイメージのようにして，作ったクラスとTable View Controller を関連付ける．
@@ -123,7 +131,7 @@ b.url = @"http://www.facebook.com";
 <p>ここまでで以下の通り一通りできあがる．
 <img class="center" src="/images/blog/storyboard2_06.png" width="400"></p>
 
-<h2>カスタムセルの作成</h2>
+<h2><a name="customcell"></a>カスタムセルの作成</h2>
 
 <p>テーブルのセルをカスタマイズするには，以下のようにする．</p>
 
@@ -189,10 +197,16 @@ return cell;
     <id>http://torub.github.io/blog/storyboard-tutorial1</id>
     <content type="html"><![CDATA[<p>iOS でプログラムを書くためのStoryboard の練習に，ほぼドラッグアンドドロップのみの実現例として，ブックマーク集をタブで実現します．(あまり意味は無いですが定期巡回サイトのイメージ)</p>
 
+<ul>
+<li><a href="/blog/storyboard-tutorial1.html#usetab">タブを使ってWebサイトを表示する</a></li>
+<li><a href="/blog/storyboard-tutorial1.html#newtab">新たなタブの追加</a></li>
+</ul>
+
+
 <!-- more -->
 
 
-<h2>タブを使ってWebサイトを表示する</h2>
+<h2><a name="usetab"></a>タブを使ってWebサイトを表示する</h2>
 
 <ol>
 <li>XCode→ファイル→New→Project→Single View Application を選択
@@ -246,7 +260,7 @@ NSURLRequest *req = [NSURLRequest requestWithURL:url];
 
 <p>上記の6 〜 14を各タブ毎に繰り返せば簡易なタブ切り替えリンク集が出来る．</p>
 
-<h2>新たなタブの追加</h2>
+<h2><a name="newtab"></a>新たなタブの追加</h2>
 
 <ol>
 <li>右下から View Controller をストーリーボードにドラッグ</li>

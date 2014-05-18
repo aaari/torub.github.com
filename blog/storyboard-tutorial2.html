@@ -11,8 +11,10 @@
   
   <meta name="description" content="その1では単純なタブの表示を行いました．
 次は，テーブルとカスタムセルの作成を実施します．
-今回はブックマークもどきを作ってみます． ストーリーボードでテーブルの概要作成 BookmarkSample という名前で，シングルページアプリケーションを作成
-Table View Controller &hellip;">
+今回はブックマークもどきを作ってみます． ストーリーボードでテーブルの概要作成
+テーブルセルに表示するクラスを作成
+テーブルのコントローラを作成
+カスタムセルの作成 ストーリーボードでテーブルの概要作成 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,10 +117,18 @@ Table View Controller &hellip;">
 次は，テーブルとカスタムセルの作成を実施します．
 今回はブックマークもどきを作ってみます．</p>
 
+<ul>
+<li><a href="/blog/storyboard-tutorial2.html#newtable">ストーリーボードでテーブルの概要作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#newcell">テーブルセルに表示するクラスを作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#newctrl">テーブルのコントローラを作成</a></li>
+<li><a href="/blog/storyboard-tutorial2.html#customcell">カスタムセルの作成</a></li>
+</ul>
+
+
 <!-- more -->
 
 
-<h2>ストーリーボードでテーブルの概要作成</h2>
+<h2><a name="newtable"></a>ストーリーボードでテーブルの概要作成</h2>
 
 <ol>
 <li>BookmarkSample という名前で，シングルページアプリケーションを作成</li>
@@ -133,7 +143,7 @@ Table View Controller &hellip;">
 </ol>
 
 
-<h2>テーブルセルに表示するクラスを作成</h2>
+<h2><a name="newcell"></a>テーブルセルに表示するクラスを作成</h2>
 
 <p>テーブルのセル(1行毎)に利用するクラスとして，ブックマークの中身を表す Bookmark クラスを追加する．中身は以下のような簡単なもの．</p>
 
@@ -150,7 +160,7 @@ Table View Controller &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>テーブルのコントローラを作成</h2>
+<h2><a name="newctrl"></a>テーブルのコントローラを作成</h2>
 
 <ol>
 <li>テーブルをプログラムから制御するには，UITableViewController のサブクラスを作成して行う．ここでは，BookmarksController という名前で新しいクラスを作る．以下のイメージのようにして，作ったクラスとTable View Controller を関連付ける．
@@ -255,7 +265,7 @@ Table View Controller &hellip;">
 <p>ここまでで以下の通り一通りできあがる．
 <img class="center" src="/images/blog/storyboard2_06.png" width="400"></p>
 
-<h2>カスタムセルの作成</h2>
+<h2><a name="customcell"></a>カスタムセルの作成</h2>
 
 <p>テーブルのセルをカスタマイズするには，以下のようにする．</p>
 
